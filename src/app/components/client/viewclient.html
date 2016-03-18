@@ -1,0 +1,79 @@
+<md-card>
+  <md-card-header>
+    <md-card-avatar>
+      <img ng-src="{{vm.client.imageURL}}" class="md-card-avatar" alt="Client Image">
+    </md-card-avatar>
+    <md-card-header-text>
+      <span class="md-title">{{vm.client.displayName}}</span>
+      <span class="md-subhead">{{vm.client.accountNo}}</span>
+    </md-card-header-text>
+  </md-card-header>
+  <!-- <md-card-title-media>
+    <div class="md-media-md card-media">
+        <img ng-src="{{vm.client.imageURL}}" class="md-card-avatar" alt="Client Image">
+    </div>
+  </md-card-title-media> -->
+  <md-card-content>
+    <md-tabs md-dynamic-height md-border-bottom>
+      <md-tab label="Charges">
+        <md-content class="md-padding">
+          <md-list-item>
+            <p><b> Due </b></p>
+            <p><b> Paid </b></p>
+            <p><b> Waiveded </b></p>
+            <p><b> Outstanding </b></p>
+          </md-list-item>
+          <md-list-item ng-repeat="charge in vm.charges">
+            <!-- <md-icon md-svg-icon="{{charge.icon}}"></md-icon> -->
+            <!-- <p> {{ charge.dueDate}} </p> -->
+            <p> {{ charge.amount }} </p>
+            <p> {{ charge.amountPaid }} </p>
+            <p> {{ charge.amountWaived }} </p>
+            <p> {{ charge.amountOutstanding | number }} </p>
+            <!-- <md-switch class="md-secondary" ng-model="setting.enabled"></md-switch> -->
+          </md-list-item>
+        </md-content>
+      </md-tab>
+      <md-tab label="Loan Accouts">
+        <md-content class="md-padding">
+          <md-list-item>
+            <p><b> Acoount# </b></p>
+            <p><b> Loan Account </b></p>
+            <p><b> Original Loan </b></p>
+            <p><b> Loan Balance </b></p>
+            <p><b> Amount Paid </b></p>
+            <p><b> Type </b></p>
+          </md-list-item>
+          <md-list-item ng-repeat="account in vm.loanAccounts">
+            <!-- <md-icon md-svg-icon="{{charge.icon}}"></md-icon> -->
+            <!-- <p> {{ charge.dueDate}} </p> -->
+            <p> {{ account.accountNo }} </p>
+            <p> {{ account.productName }} </p>
+            <p> {{ account.originalLoan }} </p>
+            <p> {{ account.loanBalance }} </p>
+            <p> {{ account.amountPaid }} </p>
+            <p> {{ account.loanType.value }} </p>
+            <!-- <md-switch class="md-secondary" ng-model="setting.enabled"></md-switch> -->
+          </md-list-item>
+        </md-content>
+      </md-tab>
+      <md-tab label="Saving Accouts">
+        <md-content class="md-padding">
+          <md-list-item>
+            <p><b> Acoount# </b></p>
+            <p><b> Saving Account </b></p>
+            <p><b> Balance </b></p>
+          </md-list-item>
+          <md-list-item ng-repeat="account in vm.savingsAccounts">
+            <!-- <md-icon md-svg-icon="{{charge.icon}}"></md-icon> -->
+            <!-- <p> {{ charge.dueDate}} </p> -->
+            <p> {{ account.accountNo }} </p>
+            <p> {{ account.productName }} </p>
+            <p> {{ account.accountBalance }} </p>
+            <!-- <md-switch class="md-secondary" ng-model="setting.enabled"></md-switch> -->
+          </md-list-item>
+        </md-content>
+      </md-tab>
+    </md-tabs>
+  </md-card-content>
+</md-card>

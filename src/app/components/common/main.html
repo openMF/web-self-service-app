@@ -1,0 +1,49 @@
+<md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
+  <md-toolbar md-theme="default" class="md-theme-indigo">
+    <h1 class="md-toolbar-tools">MifosX</h1>
+  </md-toolbar>
+  <md-content>
+    <!-- <md-button ng-click="close()" class="md-primary" hide-gt-md>
+      Close
+    </md-button> -->
+    <md-button ng-repeat-start="item in vm.menuItems" flex class="capitalize" ng-click="vm.selectItem(item)" ui-sref-active="md-warn" ui-sref="{{item.sref}}" style="text-align: left;display: block;">
+      <div class="md-tile-content">
+        <i hide-sm hide-md class="material-icons md-18">{{item.icon}}</i> {{item.name}}
+      </div>
+    </md-button>
+    <md-divider ng-repeat-end></md-divider>
+  </md-content>
+</md-sidenav>
+
+<div layout="column" flex>
+  <md-toolbar md-theme="default" layout="row" layout-align="end center">
+
+    <md-menu md-position-mode="target-right target">
+       {{vm.userDetails.username}}
+      <md-button aria-label="Open logout menu" class="md-icon-button" ng-click="$mdOpenMenu($event)">
+        <md-icon md-menu-origin md-svg-src="assets/images/ic_person_white_24px.svg"></md-icon>
+      </md-button>
+      <md-menu-content width="3" >
+        <md-menu-item>
+          <md-button ng-click="logout();">
+              <div layout="row">
+                <p flex>Logout</p>
+              </div>
+          </md-button>
+        </md-menu-item>
+      </md-menu-content>
+    </md-menu>
+
+    <!-- <md-button hide-sm class="toolbar-button" aria-label="Notifications">
+      <i class="material-icons">notifications</i>
+      <span class="notifications-label">7</span>
+    </md-button> -->
+    <md-button hide-gt-sm ng-click="vm.toggleItemsList()" aria-label="Menu">
+      <i class="material-icons">menu</i>
+    </md-button>
+  </md-toolbar>
+
+  <md-content flex class="md-padding page-content">
+    <div ui-view></div>
+  </md-content>
+</div>

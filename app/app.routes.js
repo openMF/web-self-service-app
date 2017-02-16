@@ -11,13 +11,13 @@
             .state('app', {
               url: '/app',
               abstract: true,
-              templateUrl: 'app/components/common/main.html',
+              templateUrl: 'src/common/main.html',
               controller: 'MainCtrl',
               controllerAs: 'vm'
             })
             .state('app.dashboard', {
               url: '/dashboard',
-              templateUrl: 'app/components/common/dashboard.html',
+              templateUrl: 'src/common/dashboard.html',
               controller: 'MainCtrl',
               controllerAs: 'vm',
               data: {
@@ -27,7 +27,7 @@
             })
             .state('app.clients', {
               url: '/clients',
-              templateUrl: 'app/components/client/clients.html',
+              templateUrl: 'src/client/clients.html',
               controller: 'ClientCtrl',
               controllerAs: 'vm',
               data: {
@@ -37,7 +37,7 @@
             })
             .state('app.viewclient', {
               url: '/viewclient/:clientId',
-              templateUrl: 'app/components/client/viewclient.html',
+              templateUrl: 'src/client/viewclient.html',
               controller: 'ViewClientCtrl',
               controllerAs: 'vm',
               data: {
@@ -47,7 +47,7 @@
             })
             .state('login', {
               url: '/login',
-              templateUrl: 'app/components/authentication/login.html',
+              templateUrl: 'src/authentication/login.html',
               controller: 'LoginCtrl',
               controllerAs: 'login',
               data: {

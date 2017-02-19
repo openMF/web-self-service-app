@@ -33,10 +33,9 @@
       });
     }
 
-    function selectItem (item) {
-      vm.title = item.name;
+    function selectItem (itemName) {
+      vm.title = itemName;
       vm.toggleItemsList();
-      vm.showSimpleToast(vm.title);
     }
 
     function showActions($event) {
@@ -77,7 +76,7 @@
     $scope.logout = function() {
       localStorage.clear();
       $state.go("login");
-      window.location.reload();
+      //window.location.reload();
     }
 
   }

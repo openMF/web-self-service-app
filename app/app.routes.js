@@ -25,6 +25,16 @@
                 authorizedRoles: [USER_ROLES.user]
               }
             })
+            .state('app.accounts', {//@todo complete this
+              url: '/accounts',
+              templateUrl: 'src/client/clients.html',
+              controller: 'ClientCtrl',
+              controllerAs: 'vm',
+              data: {
+                title: 'Accounts',
+                authorizedRoles: [USER_ROLES.user]
+              }
+            })            
             .state('app.clients', {
               url: '/clients',
               templateUrl: 'src/client/clients.html',

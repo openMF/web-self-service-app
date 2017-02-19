@@ -12,8 +12,8 @@
         sref: '.dashboard'
       },
       {
-        name: 'Clients',
-        icon: 'view_module',
+        name: 'Accounts',
+        icon: 'account_balance_wallet',
         sref: '.clients'
       }
     ];

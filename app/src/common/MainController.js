@@ -15,7 +15,7 @@
     vm.toggleRightSidebar = toggleRightSidebar;
 
     vm.userDetails = AuthService.getUser();
-    //console.log(AuthService.getUser());
+ 
 
     navService.loadAllItems().then(function(menuItems) {
         vm.menuItems = [].concat(menuItems);

@@ -27,8 +27,8 @@
             })
             .state('app.accounts', {//@todo complete this
               url: '/accounts',
-              templateUrl: 'src/client/clients.html',
-              controller: 'ClientCtrl',
+              templateUrl: 'src/account-list/account-list.html',
+              controller: 'AccountCtrl',
               controllerAs: 'vm',
               data: {
                 title: 'Accounts',

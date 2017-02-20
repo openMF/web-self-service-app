@@ -1,0 +1,39 @@
+<h2>Accounts</h2>
+ 
+<md-table-container>
+<h3>Loan Accounts</h3>
+  <table md-table ng-model="vm.selected" md-progress="vm.promise">
+    <thead md-head md-order="vm.query.orderBy" md-on-reorder="vm.onReorder">
+      <tr md-row>
+        <th md-column><span>Product Name</span></th>
+        <th md-column md-numeric><span>Account #</span></th>
+        <th md-column>Status</th>
+      </tr>
+    </thead>
+    <tbody md-body>
+      <tr md-row md-select="account" md-select-id="{{account.name}}" md-auto-select ng-repeat="account in vm.accounts.loanAccounts.pageItems" ng-click="vm.routeTo(account.loanAccounts.id)">
+        <td md-cell >{{account.loanAccounts.productName}}</td>
+        <td md-cell>{{account.loanAccounts.accountNo}}</td>
+        <td md-cell>{{account.loanAccounts.status.value}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3>Savings Accounts</h3>
+  <table md-table ng-model="vm.selected" md-progress="vm.promise">
+    <thead md-head md-order="vm.query.orderBy" md-on-reorder="vm.onReorder">
+      <tr md-row>
+        <th md-column><span>Product Name</span></th>
+        <th md-column md-numeric><span>Account #</span></th>
+        <th md-column>Status</th>
+      </tr>
+    </thead>
+    <tbody md-body>
+      <tr md-row md-select="account" md-select-id="{{account.name}}" md-auto-select ng-repeat="account in vm.accounts.savingsAccounts.pageItems" ng-click="vm.routeTo(account.savingsAccounts.id)">
+        <td md-cell >{{account.savingsAccounts.productName}}</td>
+        <td md-cell>{{account.savingsAccounts.accountNo}}</td>
+        <td md-cell>{{account.savingsAccounts.status.value}}</td>
+      </tr>
+    </tbody>
+  </table>
+</md-table-container>
+<md-table-pagination md-limit="vm.query.limit" md-page="vm.query.offset" md-total="{{vm.accounts.totalFilteredRecords}}" md-on-paginate="vm.onPaginate" md-page-select></md-table-pagination>

@@ -7,6 +7,7 @@
 		function ViewClientCtrl($scope,$http,BASE_URL, $rootScope, $stateParams, ClientService) {
 
 			var vm = this;
+			vm.loadingAccountInfo = true;
 				
 			getClient($stateParams.clientId);
 			getClientCharges($stateParams.clientId);
@@ -38,10 +39,10 @@
 			}
 
 			function getClientAccounts(id) {
-				ClientService.getClientAccounts(id).get().$promise.then(function(res) {
-					console.log(res);
-			    	vm.loanAccounts = res.loanAccounts;
-			    	vm.savingsAccounts = res.savingsAccounts;
+				ClientService.getClientAccounts(id).get().$promise.then(function(res) {			
+			    	vm.loanAccounts 		= res.loanAccounts;
+			    	vm.savingsAccounts 		= res.savingsAccounts;
+			    	vm.loadingAccountInfo 	= false;
 			  	});
 			}
 

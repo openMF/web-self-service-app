@@ -22,8 +22,7 @@
 			getClients(vm.query);
 
 			function getClients(query) {
-				ClientService.getAllClients().get(vm.query).$promise.then(function(res) {
-			    	console.log(res);
+				ClientService.getAllClients().get(vm.query).$promise.then(function(res) {			
 					vm.clients = res;
 			  	});
 			}

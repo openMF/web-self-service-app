@@ -6,12 +6,13 @@
 
 		function ClientCtrl($scope, $rootScope, $location, ClientService) {
 
-			var vm 			= this;
-			vm.selected 	= [];
-			vm.getClients 	= getClients;
-			vm.onPaginate 	= onPaginate;
-			vm.onReorder 	= onReorder;
-			vm.routeTo 		= routeTo;
+			var vm 					= this;
+			vm.selected 			= [];
+			vm.getClients 			= getClients;
+			vm.onPaginate 			= onPaginate;
+			vm.onReorder 			= onReorder;
+			vm.routeTo 				= routeTo;
+			vm.loadingClientInfo	= true;
 
 			vm.query = {
 				orderBy: 'displayName',
@@ -24,6 +25,7 @@
 			function getClients(query) {
 				ClientService.getAllClients().get(vm.query).$promise.then(function(res) {			
 					vm.clients = res;
+					vm.loadingClientInfo = false;
 			  	});
 			}
 

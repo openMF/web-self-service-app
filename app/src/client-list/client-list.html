@@ -1,5 +1,8 @@
 <h2>Clients</h2>
- 
+ <div ng-if="vm.loadingClientInfo">
+    <md-progress-circular md-mode="indeterminate"></md-progress-circular>Loading...
+    <!--@todo Internationalize-->
+</div>
 <md-table-container>
   <table md-table ng-model="vm.selected" md-progress="vm.promise">
     <thead md-head md-order="vm.query.orderBy" md-on-reorder="vm.onReorder">

@@ -2,9 +2,9 @@
 	'use strict';
 
 		angular.module('selfService')
-			.controller('ViewClientCtrl', ['$scope', '$http','BASE_URL', '$rootScope', '$stateParams', 'ClientService', ViewClientCtrl]);
+			.controller('ClientViewCtr', ['$scope', '$http','BASE_URL', '$rootScope', '$stateParams', 'ClientService', ClientViewCtr]);
 
-		function ViewClientCtrl($scope,$http,BASE_URL, $rootScope, $stateParams, ClientService) {
+		function ClientViewCtr($scope,$http,BASE_URL, $rootScope, $stateParams, ClientService) {
 
 			var vm = this;
 			vm.loadingAccountInfo = true;

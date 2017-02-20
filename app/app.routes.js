@@ -3,9 +3,10 @@
 
     angular.module('selfService')
 
-      .config(function ($stateProvider, $urlRouterProvider, USER_ROLES) {
+      .config(function ($stateProvider, $urlRouterProvider, USER_ROLES) { 
 
-          $urlRouterProvider.otherwise('/login');
+    	  $urlRouterProvider
+        	.otherwise('/login');           
 
           $stateProvider
             .state('app', {
@@ -13,7 +14,10 @@
               abstract: true,
               templateUrl: 'src/common/main.html',
               controller: 'MainCtrl',
-              controllerAs: 'vm'
+              controllerAs: 'vm',
+              data: {
+                authorizedRoles: [USER_ROLES.user]
+              }              
             })
             .state('app.dashboard', {
               url: '/dashboard',
@@ -25,7 +29,7 @@
                 authorizedRoles: [USER_ROLES.user]
               }
             })
-            .state('app.accounts', {//@todo complete this
+            .state('app.accounts', { 
               url: '/accounts',
               templateUrl: 'src/account-list/account-list.html',
               controller: 'AccountCtrl',
@@ -37,7 +41,7 @@
             })            
             .state('app.clients', {
               url: '/clients',
-              templateUrl: 'src/client/clients.html',
+              templateUrl: 'src/client-list/client-list.html',
               controller: 'ClientCtrl',
               controllerAs: 'vm',
               data: {
@@ -47,8 +51,8 @@
             })
             .state('app.viewclient', {
               url: '/viewclient/:clientId',
-              templateUrl: 'src/client/viewclient.html',
-              controller: 'ViewClientCtrl',
+              templateUrl: 'src/client-view/client-view.html',
+              controller: 'ClientViewCtr',
               controllerAs: 'vm',
               data: {
                 title: 'View Client',
@@ -57,7 +61,7 @@
             })
             .state('login', {
               url: '/login',
-              templateUrl: 'src/authentication/login.html',
+              templateUrl: 'src/authentication/authentication.html',
               controller: 'LoginCtrl',
               controllerAs: 'login',
               data: {

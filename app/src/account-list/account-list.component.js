@@ -13,16 +13,24 @@
 			vm.onReorder 	= onReorder;
 			vm.routeTo 		= routeTo;
 			vm.userData		= AuthService.getUser();
+			vm.clients   	= getClients();
 
 			vm.query = {
 				limit: 5,
 				offset: 0
 			};
-			
-			getAccounts(vm.query);
-
-			function getAccounts(query) {				
-				AccountService.getAllAccounts(vm.userData.userId).get(vm.query).$promise.then(function(res) {
+			getClients();
+		 
+			function getClients(){
+				AccountService.getClients().get(vm.query).$promise.then(function(res){
+					vm.clients = res;
+					$.each( res.pageItems, function( i, val ){
+						getAccounts( val.accountNo, vm.query );
+					});
+				})
+			}
+			function getAccounts( accountNo, query ) {				
+				AccountService.getAllAccounts(accountNo).get(query).$promise.then(function(res) {
 					vm.accounts = res;
 			  	});
 			}

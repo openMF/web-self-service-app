@@ -1,9 +1,9 @@
 md-toolbar .md-menu{
-	margin: 0 1rem;
+  margin: 0 1rem;
 }
 #sidebar-menu .md-button{
-	text-transform: capitalize;
+  text-transform: capitalize;
 }
 #sidebar-menu__account-types{
-	margin-left: 1rem;
+  margin-left: 1rem;
 }

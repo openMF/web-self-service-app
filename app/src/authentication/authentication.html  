@@ -6,7 +6,7 @@
         <img src="assets/images/MifosX_logo.png">
       </md-card-title-text>
     </md-card-title>
-    
+
     <form name="loginForm">
       <md-input-container class="md-block md-icon-float">
         <label>Username</label>

@@ -6,23 +6,24 @@
 
   function AccountCtrl($scope, $rootScope, $location, AccountService, AuthService ) {
 
-    var vm 			= this;
-    vm.selected 	= [];
-    vm.getAccounts 	= getAccounts;
-    vm.onPaginate 	= onPaginate;
-    vm.onReorder 	= onReorder;
-    vm.routeTo 		= routeTo;
-    vm.userData		= AuthService.getUser();
-    vm.clients   	= getClients();
-    vm.accounts  	= [];
+    var vm 			          = this;
+    vm.selected 	        = [];
+    vm.getAccounts 	      = getAccounts;
+    vm.onPaginate 	      = onPaginate;
+    vm.onReorder 	        = onReorder;
+    vm.routeTo 		        = routeTo;
+    vm.userData		        = AuthService.getUser();
+    vm.clients   	        = getClients();
+    vm.accounts  	        = [];
     vm.loadingAccountInfo = true;
-    vm.totalNoOfAccounts = 0;
-    vm.accountsProcessed = 0;
+    vm.totalNoOfAccounts  = 0;
+    vm.accountsProcessed  = 0;
 
     vm.query = {
       limit: 5,
       offset: 0
     };
+
     getClients();
 
     function getClients(){
@@ -34,6 +35,7 @@
         });
       })
     }
+
     function getAccounts( accountNo, query ) {
       AccountService.getAllAccounts(accountNo).get(query).$promise.then(function(res) {
         vm.accounts.concat( vm.accounts, res );
@@ -59,7 +61,6 @@
     function routeTo(id) {
       $location.path('/app/viewaccount/' + id);
     }
-
 
   }
 

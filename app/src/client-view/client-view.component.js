@@ -50,7 +50,6 @@
       $location.path('/viewclient/' + id);
     }
 
-
   }
 
 })();

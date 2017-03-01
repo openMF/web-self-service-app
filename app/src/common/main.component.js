@@ -15,10 +15,10 @@
     vm.toggleRightSidebar = toggleRightSidebar;
 
     vm.userDetails = AuthService.getUser();
- 
+
 
     navService.loadAllItems().then(function(menuItems) {
-        vm.menuItems = [].concat(menuItems);
+      vm.menuItems = [].concat(menuItems);
     });
 
     function toggleRightSidebar() {

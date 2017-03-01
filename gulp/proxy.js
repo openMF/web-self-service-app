@@ -1,17 +1,17 @@
- /*jshint unused:false */
+/*jshint unused:false */
 
 /***************
 
-  This file allow to configure a proxy system plugged into BrowserSync
-  in order to redirect backend requests while still serving and watching
-  files from the web project
+ This file allow to configure a proxy system plugged into BrowserSync
+ in order to redirect backend requests while still serving and watching
+ files from the web project
 
-  IMPORTANT: The proxy is disabled by default.
+ IMPORTANT: The proxy is disabled by default.
 
-  If you want to enable it, watch at the configuration options and finally
-  change the `module.exports` at the end of the file
+ If you want to enable it, watch at the configuration options and finally
+ change the `module.exports` at the end of the file
 
-***************/
+ ***************/
 
 'use strict';
 

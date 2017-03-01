@@ -1,42 +1,42 @@
 <h2>Accounts</h2>
- 
+
 <md-table-container>
-<h3>Loan Accounts</h3>
-<div ng-if="vm.loadingAccountInfo">
+  <h3>Loan Accounts</h3>
+  <div ng-if="vm.loadingAccountInfo">
     <md-progress-circular md-mode="indeterminate"></md-progress-circular>Loading...
     <!--@todo Internationalize-->
-</div>
+  </div>
   <table md-table ng-model="vm.selected" md-progress="vm.promise">
     <thead md-head md-order="vm.query.orderBy" md-on-reorder="vm.onReorder">
-      <tr md-row>
-        <th md-column><span>Product Name</span></th>
-        <th md-column md-numeric><span>Account #</span></th>
-        <th md-column>Status</th>
-      </tr>
+    <tr md-row>
+      <th md-column><span>Product Name</span></th>
+      <th md-column md-numeric><span>Account #</span></th>
+      <th md-column>Status</th>
+    </tr>
     </thead>
     <tbody md-body>
-      <tr md-row md-select="account" md-select-id="{{account.name}}" md-auto-select ng-repeat="loanAccount in vm.accounts" ng-click="vm.routeTo(loanAccount.id)">
-        <td md-cell >{{loanAccount.loanAccounts.productName}}</td>
-        <td md-cell>{{loanAccount.loanAccounts.accountNo}}</td>
-        <td md-cell>{{loanAccount.loanAccounts.status.value}}</td>
-      </tr>
+    <tr md-row md-select="account" md-select-id="{{account.name}}" md-auto-select ng-repeat="loanAccount in vm.accounts" ng-click="vm.routeTo(loanAccount.id)">
+      <td md-cell >{{loanAccount.loanAccounts.productName}}</td>
+      <td md-cell>{{loanAccount.loanAccounts.accountNo}}</td>
+      <td md-cell>{{loanAccount.loanAccounts.status.value}}</td>
+    </tr>
     </tbody>
   </table>
   <h3>Savings Accounts</h3>
   <table md-table ng-model="vm.selected" md-progress="vm.promise">
     <thead md-head md-order="vm.query.orderBy" md-on-reorder="vm.onReorder">
-      <tr md-row>
-        <th md-column><span>Product Name</span></th>
-        <th md-column md-numeric><span>Account #</span></th>
-        <th md-column>Status</th>
-      </tr>
+    <tr md-row>
+      <th md-column><span>Product Name</span></th>
+      <th md-column md-numeric><span>Account #</span></th>
+      <th md-column>Status</th>
+    </tr>
     </thead>
     <tbody md-body>
-      <tr md-row md-select="account" md-select-id="{{account.name}}" md-auto-select ng-repeat="savingsAccount in vm.accounts.savingsAccounts" ng-click="vm.routeTo(savingsAccount.id)">
-        <td md-cell >{{savingsAccount.productName}}</td>
-        <td md-cell>{{savingsAccount.accountNo}}</td>
-        <td md-cell>{{savingsAccount.status.value}}</td>
-      </tr>
+    <tr md-row md-select="account" md-select-id="{{account.name}}" md-auto-select ng-repeat="savingsAccount in vm.accounts.savingsAccounts" ng-click="vm.routeTo(savingsAccount.id)">
+      <td md-cell >{{savingsAccount.productName}}</td>
+      <td md-cell>{{savingsAccount.accountNo}}</td>
+      <td md-cell>{{savingsAccount.status.value}}</td>
+    </tr>
     </tbody>
   </table>
 </md-table-container>

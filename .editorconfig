@@ -1,0 +1,21 @@
+root = true
+
+[app/**.js]
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 2
+
+[app/**.html]
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 2
+
+[app/**.css]
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 2
+
+[app/**.scss]
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 2

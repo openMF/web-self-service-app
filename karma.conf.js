@@ -10,8 +10,8 @@ module.exports = function(config) {
     browsers : ['PhantomJS'],
 
     plugins : [
-        'karma-phantomjs-launcher',
-        'karma-jasmine'
+      'karma-phantomjs-launcher',
+      'karma-jasmine'
     ]
   });
 };

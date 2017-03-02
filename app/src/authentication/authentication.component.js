@@ -18,6 +18,9 @@
 	                $state.go("app.clients");
 				});
 			}
+
+			$scope.passwordReset = function () {
+            }
 			
 		}
 

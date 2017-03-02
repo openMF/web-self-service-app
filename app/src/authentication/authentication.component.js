@@ -18,6 +18,10 @@
 	                $state.go("app.clients");
 				});
 			}
+
+			$scope.passwordReset = function () {
+				console.log('password reset');
+            }
 			
 		}
 

@@ -20,7 +20,6 @@
 			}
 
 			$scope.passwordReset = function () {
-				console.log('password reset');
             }
 			
 		}

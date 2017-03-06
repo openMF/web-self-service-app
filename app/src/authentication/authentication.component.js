@@ -8,6 +8,7 @@
 
 			$scope.doLogin = function() {
 		        AuthService.doLogin($scope.loginData).save().$promise.then(function(result) {
+		        	//success
 		        	AuthService.setUser(result);
 		        	$mdToast.show(
 				        $mdToast.simple()
@@ -16,6 +17,14 @@
 				          .position('top right')
 				    );
 	                $state.go("app.clients");
+				}, function(result) {
+  					 // fail
+  					 $mdToast.show(
+				        $mdToast.simple()
+				          .content("Wrong Username or Password")
+				          .hideDelay(2000)
+				          .position('top right')
+				    );
 				});
 			}
 			

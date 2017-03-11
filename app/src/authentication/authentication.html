@@ -18,7 +18,7 @@
         <md-icon md-svg-src="assets/images/ic_remove_red_eye_black_24px.svg" class="password"></md-icon>
         <input type="password" ng-model="loginData.password">
       </md-input-container>
-
+      <section layout="column" align="center" style="color:red;font-size:15px">{{err}}</section>
       <section layout="column" layout-align="start">
         <md-button class="md-primary md-raised" ng-click="doLogin()">Login</md-button>
       </section>

@@ -15,6 +15,9 @@
 			vm.userData		= AuthService.getUser();
 			vm.clients   	= getClients();
 			vm.accounts  	= [];
+			vm.loanAccounts  	= [];
+			vm.savingsAccounts  	= [];
+			vm.shareAccounts  	= [];			
 			vm.loadingAccountInfo = true;
 			vm.totalNoOfAccounts = 0;
 			vm.accountsProcessed = 0;
@@ -30,17 +33,20 @@
 					vm.clients 			= res;
 					vm.totalNoOfAccounts = res.pageItems.length;
 					$.each( res.pageItems, function( i, val ){
-						getAccounts( val.accountNo, vm.query );
+						getAccounts( val.id, vm.query );
 					});
 				})
 			}
 			function getAccounts( accountNo, query ) {		
 				AccountService.getAllAccounts(accountNo).get(query).$promise.then(function(res) {
-					vm.accounts.concat( vm.accounts, res );
-					vm.accountsProcessed++;
+					vm.loanAccounts 	= res.loanAccounts;//@todo Accounts currently retrieved twice.Also, check whether all accounts for all clients are retrieved
+					vm.savingsAccounts 	= res.savingsAccounts;
+					vm.shareAccounts	= res.shareAccounts;
+					vm.accountsProcessed++;			
 					if( vm.accountsProcessed  == vm.totalNoOfAccounts ){
-			  			vm.loadingAccountInfo = false;
-			  			console.log(vm.accounts)
+			  			vm.loadingAccountInfo = false;		
+			  			console.log(vm.savingsAccounts);	  
+			  			console.log(vm.shareAccounts);	  			
 					}
 			  	});
 

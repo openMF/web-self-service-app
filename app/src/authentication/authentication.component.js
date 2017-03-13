@@ -15,7 +15,7 @@
 				          .hideDelay(2000)
 				          .position('top right')
 				    );
-	                $state.go("app.clients");
+	                $state.go("app.accounts");
 				});
 			}
 			

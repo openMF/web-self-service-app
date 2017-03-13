@@ -45,7 +45,7 @@
               controller: 'ClientCtrl',
               controllerAs: 'vm',
               data: {
-                title: 'Clients',
+                title: 'Accounts',
                 authorizedRoles: [USER_ROLES.user]
               }
             })

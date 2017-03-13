@@ -49,26 +49,56 @@
                 authorizedRoles: [USER_ROLES.user]
               }
             })                        
-            .state('app.clients', {
-              url: '/clients',
-              templateUrl: 'src/client-list/client-list.html',
+            .state('app.recenttransactions', {
+              url: '/recenttransactions',
+              templateUrl: 'src/common/coming-soon.html',
               controller: 'ClientCtrl',
               controllerAs: 'vm',
               data: {
-                title: 'Accounts',
+                title: 'Recent Transactions',
                 authorizedRoles: [USER_ROLES.user]
-              }
-            })
-            .state('app.viewclient', {
-              url: '/viewclient/:clientId',
-              templateUrl: 'src/client-view/client-view.html',
-              controller: 'ClientViewCtr',
+               }
+           	})
+            .state('app.charges', {
+              url: '/charges',
+              templateUrl: 'src/common/coming-soon.html',
+              controller: 'ClientCtrl',
               controllerAs: 'vm',
               data: {
-                title: 'View Client',
+                title: 'Charges',
                 authorizedRoles: [USER_ROLES.user]
               }
             })
+          	.state('app.aboutus', {
+              url: '/charges',
+              templateUrl: 'src/common/coming-soon.html',
+              controller: 'ClientCtrl',
+              controllerAs: 'vm',
+              data: {
+                title: 'About Us',
+                authorizedRoles: [USER_ROLES.user]
+              }
+            })    
+          	.state('app.help', {
+              url: '/charges',
+              templateUrl: 'src/common/coming-soon.html',
+              controller: 'ClientCtrl',
+              controllerAs: 'vm',
+              data: {
+                title: 'Help',
+                authorizedRoles: [USER_ROLES.user]
+              }
+            })       
+          	.state('app.profile', {
+              url: '/charges',
+              templateUrl: 'src/common/coming-soon.html',
+              controller: 'ClientCtrl',
+              controllerAs: 'vm',
+              data: {
+                title: 'Profile',
+                authorizedRoles: [USER_ROLES.user]
+              }
+            })                         
             .state('login', {
               url: '/login',
               templateUrl: 'src/authentication/authentication.html',

@@ -1,4 +1,6 @@
- 
+(function(){
+  'use strict';
+  
 	angular.module( 'selfService' )
 		.filter('DateFormat', function( dateFilter ) {
 		  return function( input ) {
@@ -10,5 +12,5 @@
 		  };
 		});
 		
-	
+})();		
 

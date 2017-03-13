@@ -6,7 +6,7 @@
 		    <tbody md-body>
 			    <tr md-row>
 			        <td md-cell>Disbursement Date</td>
-			        <td md-cell>{{ vm.loanAccountDetails.timeline.actualDisbursementDate }}</td>
+			        <td md-cell>{{ vm.loanAccountDetails.timeline.actualDisbursementDate | DateFormat }}</td>
 			    </tr>
 			    <tr md-row>
 			        <td md-cell>Currency</td>
@@ -109,19 +109,19 @@
 			    </tr>
 			    <tr md-row>	
 			        <td md-cell>Submitted on </td>
-			        <td md-cell>{{ vm.loanAccountDetails.timeline.submittedOnDate }}</td>                
+			        <td md-cell>{{ vm.loanAccountDetails.timeline.submittedOnDate | DateFormat }}</td>                
 			    </tr>
 			    <tr md-row>	
 			        <td md-cell>Approved on </td>
-			        <td md-cell>{{ vm.loanAccountDetails.timeline.approvedOnDate }}</td>                
+			        <td md-cell>{{ vm.loanAccountDetails.timeline.approvedOnDate | DateFormat }}</td>                
 			    </tr>
 			    <tr md-row>	
 			        <td md-cell>Disbursed on  </td>
-			        <td md-cell>{{ vm.loanAccountDetails.timeline.actualDisbursementDate }}</td>                
+			        <td md-cell>{{ vm.loanAccountDetails.timeline.actualDisbursementDate | DateFormat }}</td>                
 			    </tr>
 			    <tr md-row>	
 			        <td md-cell>Matures on </td>
-			        <td md-cell>{{ vm.loanAccountDetails.timeline.expectedMaturityDate }}</td>                
+			        <td md-cell>{{ vm.loanAccountDetails.timeline.expectedMaturityDate | DateFormat }}</td>                
 			    </tr>
 			    <tr md-row data-ng-show="vm.loanAccountDetails.canDefineInstallmentAmount">	
 			        <td md-cell>Installment Amount</td>

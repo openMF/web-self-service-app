@@ -26,11 +26,10 @@
 				limit: 5,
 				offset: 0
 			};
-			getClients();
-		 
+					 
 			function getClients(){
 				AccountService.getClients().get(vm.query).$promise.then(function(res){
-					vm.clients 			= res;
+					vm.clients 			 = res;
 					vm.totalNoOfAccounts = res.pageItems.length;
 					$.each( res.pageItems, function( i, val ){
 						getAccounts( val.id, vm.query );

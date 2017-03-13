@@ -38,7 +38,17 @@
                 title: 'Accounts',
                 authorizedRoles: [USER_ROLES.user]
               }
-            })            
+            })        
+            .state('app.viewloanaccount', { 
+              url: '/viewloanaccount/:loanId',
+              templateUrl: 'src/loan-account-detail/loan-account-detail.html',
+              controller: 'LoanAccountViewCtrl',
+              controllerAs: 'vm',
+              data: {
+                title: 'View Loan Account',
+                authorizedRoles: [USER_ROLES.user]
+              }
+            })                        
             .state('app.clients', {
               url: '/clients',
               templateUrl: 'src/client-list/client-list.html',

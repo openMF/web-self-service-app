@@ -1,6 +1,6 @@
 (function(){
   'use strict';
-
+  	//@todo Move this service to the common folder
     angular.module('selfService')
         .service('AccountService', ['$q', '$http', '$rootScope', '$resource', 'BASE_URL', AccountService]);
 
@@ -14,7 +14,8 @@
     		return $resource( BASE_URL+'/self/clients/' );
     	};
     	
-        this.getAllAccounts = function(clientId) {
+        this.getAllAccounts = function(clientId) {//@todo rename this getClientAccounts
+        	//@todo update this to return $resource(BASE_URL+'/self/clients/'+id+'/accounts'); and test
         	return $resource(BASE_URL+'/self/clients/'+clientId+'/accounts', clientId);
         };
 
@@ -32,6 +33,10 @@
 
         this.getClientAccounts = function(id) {
             return $resource(BASE_URL+'/self/clients/'+id+'/accounts');
+        }
+
+        this.getLoanAccount = function( id ){
+        	return $resource(BASE_URL+'/self/loans/'+id );
         }
 
     }

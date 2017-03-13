@@ -13,7 +13,7 @@
 			vm.onReorder 	= onReorder;
 			vm.routeTo 		= routeTo;
 			vm.userData		= AuthService.getUser();
-			vm.clients   	= getClients();
+			vm.clients   	= getClients();//@todo check if this is behind the 2 calls
 			vm.accounts  	= [];
 			vm.loanAccounts  	= [];
 			vm.savingsAccounts  	= [];
@@ -44,9 +44,7 @@
 					vm.shareAccounts	= res.shareAccounts;
 					vm.accountsProcessed++;			
 					if( vm.accountsProcessed  == vm.totalNoOfAccounts ){
-			  			vm.loadingAccountInfo = false;		
-			  			console.log(vm.savingsAccounts);	  
-			  			console.log(vm.shareAccounts);	  			
+			  			vm.loadingAccountInfo = false;				
 					}
 			  	});
 
@@ -62,8 +60,16 @@
 				getAccounts(angular.extend({}, vm.query, {order: order}));
 			};
 
-			function routeTo(id) {
-				$location.path('/app/viewaccount/' + id);
+			function routeTo( accountType, id ) {
+				var routingSlug = 'viewloanaccount';
+				if( 'savings' == accountType ){
+					routingSlug = 'viewsavingsaccount';
+				}else if( 'loan' == accountType ){
+					routingSlug = 'viewloanaccount';
+				}else{
+					routingSlug = 'viewshareaccount';
+				}
+				$location.path('/app/'+routingSlug+'/' + id );
 			}
 			
 		  	

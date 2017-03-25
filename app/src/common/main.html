@@ -11,19 +11,20 @@
       <div class="md-tile-content">
         <i hide-sm hide-md class="material-icons md-18">account_balance_wallet</i> Accounts
       </div>
-    </md-button>    
-    <md-divider></md-divider>   
+    </md-button>
+    <md-divider></md-divider>
     <md-button ng-click="vm.selectItem('Accounts')" ui-sref-active="md-warn" ui-sref=".accounts" style="text-align: left;display: block;">
       <div class="md-tile-content">
         <i hide-sm hide-md class="material-icons md-18">help</i> Help
       </div>
-    </md-button>   
+    </md-button>
   </md-content>
 </md-sidenav>
 
 <div layout="column" flex>
   <md-toolbar md-theme="default" layout="row" layout-align="end center">
 
+    <md-menu-bar>
     <md-menu md-position-mode="target-right target">
        {{vm.userDetails.username}}
       <md-button aria-label="Open logout menu" class="md-icon-button" ng-click="$mdOpenMenu($event)">
@@ -36,7 +37,7 @@
                 <p flex>Profile</p>
               </div>
           </md-button>
-        </md-menu-item>      
+        </md-menu-item>
         <md-menu-item>
           <md-button ng-click="logout();">
               <div layout="row">
@@ -46,6 +47,7 @@
         </md-menu-item>
       </md-menu-content>
     </md-menu>
+    </md-menu-bar>
 
     <!-- <md-button hide-sm class="toolbar-button" aria-label="Notifications">
       <i class="material-icons">notifications</i>

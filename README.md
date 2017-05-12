@@ -2,7 +2,7 @@
 
 ## Getting started
 
-Clone project:
+Clone the project:
 
     $ git clone https://github.com/gauravsaini03/self-service.git
 
@@ -10,6 +10,7 @@ Install dependencies:
 
     $ cd self-service
     $ npm install
+    $ bower install
 
 Install gem 'sass'
 

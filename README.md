@@ -2,7 +2,7 @@
 
 ## Getting started
 
-Clone project:
+Clone the project:
 
     $ git clone https://github.com/openMF/web-self-service-app.git
 
@@ -10,6 +10,7 @@ Install dependencies:
 
     $ cd web-self-service-app
     $ npm install
+    $ bower install 
 
 Install gem 'sass'
 

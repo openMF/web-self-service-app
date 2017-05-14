@@ -17,7 +17,7 @@
 			vm.accounts  	= [];
 			vm.loanAccounts  	= [];
 			vm.savingsAccounts  	= [];
-			vm.shareAccounts  	= [];			
+			vm.shareAccounts  	= [];
 			vm.loadingAccountInfo = true;
 			vm.totalNoOfAccounts = 0;
 			vm.accountsProcessed = 0;
@@ -26,7 +26,7 @@
 				limit: 5,
 				offset: 0
 			};
-					 
+
 			function getClients(){
 				AccountService.getClients().get(vm.query).$promise.then(function(res){
 					vm.clients 			 = res;
@@ -36,14 +36,14 @@
 					});
 				})
 			}
-			function getAccounts( accountNo, query ) {		
+			function getAccounts( accountNo, query ) {
 				AccountService.getAllAccounts(accountNo).get(query).$promise.then(function(res) {
 					vm.loanAccounts 	= res.loanAccounts;//@todo Accounts currently retrieved twice.Also, check whether all accounts for all clients are retrieved
 					vm.savingsAccounts 	= res.savingsAccounts;
 					vm.shareAccounts	= res.shareAccounts;
-					vm.accountsProcessed++;			
+					vm.accountsProcessed++;
 					if( vm.accountsProcessed  == vm.totalNoOfAccounts ){
-			  			vm.loadingAccountInfo = false;				
+			  			vm.loadingAccountInfo = false;
 					}
 			  	});
 
@@ -70,8 +70,8 @@
 				}
 				$location.path('/app/'+routingSlug+'/' + id );
 			}
-			
-		  	
+
+
 		}
 
 })();

@@ -3,10 +3,10 @@
 
     angular.module('selfService')
 
-      .config(function ($stateProvider, $urlRouterProvider, USER_ROLES) { 
+      .config(function ($stateProvider, $urlRouterProvider, USER_ROLES) {
 
     	  $urlRouterProvider
-        	.otherwise('/login');           
+        	.otherwise('/login');
 
           $stateProvider
             .state('app', {
@@ -17,7 +17,7 @@
               controllerAs: 'vm',
               data: {
                 authorizedRoles: [USER_ROLES.user]
-              }              
+              }
             })
             .state('app.dashboard', {
               url: '/dashboard',
@@ -29,7 +29,7 @@
                 authorizedRoles: [USER_ROLES.user]
               }
             })
-            .state('app.accounts', { 
+            .state('app.accounts', {
               url: '/accounts',
               templateUrl: 'src/account-list/account-list.html',
               controller: 'AccountCtrl',
@@ -38,8 +38,8 @@
                 title: 'Accounts',
                 authorizedRoles: [USER_ROLES.user]
               }
-            })        
-            .state('app.viewloanaccount', { 
+            })
+            .state('app.viewloanaccount', {
               url: '/viewloanaccount/:loanId',
               templateUrl: 'src/loan-account-detail/loan-account-detail.html',
               controller: 'LoanAccountViewCtrl',
@@ -48,7 +48,7 @@
                 title: 'View Loan Account',
                 authorizedRoles: [USER_ROLES.user]
               }
-            })                        
+            })
             .state('app.recenttransactions', {
               url: '/recenttransactions',
               templateUrl: 'src/common/coming-soon.html',
@@ -78,7 +78,7 @@
                 title: 'About Us',
                 authorizedRoles: [USER_ROLES.user]
               }
-            })    
+            })
           	.state('app.help', {
               url: '/charges',
               templateUrl: 'src/common/coming-soon.html',
@@ -88,7 +88,7 @@
                 title: 'Help',
                 authorizedRoles: [USER_ROLES.user]
               }
-            })       
+            })
           	.state('app.profile', {
               url: '/charges',
               templateUrl: 'src/common/coming-soon.html',
@@ -98,7 +98,7 @@
                 title: 'Profile',
                 authorizedRoles: [USER_ROLES.user]
               }
-            })                         
+            })
             .state('login', {
               url: '/login',
               templateUrl: 'src/authentication/authentication.html',

@@ -15,7 +15,7 @@
   </div>
   <div layout="row">
   <div flex>
- <h2>Accounts</h2> 
+ <h2>Accounts</h2>
 <md-table-container>
 <h3>Loan Account Overview</h3>
 <div ng-if="vm.loadingAccountInfo">
@@ -28,8 +28,8 @@
         <th md-column md-numeric><span>Account #</span></th>
         <th md-column>Loan Account</th>
         <th md-column md-numeric>Original Loan</th>
-		<th md-column md-numeric>Loan Balance</th>        
-		<th md-column md-numeric>Amount Paid</th>		
+		<th md-column md-numeric>Loan Balance</th>
+		<th md-column md-numeric>Amount Paid</th>
         <th md-column>Status</th>
         <th md-column>Type</th>
       </tr>
@@ -42,7 +42,7 @@
         <td md-cell>{{account.loanBalance}}</td>
         <td md-cell>{{account.amountPaid}}</td>
       	<td md-cell>{{account.status.value}}</td>
-        <td md-cell>{{account.loanType.value}}</td>                
+        <td md-cell>{{account.loanType.value}}</td>
       </tr>
     </tbody>
   </table>
@@ -51,7 +51,7 @@
     <thead md-head md-order="vm.query.orderBy" md-on-reorder="vm.onReorder">
       <tr md-row>
       	<th md-column md-numeric><span>Account #</span></th>
-        <th md-column><span>Savings Account</span></th>        
+        <th md-column><span>Savings Account</span></th>
         <th md-column>Last Active</th>
         <th md-column md-numeric>Balance</th>
       </tr>
@@ -59,7 +59,7 @@
     <tbody md-body>
       <tr md-row md-select="account" md-select-id="{{account.name}}" md-auto-select ng-repeat="account in vm.savingsAccounts" ng-click="vm.routeTo(account.id)">
         <td md-cell>{{account.accountNo}}</td>
-        <td md-cell >{{account.productName}}</td>        
+        <td md-cell >{{account.productName}}</td>
         <td md-cell><!--{{account.lastActiveTransactionDate | DateFormat }} -->dateHere</td>
         <td md-cell md-numeric>{{account.accountBalance}}</td>
       </tr>

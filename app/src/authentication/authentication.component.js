@@ -18,7 +18,7 @@
 	                $state.go("app.accounts");
 				});
 			}
-			
+
 		}
 
 })();

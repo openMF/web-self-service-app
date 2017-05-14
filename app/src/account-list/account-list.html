@@ -1,6 +1,6 @@
 <md-tabs md-dynamic-height md-border-bottom>
   <md-tab label="Loans">
-    <md-content class="md-padding">          
+    <md-content class="md-padding">
 		<div ng-if="vm.loadingAccountInfo">
 		    <md-progress-circular md-mode="indeterminate"></md-progress-circular>Loading Account Info...
 		    <!--@todo Internationalize-->
@@ -12,10 +12,10 @@
 			    <th md-column md-numeric><span>Account #</span></th>
 		        <th md-column>Loan Account</th>
 		        <th md-column md-numeric>Original Loan</th>
-				<th md-column md-numeric>Loan Balance</th>        
-				<th md-column md-numeric>Amount Paid</th>		
+				<th md-column md-numeric>Loan Balance</th>
+				<th md-column md-numeric>Amount Paid</th>
 		        <th md-column>Status</th>
-		        <th md-column>Type</th>											
+		        <th md-column>Type</th>
 		      </tr>
 		    </thead>
 		    <tbody md-body>
@@ -26,7 +26,7 @@
 			        <td md-cell>{{loanAccount.loanBalance | number:2 }}</td>
 			        <td md-cell>{{loanAccount.amountPaid | number:2 }}</td>
 			      	<td md-cell>{{loanAccount.status.value}}</td>
-			        <td md-cell>{{loanAccount.loanType.value}}</td>                
+			        <td md-cell>{{loanAccount.loanType.value}}</td>
 			      </tr>
 		    </tbody>
 		  </table>
@@ -43,23 +43,23 @@
 		      <tr md-row>
 			    <th md-column md-numeric><span>Account #</span></th>
 		        <th md-column>Account</th>
-		        <th md-column md-numeric>Account Type</th>		
-				<th md-column md-numeric>Status</th>		
-				<th md-column md-numeric>Account Balance</th>		        								
+		        <th md-column md-numeric>Account Type</th>
+				<th md-column md-numeric>Status</th>
+				<th md-column md-numeric>Account Balance</th>
 		      </tr>
 		    </thead>
 		    <tbody md-body>
 			     <tr md-row md-select="account" md-select-id="{{savingsAccount.name}}" md-auto-select ng-repeat="savingsAccount in vm.savingsAccounts" ng-click="vm.routeTo('savings',savingsAccount.id)">
 			        <td md-cell>{{savingsAccount.accountNo}}</td>
 			        <td md-cell>{{savingsAccount.productName}}</td>
-			        <td md-cell>{{savingsAccount.accountType.value}}</td>    
-			        <td md-cell>{{savingsAccount.status.value}}</td> 
-			        <td md-cell>{{savingsAccount.accountBalance | number:2 }}</td>              
+			        <td md-cell>{{savingsAccount.accountType.value}}</td>
+			        <td md-cell>{{savingsAccount.status.value}}</td>
+			        <td md-cell>{{savingsAccount.accountBalance | number:2 }}</td>
 			      </tr>
 		    </tbody>
 		  </table>
 		</md-table-container>
-		<md-table-pagination md-limit="vm.query.limit" md-page="vm.query.offset" md-total="{{vm.savingsAccounts.totalFilteredRecords}}" md-on-paginate="vm.onPaginate" md-page-select></md-table-pagination>    
+		<md-table-pagination md-limit="vm.query.limit" md-page="vm.query.offset" md-total="{{vm.savingsAccounts.totalFilteredRecords}}" md-on-paginate="vm.onPaginate" md-page-select></md-table-pagination>
     </md-content>
   </md-tab>
 
@@ -71,23 +71,23 @@
 		      <tr md-row>
 			    <th md-column md-numeric><span>Account #</span></th>
 		        <th md-column>Account</th>
-				<th md-column md-numeric>Status</th>		
-				<th md-column md-numeric>Approved Shares</th>		        						
-				<th md-column md-numeric>Shares Pending Approval</th>			
+				<th md-column md-numeric>Status</th>
+				<th md-column md-numeric>Approved Shares</th>
+				<th md-column md-numeric>Shares Pending Approval</th>
 		      </tr>
 		    </thead>
 		    <tbody md-body>
 			     <tr md-row md-select="account" md-select-id="{{shareAccount.name}}" md-auto-select ng-repeat="shareAccount in vm.shareAccounts" ng-click="vm.routeTo('shares',shareAccount.id)">
 			        <td md-cell>{{shareAccount.accountNo}}</td>
 			        <td md-cell>{{shareAccount.productName}}</td>
-			        <td md-cell>{{shareAccount.status.value}}</td> 
-			        <td md-cell>{{shareAccount.totalApprovedShares | number:2 }}</td>  
-			        <td md-cell>{{shareAccount.totalPendingForApprovalShares | number:2 }}</td>              
+			        <td md-cell>{{shareAccount.status.value}}</td>
+			        <td md-cell>{{shareAccount.totalApprovedShares | number:2 }}</td>
+			        <td md-cell>{{shareAccount.totalPendingForApprovalShares | number:2 }}</td>
 			      </tr>
 		    </tbody>
 		  </table>
 		</md-table-container>
-		<md-table-pagination md-limit="vm.query.limit" md-page="vm.query.offset" md-total="{{vm.shareAccounts.totalFilteredRecords}}" md-on-paginate="vm.onPaginate" md-page-select></md-table-pagination>      
+		<md-table-pagination md-limit="vm.query.limit" md-page="vm.query.offset" md-total="{{vm.shareAccounts.totalFilteredRecords}}" md-on-paginate="vm.onPaginate" md-page-select></md-table-pagination>
     </md-content>
   </md-tab>
 </md-tabs>

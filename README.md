@@ -15,7 +15,7 @@ Install dependencies:
 Install gem 'sass'
 
     $ gem install sass
-    
+
 Run development web-server:
 
     $ gulp serve
@@ -31,6 +31,6 @@ Run development web-server:
 * BrowserSync for the ease of development
 
 ## Deploy to Github pages  
-  
+
     $ gulp build
     $ gulp deploy

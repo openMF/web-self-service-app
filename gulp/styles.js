@@ -9,18 +9,19 @@ var $ = require('gulp-load-plugins')();
 gulp.task('styles', function () {
 
   var sassOptions = {
-    style: 'expanded'
+    style: 'expanded',
+    'sourcemap=none': true
   };
 
   var injectFiles = gulp.src([
-    paths.src + '/{app,components}/**/*.scss',
-    '!' + paths.src + '/app/index.scss',
-    '!' + paths.src + '/app/vendor.scss'
+    paths.src + '/**/*.scss',
+    '!' + paths.src + '/index.scss',
+    '!' + paths.src + '/vendor.scss'
   ], { read: false });
 
   var injectOptions = {
     transform: function(filePath) {
-      filePath = filePath.replace(paths.src + '/app/', '');
+      filePath = filePath.replace(paths.src + '/', '');
       filePath = filePath.replace(paths.src + '/components/', '../components/');
       return '@import \'' + filePath + '\';';
     },
@@ -32,8 +33,8 @@ gulp.task('styles', function () {
   var indexFilter = $.filter('index.scss');
 
   return gulp.src([
-    paths.src + '/app/index.scss',
-    paths.src + '/app/vendor.scss'
+    paths.src + '/index.scss',
+    paths.src + '/vendor.scss'
   ])
     .pipe(indexFilter)
     .pipe($.inject(injectFiles, injectOptions))
@@ -49,5 +50,5 @@ gulp.task('styles', function () {
       console.error(err.toString());
       this.emit('end');
     })
-    .pipe(gulp.dest(paths.tmp + '/serve/app/'));
+    .pipe(gulp.dest(paths.tmp + '/serve/styles/'));
 });

@@ -45,6 +45,6 @@
   },
   "scripts": {
     "init": "npm install",
-    "install": "bower install"
+    "install": "npm install -g bower && bower install"
   }
 }

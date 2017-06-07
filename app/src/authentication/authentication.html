@@ -1,27 +1,30 @@
-<md-content class="md-padding" layout="row" layout-wrap layout-align="center start" style="width: 100%;background-color: #F1F1F1;">
-  <md-card style="padding: 5px 20px;width: 330px;">
-    <md-card-title>
-      <md-card-title-text style="text-align: center;color: dodgerblue;">
-        <span class="md-headline">Mifos Self Service</span>
-        <img src="assets/images/MifosX_logo.png">
-      </md-card-title-text>
-    </md-card-title>
-    
-    <form name="loginForm">
-      <md-input-container class="md-block md-icon-float">
-        <label>Username</label>
-        <md-icon md-svg-src="assets/images/ic_person_black_24px.svg" class="name"></md-icon>
-        <input ng-model="loginData.username">
-      </md-input-container>
-      <md-input-container class="md-block md-icon-float">
-        <label>Password</label>
-        <md-icon md-svg-src="assets/images/ic_remove_red_eye_black_24px.svg" class="password"></md-icon>
-        <input type="password" ng-model="loginData.password">
-      </md-input-container>
+<div flex layout="row">
+    <div layout="col" layout-align="start center" class="cover" flex-gt-md="60" hide-xs hide-sm>
+      <div flex="60" class="cover-content">
+        <h1 class="md-display-2 cover-title">Self Service</h1>
+        <p class="md-headline">Self Service is designed by the Mifos Initiative - a global community that aims to speed-up the elimination of poverty by enabling organizations to more effectively and efficiently deliver responsible financial services to the world’s poor and unbanked.</p>
+      </div>
+    </div>
+    <div class="login-container" flex flex-gt-md="40">
+        <div flex class="logo" layout-margin>
+          <img width="200px" src="assets/images/MifosX_logo.png">
+          <h1 class="md-title">Login to your account</h1>
+        </div>
+        <div flex="80" class="login-form" layout-padding>
+          <form name="loginForm" ng-submit="doLogin()">
+            <md-input-container class="md-block md-icon-float">
+            <label>Username</label>
+              <input ng-model="loginData.username">
+            </md-input-container>
+            <md-input-container class="md-block md-icon-float">
+            <label>Password</label>
+              <input type="password" ng-model="loginData.password">
+            </md-input-container>
 
-      <section layout="column" layout-align="start">
-        <md-button class="md-primary md-raised" ng-click="doLogin()">Login</md-button>
-      </section>
-    </form>
-  </md-card>
-</md-content>
+            <section layout="column" layout-align="start">
+              <md-button type="submit" class="md-primary md-raised">Login</md-button>
+            </section>
+          </form>
+        </div>
+    </div>
+</div>

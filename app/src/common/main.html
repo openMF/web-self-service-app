@@ -1,8 +1,13 @@
 <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
-  <md-toolbar md-theme="default" class="md-theme-indigo">
-    <h1 class="md-toolbar-tools">MifosX</h1>
-  </md-toolbar>
-  <md-content id="sidebar-menu">
+    <div layout="col" layout-align="start end" layout-padding class="sidenav-header">
+        <div layout="col" flex>
+            <div class="sidenav-content">
+                <md-icon md-menu-origin md-svg-src="assets/images/ic_person_white_24px.svg"></md-icon>
+                <h1 class="sidenav-title md-title">Welcome, {{vm.userDetails.username}}</h1>
+            </div>
+        </div>
+    </div>
+    <md-content id="sidebar-menu">
     <!-- <md-button ng-click="close()" class="md-primary" hide-gt-md>
       Close
     </md-button> -->
@@ -41,9 +46,11 @@
 
 <div layout="column" flex>
   <md-toolbar md-theme="default" layout="row" layout-align="end center">
-
-    <md-menu md-position-mode="target-right target">
-       {{vm.userDetails.username}}
+      <md-button hide-gt-sm ng-click="vm.toggleItemsList()" aria-label="Menu">
+          <i class="material-icons">menu</i>
+      </md-button>
+      <md-menu md-position-mode="target-right target">
+        {{vm.userDetails.username}}
       <md-button aria-label="Open logout menu" class="md-icon-button" ng-click="$mdOpenMenu($event)">
         <md-icon md-menu-origin md-svg-src="assets/images/ic_person_white_24px.svg"></md-icon>
       </md-button>
@@ -69,9 +76,7 @@
       <i class="material-icons">notifications</i>
       <span class="notifications-label">7</span>
     </md-button> -->
-    <md-button hide-gt-sm ng-click="vm.toggleItemsList()" aria-label="Menu">
-      <i class="material-icons">menu</i>
-    </md-button>
+
   </md-toolbar>
 
   <md-content flex class="md-padding page-content">

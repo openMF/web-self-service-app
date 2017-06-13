@@ -24,11 +24,11 @@
 
 			vm.query = {
 				limit: 5,
-				offset: 0
+				offset: 1
 			};
 
 			function getClients(){
-				AccountService.getClients().get(vm.query).$promise.then(function(res){
+				AccountService.getClients().get().$promise.then(function(res){
 					vm.clients 			 = res;
 					vm.totalNoOfAccounts = res.pageItems.length;
 					$.each( res.pageItems, function( i, val ){
@@ -50,13 +50,11 @@
 			}
 
 			function onPaginate(offset, limit) {
-				console.log(offset,"====",limit)
-				getAccounts(angular.extend({}, vm.query, {offset: offset, limit: limit}));
+				console.log(offset,"====",limit);
 			};
 
 			function onReorder(order) {
-				console.log(order,"====")
-				getAccounts(angular.extend({}, vm.query, {order: order}));
+				console.log(order,"====");
 			};
 
 			function routeTo( accountType, id ) {

@@ -61,6 +61,17 @@
             $location.path('/app/' + routingSlug + '/' + id);
         }
 
+        function routeTo(accountType, id) {
+            var routingSlug = 'viewloanaccount';
+            if ('savings' == accountType) {
+                routingSlug = 'viewsavingsaccount';
+            } else if ('loan' == accountType) {
+                routingSlug = 'viewloanaccount';
+            } else {
+                routingSlug = 'viewshareaccount';
+            }
+            $location.path('/app/' + routingSlug + '/' + id);
+        }
 
     }
 

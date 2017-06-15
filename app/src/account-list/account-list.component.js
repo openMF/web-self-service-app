@@ -13,7 +13,7 @@
         vm.onReorder = onReorder;
         vm.routeTo = routeTo;
         vm.userData = AuthService.getUser();
-        vm.clients = getClients();//@todo check if this is behind the 2 calls
+        vm.clientId = getClient();//@todo check if this is behind the 2 calls
         vm.accounts = [];
         vm.loanAccounts = [];
         vm.savingsAccounts = [];
@@ -27,14 +27,11 @@
             offset: 0
         };
 
-        function getClients() {
-            AccountService.getClients().get(vm.query).$promise.then(function (res) {
-                vm.clients = res;
-                vm.totalNoOfAccounts = res.pageItems.length;
-                $.each(res.pageItems, function (i, val) {
-                    getAccounts(val.id, vm.query);
-                });
-            })
+        function getClient() {
+            AccountService.getClientId().then(function (clientId) {
+                vm.clientId = clientId;
+                getAccounts(clientId);
+            });
         }
 
         function getAccounts(accountNo, query) {
@@ -69,8 +66,6 @@
             }
             $location.path('/app/' + routingSlug + '/' + id);
         }
-
-
     }
 
 })();

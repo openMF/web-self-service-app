@@ -6,8 +6,7 @@
 
     function AuthService($q, $http, $rootScope, $resource, storageService, BASE_URL, USER_ROLES) {
 
-        var authService     = {},
-            role            = '',
+        var role            = '',
             userData        = '',       
             isAuthenticated = false;
 
@@ -22,7 +21,7 @@
             isAuthenticated = true;
             userData = res;
             role = USER_ROLES.user;
-            $http.defaults.headers.common['Authorization'] = 'Basic ' + res.base64EncodedAuthenticationKey;;
+            $http.defaults.headers.common['Authorization'] = 'Basic ' + res.base64EncodedAuthenticationKey;
         }
 
         this.getUser = function() {
@@ -35,7 +34,7 @@
 
         this.role = function () {
             return role;
-        };
+        }
 
         this.isAuthorized = function (authorizedRoles) {
             if (!angular.isArray(authorizedRoles)) {

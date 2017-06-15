@@ -6,7 +6,6 @@ $warning-color: #E75753;
 
 
 // VARIABLES
-$left-sidenav-width: 190px;
 $widget-height: 310px;
 $font-weight-bold: 600;
 $font-size-large: 20px;
@@ -118,12 +117,6 @@ md-icon {
   height: auto;
 }
 
-md-sidenav.md-locked-open.md-sidenav-left {
-  width: $left-sidenav-width;
-  min-width: $left-sidenav-width;
-  max-width: $left-sidenav-width;
-}
-
 a.md-button.md-warn.md-raised, a.md-button.md-warn.md-fab, .md-button.md-warn.md-raised, .md-button.md-warn.md-fab {
   color: white;
 }
@@ -174,13 +167,6 @@ md-backdrop.md-sidenav-backdrop {
 
 /* Custom by Anurag */
 
-//variables
-$sidenav-mobile-width: 190px;
-
-md-sidenav {
-  width: $sidenav-mobile-width;
-}
-
 .vertical {
   padding-right: 5px;
   border-right-style: groove;
@@ -188,6 +174,18 @@ md-sidenav {
 
 md-toolbar .md-menu {
   margin: 0 !important;
+}
+// Sidenav styles
+.sidenav-header {
+  background: url("/assets/images/toolbar.png");
+  background-size: cover;
+  height: 20vh;
+  color: #ffffff;
+
+  .sidenav-title{
+    margin-top: 10px;
+    margin-bottom: 0px;
+  }
 }
 
 // Login Styles

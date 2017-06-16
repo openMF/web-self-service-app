@@ -217,3 +217,90 @@ md-toolbar .md-menu {
 .login-form {
   margin: 0 auto;
 }
+
+// Tabs style Account list
+#account-list-tabs {
+  md-pagination-wrapper {
+    width: 100% !important;
+    display: flex;
+  }
+
+  md-tab-item {
+    display: flex;
+    flex: 1;
+
+    span {
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  md-tab-content {
+    padding: 20px;
+  }
+
+  .search-input {
+    margin: 0px;
+  }
+}
+
+
+// Status colors
+.statusoverpaid {
+  color: #800080
+}
+
+.statusactiveoverdue {
+  color: #FF0000
+}
+
+.statustransferprogress {
+  color: #FF4000;
+}
+
+.statustransferonhold {
+  color: #DF0101;
+}
+
+.statusactive {
+  color: #00CE00;
+}
+
+.statusmatured {
+  color: #FF4000;
+}
+
+.statusdeleted {
+  color: #000000;
+}
+
+.statuspending {
+  color: #FFA500;
+}
+.statusApproved {
+  color: #0F36E4;
+}
+
+.statusbad {
+  color: #FF0000;
+}
+
+.statusgood {
+  color: #008000;
+}
+
+.statushold {
+  color: #FFFF00;
+}
+
+.statusprogresspendingtab {
+  color: #F7FE2E;
+}
+
+.statusprogresstab {
+  color: #FFA500;
+}
+
+.statusprogresscompletedtab {
+  color: #298A08;
+}

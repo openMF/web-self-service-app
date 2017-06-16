@@ -7,7 +7,7 @@
                 </md-card-title-text>
                 <md-input-container md-no-float class="md-block search-input">
                     <md-icon md-svg-src="assets/images/ic_search_black_24px.svg"></md-icon>
-                    <input ng-model="vm.filter" type="text" placeholder="Search...">
+                    <input ng-model="vm.loanFilter" type="text" placeholder="Search...">
                 </md-input-container>
             </md-card-title>
             <md-divider></md-divider>
@@ -19,20 +19,20 @@
                 </div>
                 <md-table-container>
                     <table md-table ng-model="vm.selected" md-progress="vm.promise">
-                        <thead md-head md-order="vm.query.orderBy" md-on-reorder="vm.onReorder">
+                        <thead md-head md-order="vm.query.orderBy">
                         <tr md-row>
-                            <th md-column>Status</th>
-                            <th md-column md-numeric><span>Account #</span></th>
-                            <th md-column>Loan Account</th>
-                            <th md-column md-numeric>Original Loan</th>
-                            <th md-column md-numeric>Loan Balance</th>
-                            <th md-column md-numeric>Amount Paid</th>
-                            <th md-column>Type</th>
+                            <th md-column md-order-by="(inArrears)?a:z + status.code">Status</th>
+                            <th md-column md-numeric md-order-by="accountNo"><span>Account #</span></th>
+                            <th md-column md-order-by="productName">Loan Account</th>
+                            <th md-column md-numeric md-order-by="originalLoan">Original Loan</th>
+                            <th md-column md-numeric md-order-by="loanBalance">Loan Balance</th>
+                            <th md-column md-numeric md-order-by="amountPaid">Amount Paid</th>
+                            <th md-column md-order-by="loanType.value">Type</th>
                         </tr>
                         </thead>
                         <tbody md-body>
                         <tr md-row md-select="account" md-select-id="{{loanAccount.name}}" md-auto-select
-                            ng-repeat="loanAccount in vm.loanAccounts" ng-click="vm.routeTo( 'loan',loanAccount.id)">
+                            ng-repeat="loanAccount in vm.loanAccounts | filter: vm.loanFilter | orderBy: vm.query.orderBy | limitTo: vm.query.limit : (vm.query.offset - 1) * vm.query.limit" ng-click="vm.routeTo( 'loan',loanAccount.id)">
                             <td md-cell>
                                 <i ng-hide="loanAccount.inArrears" class="fa fa-stop fa-2x {{loanAccount.status.code | StatusLookup}}">
                                     <md-tooltip md-direction="top">{{loanAccount.status.value}}</md-tooltip>
@@ -52,8 +52,7 @@
                     </table>
                 </md-table-container>
                 <md-table-pagination md-limit="vm.query.limit" md-page="vm.query.offset"
-                                     md-total="{{vm.allLoanAccounts.totalFilteredRecords}}" md-on-paginate="vm.onPaginate"
-                                     md-page-select></md-table-pagination>
+                                     md-total="{{vm.loanAccounts.length}}" md-page-select></md-table-pagination>
             </md-card-content>
         </md-card>
     </md-tab>
@@ -66,25 +65,25 @@
                 </md-card-title-text>
                 <md-input-container md-no-float class="md-block search-input">
                     <md-icon md-svg-src="assets/images/ic_search_black_24px.svg"></md-icon>
-                    <input ng-model="vm.filter" type="text" placeholder="Search...">
+                    <input ng-model="vm.savingFilter" type="text" placeholder="Search...">
                 </md-input-container>
             </md-card-title>
             <md-divider></md-divider>
             <md-card-content class="md-padding">
                 <md-table-container>
                     <table md-table ng-model="vm.selected" md-progress="vm.promise">
-                        <thead md-head md-order="vm.query.orderBy" md-on-reorder="vm.onReorder">
+                        <thead md-head md-order="vm.query.orderBy">
                         <tr md-row>
-                            <th md-column md-numeric>Status</th>
-                            <th md-column md-numeric><span>Account #</span></th>
-                            <th md-column>Account</th>
-                            <th md-column md-numeric>Account Type</th>
-                            <th md-column md-numeric>Account Balance</th>
+                            <th md-column md-numeric md-order-by="status.code+subStatus.value">Status</th>
+                            <th md-column md-numeric md-order-by="accountNo"><span>Account #</span></th>
+                            <th md-column md-order-by="productName">Account</th>
+                            <th md-column md-numeric md-order-by="accountType.value">Account Type</th>
+                            <th md-column md-numeric md-order-by="accountBalance">Account Balance</th>
                         </tr>
                         </thead>
                         <tbody md-body>
                         <tr md-row md-select="account" md-select-id="{{savingsAccount.name}}" md-auto-select
-                            ng-repeat="savingsAccount in vm.savingsAccounts"
+                            ng-repeat="savingsAccount in vm.savingsAccounts | filter: vm.savingFilter | orderBy: vm.query.orderBy | limitTo: vm.query.limit : (vm.query.offset - 1) * vm.query.limit"
                             ng-click="vm.routeTo('savings',savingsAccount.id)">
                             <td md-cell>
                                 <i ng-show="savingsAccount.subStatus.id==0" class="fa fa-stop fa-2x {{savingsAccount.status.code | StatusLookup}}">
@@ -103,7 +102,7 @@
                     </table>
                 </md-table-container>
                 <md-table-pagination md-limit="vm.query.limit" md-page="vm.query.offset"
-                                     md-total="{{vm.savingsAccounts.totalFilteredRecords}}" md-on-paginate="vm.onPaginate"
+                                     md-total="{{vm.savingsAccounts.length}}" md-on-paginate="vm.onPaginate"
                                      md-page-select></md-table-pagination>
             </md-card-content>
         </md-card>
@@ -117,25 +116,25 @@
                 </md-card-title-text>
                 <md-input-container md-no-float class="md-block search-input">
                     <md-icon md-svg-src="assets/images/ic_search_black_24px.svg"></md-icon>
-                    <input ng-model="vm.filter" type="text" placeholder="Search...">
+                    <input ng-model="vm.shareFilter" type="text" placeholder="Search...">
                 </md-input-container>
             </md-card-title>
             <md-divider></md-divider>
             <md-card-content class="md-padding">
                 <md-table-container>
                     <table md-table ng-model="vm.selected" md-progress="vm.promise">
-                        <thead md-head md-order="vm.query.orderBy" md-on-reorder="vm.onReorder">
+                        <thead md-head md-order="vm.query.orderBy">
                         <tr md-row>
-                            <th md-column md-numeric>Status</th>
-                            <th md-column md-numeric>Approved Shares</th>
-                            <th md-column md-numeric><span>Account #</span></th>
-                            <th md-column>Account</th>
-                            <th md-column md-numeric>Shares Pending Approval</th>
+                            <th md-column md-numeric md-order-by="status.code">Status</th>
+                            <th md-column md-numeric md-order-by="accountNo"><span>Account #</span></th>
+                            <th md-column md-order-by="productName">Account</th>
+                            <th md-column md-numeric md-order-by="totalApprovedShares">Approved Shares</th>
+                            <th md-column md-numeric md-order-by="totalPendingForApprovalShares">Shares Pending Approval</th>
                         </tr>
                         </thead>
                         <tbody md-body>
                         <tr md-row md-select="account" md-select-id="{{shareAccount.name}}" md-auto-select
-                            ng-repeat="shareAccount in vm.shareAccounts" ng-click="vm.routeTo('shares',shareAccount.id)">
+                            ng-repeat="shareAccount in vm.shareAccounts | filter: vm.shareFilter | orderBy: vm.query.orderBy | limitTo: vm.query.limit : (vm.query.offset - 1) * vm.query.limit" ng-click="vm.routeTo('shares',shareAccount.id)">
                             <td md-cell>
                                 <i class="fa fa-stop fa-2x {{shareAccount.status.code | StatusLookup}}">
                                     <md-tooltip md-direction="top">{{shareAccount.status.value}}</md-tooltip>
@@ -150,7 +149,7 @@
                     </table>
                 </md-table-container>
                 <md-table-pagination md-limit="vm.query.limit" md-page="vm.query.offset"
-                                     md-total="{{vm.shareAccounts.totalFilteredRecords}}" md-on-paginate="vm.onPaginate"
+                                     md-total="{{vm.shareAccounts.length}}" md-on-paginate="vm.onPaginate"
                                      md-page-select></md-table-pagination>
             </md-card-content>
         </md-card>

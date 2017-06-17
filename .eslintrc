@@ -1,0 +1,17 @@
+{
+  "extends": "eslint:recommended",
+  "plugins": [
+    "angular"
+  ],
+  "rules": {
+    "angular/controller-as": 0
+  },
+  "env": {
+    "browser": true,
+    "jasmine": true,
+    "jquery": true
+  },
+  "globals": {
+    "angular": true
+  }
+}

@@ -63,7 +63,9 @@
                 })
                 .state('app.charges', {
                     url: '/charges',
-                    templateUrl: 'src/common/coming-soon.html',
+                    templateUrl: 'src/charges/charges.html',
+                    controller: 'ChargesCtrl',
+                    controllerAs: 'vm',
                     data: {
                         title: 'Charges',
                         authorizedRoles: [USER_ROLES.user]

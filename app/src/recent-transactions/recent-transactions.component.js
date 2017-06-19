@@ -20,11 +20,9 @@
 
         function getTransactions(query){
             AccountService.getClientId().then(function (clientId){
-                console.log(query);
                 TransactionService.getClientTransactions(clientId).get(query).$promise.then(function (res) {
                     vm.loadingTransactions = false;
                     vm.recenttransactions = res;
-                    console.log(vm.recenttransactions);
                 });
             });
         }

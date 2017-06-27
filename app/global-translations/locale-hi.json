@@ -1,0 +1,12 @@
+{
+  "login.heading.logintoyouraccount": "अपने अकाउंट में लॉग इन करें",
+  "login.btn.login": "लॉग इन करें",
+
+  "nav.msg.welcome": "नमस्ते,",
+  "nav.label.accounts": "खातों",
+  "nav.label.recenttransactions": "हालिया लेनदेन",
+  "nav.label.charges": "शुल्क",
+  "nav.label.transfers": "ट्रान्सफर",
+  "nav.label.aboutus": "हमारे बारे में",
+  "nav.label.help": "सहायता"
+}

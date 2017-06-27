@@ -2,30 +2,30 @@
     <md-card>
         <md-card-title>
             <md-card-title-text>
-                <span class="md-headline">Charges</span>
+                <span class="md-headline">{{ 'label.heading.charges' | translate }}</span>
             </md-card-title-text>
             <md-input-container md-no-float class="md-block search-input">
                 <md-icon md-svg-src="assets/images/ic_search_black_24px.svg"></md-icon>
-                <input ng-model="vm.chargeFilter" type="text" placeholder="Search...">
+                <input ng-model="vm.chargeFilter" type="text" placeholder="{{ 'label.input.search' | translate }}">
             </md-input-container>
         </md-card-title>
         <md-divider></md-divider>
         <md-card-content class="md-padding">
             <div flex layout="row" layout-align="center center" ng-if="vm.loadingCharges">
                 <md-progress-circular md-mode="indeterminate"></md-progress-circular>
-                Loading Recent Transactions...
+                {{ 'label.msg.loadingCharges' | translate }}...
             </div>
             <md-table-container>
                 <table md-table>
                     <thead md-head md-order="vm.query.orderBy">
                     <tr md-row>
-                        <th md-column {{ (!(charge.isWaived || charge.isPaid)) |StatusLookup}}>Status</th>
-                        <th md-column md-order-by="name">Name</th>
-                        <th md-column md-order-by="dueDate">Due As Of</th>
-                        <th md-column md-numeric md-order-by="amount">Due</th>
-                        <th md-column md-numeric md-order-by="amountPaid">Paid</th>
-                        <th md-column md-numeric md-order-by="amountWaived">Waived</th>
-                        <th md-column md-numeric md-order-by="amountOutstanding">Outstanding</th>
+                        <th md-column {{ (!(charge.isWaived || charge.isPaid)) |StatusLookup}}>{{ 'label.heading.status' | translate }}</th>
+                        <th md-column md-order-by="name">{{ 'label.heading.name' | translate }}</th>
+                        <th md-column md-order-by="dueDate">{{ 'label.heading.dueAsOf' | translate }}</th>
+                        <th md-column md-numeric md-order-by="amount">{{ 'label.heading.due' | translate }}</th>
+                        <th md-column md-numeric md-order-by="amountPaid">{{ 'label.heading.paid' | translate }}</th>
+                        <th md-column md-numeric md-order-by="amountWaived">{{ 'label.heading.waived' | translate }}</th>
+                        <th md-column md-numeric md-order-by="amountOutstanding">{{ 'label.heading.outstanding' | translate }}</th>
                     </tr>
                     </thead>
                     <tbody md-body>

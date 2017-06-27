@@ -1,8 +1,7 @@
-(function(){
-  'use strict';
+(function () {
+    'use strict';
 
-    angular.module('selfService', [
-      
+    angular.module('selfService', [      
       'ngAnimate', 
       'ngCookies', 
       'ngSanitize',
@@ -10,8 +9,8 @@
       'ui.router', 
       'ngMaterial', 
       'nvd3',
-      'md.data.table'
-      
+      'md.data.table',
+      'pascalprecht.translate'
     ])
 
 })();

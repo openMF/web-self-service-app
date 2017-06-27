@@ -3,7 +3,7 @@
         <div layout="col" flex>
             <div class="sidenav-content">
                 <md-icon md-menu-origin md-svg-src="assets/images/ic_person_white_24px.svg"></md-icon>
-                <h1 class="sidenav-title md-title">Welcome, {{vm.userDetails.username}}</h1>
+                <h1 class="sidenav-title md-title">{{'nav.msg.welcome' | translate}} {{vm.userDetails.username}}</h1>
             </div>
         </div>
     </div>
@@ -15,42 +15,42 @@
         <md-button ng-click="vm.selectItem('Accounts')" ui-sref-active="md-warn" ui-sref=".accounts"
                    style="text-align: left;display: block;">
             <div class="md-tile-content">
-                <i hide-sm hide-md class="material-icons md-18">account_balance_wallet</i> Accounts
+                <i hide-sm hide-md class="material-icons md-18">account_balance_wallet</i> {{ 'nav.label.accounts' | translate}}
             </div>
         </md-button>
         <md-divider></md-divider>
         <md-button ng-click="vm.selectItem('Recent Transactions')" ui-sref-active="md-warn"
                    ui-sref=".recenttransactions" style="text-align: left;display: block;">
             <div class="md-tile-content">
-                <i hide-sm hide-md class="material-icons md-18">trending_up</i> Recent Transactions
+                <i hide-sm hide-md class="material-icons md-18">trending_up</i> {{ 'nav.label.recenttransactions' | translate}}
             </div>
         </md-button>
         <md-divider></md-divider>
         <md-button ng-click="vm.selectItem('Charges')" ui-sref-active="md-warn" ui-sref=".charges"
                    style="text-align: left;display: block;">
             <div class="md-tile-content">
-                <i hide-sm hide-md class="material-icons md-18">attach_money</i> Charges
+                <i hide-sm hide-md class="material-icons md-18">attach_money</i> {{ 'nav.label.charges' | translate }}
             </div>
         </md-button>
         <md-divider></md-divider>
         <md-button ng-click="vm.selectItem('Transfers')" ui-sref-active="md-warn" ui-sref=".transfers"
                    style="text-align: left;display: block;">
             <div class="md-tile-content">
-                <i hide-sm hide-md class="material-icons md-18">attach_money</i> Transfers
+                <i hide-sm hide-md class="material-icons md-18">attach_money</i> {{ 'nav.label.transfers' | translate }}
             </div>
         </md-button>
         <md-divider></md-divider>
         <md-button ng-click="vm.selectItem('About Us')" ui-sref-active="md-warn" ui-sref=".aboutus"
                    style="text-align: left;display: block;">
             <div class="md-tile-content">
-                <i hide-sm hide-md class="material-icons md-18">info</i> About Us
+                <i hide-sm hide-md class="material-icons md-18">info</i> {{ 'nav.label.aboutus' | translate }}
             </div>
         </md-button>
         <md-divider></md-divider>
         <md-button ng-click="vm.selectItem('Help')" ui-sref-active="md-warn" ui-sref=".help"
                    style="text-align: left;display: block;">
             <div class="md-tile-content">
-                <i hide-sm hide-md class="material-icons md-18">help</i> Help
+                <i hide-sm hide-md class="material-icons md-18">help</i> {{ 'nav.label.help' | translate }}
             </div>
         </md-button>
     </md-content>

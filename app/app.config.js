@@ -3,7 +3,7 @@
 //IS thsichaneg hknjseff
     angular.module('selfService')
 
-      .config(function ($mdThemingProvider, $mdIconProvider, $httpProvider) {
+      .config(function ($mdThemingProvider, $mdIconProvider, $httpProvider, $translateProvider) {
 
           $mdThemingProvider
             .theme('default')
@@ -56,6 +56,12 @@
           $httpProvider.defaults.headers.common['Content-Type'] = 'application/json; charset=utf-8';
           // Mifos set Tenant
           $httpProvider.defaults.headers.common['Fineract-Platform-TenantId'] = 'default';
+
+          $translateProvider.useStaticFilesLoader({
+              prefix: 'global-translations/locale-',
+              suffix: '.json'
+          });
+          $translateProvider.preferredLanguage('en');
 
         }
       )

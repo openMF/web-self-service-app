@@ -115,6 +115,16 @@
                         authorizedRoles: [USER_ROLES.user]
                     }
                 })
+                .state('app.tpt', {
+                    url: '/tpt',
+                    templateUrl: 'src/tpt/tpt.html',
+                    controller: 'TPTCtrl',
+                    controllerAs: 'vm',
+                    data: {
+                        title: 'Third Party Transfers',
+                        authorizedRoles: [USER_ROLES.user]
+                    }
+                })
                 .state('app.beneficiarieslist', {
                     url: '/beneficiaries/list',
                     templateUrl: 'src/beneficiaries/beneficiaries-list/beneficiaries-list.html',

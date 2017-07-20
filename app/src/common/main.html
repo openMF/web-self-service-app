@@ -2,8 +2,9 @@
     <div layout="col" layout-align="start end" layout-padding class="sidenav-header">
         <div layout="col" flex>
             <div class="sidenav-content">
-                <md-icon md-menu-origin md-svg-src="assets/images/ic_person_white_24px.svg"></md-icon>
-                <h1 class="sidenav-title md-title">{{'nav.msg.welcome' | translate}} {{vm.userDetails.username}}</h1>
+                <md-icon md-menu-origin md-svg-src="assets/images/ic_person_white_24px.svg" ng-show="vm.profileImage == null"></md-icon>
+                <img class="profile-img" ng-src="{{ vm.profileImage }}" ng-hide="vm.profileImage == null" />
+                <h1 class="sidenav-title md-title">{{'nav.msg.welcome' | translate}} {{vm.profile.displayName}}</h1>
             </div>
         </div>
     </div>
@@ -104,7 +105,7 @@
                     </md-button>
                 </md-menu-item>
                 <md-menu-item>
-                    <md-button ng-click="logout();">
+                    <md-button ng-click="vm.logout();">
                         <div layout="row">
                             <p flex>Logout</p>
                         </div>

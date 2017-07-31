@@ -181,11 +181,29 @@
                 })
                 .state('login', {
                     url: '/login',
-                    templateUrl: 'src/authentication/authentication.html',
+                    templateUrl: 'src/authentication/login/login.html',
                     controller: 'LoginCtrl',
                     controllerAs: 'vm',
                     data: {
                         title: 'Login'
+                    }
+                })
+                .state('forgot', {
+                    url: '/forgot',
+                    templateUrl: 'src/authentication/forgot/forgot.html',
+                    controller: 'ForgotPwdCtrl',
+                    controllerAs: 'vm',
+                    data: {
+                        title: 'Forgot Password'
+                    }
+                })
+                .state('register', {
+                    url: '/register',
+                    templateUrl: 'src/authentication/register/register.html',
+                    controller: 'RegisterCtrl',
+                    controllerAs: 'vm',
+                    data: {
+                        title: 'Register User'
                     }
                 })
             }

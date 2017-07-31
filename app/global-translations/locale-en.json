@@ -1,6 +1,8 @@
 {
   "login.heading.logintoyouraccount" : "Login to your account",
   "login.btn.login": "Login",
+  "login.btn.forgot": "Forgot Password",
+  "login.btn.register": "New User? Create an Account",
 
   "nav.msg.welcome": "Welcome,",
   "nav.label.dashboard": "Dashboard",

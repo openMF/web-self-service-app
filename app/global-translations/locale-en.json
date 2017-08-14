@@ -71,6 +71,7 @@
   "label.msg.loadingCharges": "Loading Charges",
   "label.msg.loadingRecentTransactions": "Loading Recent Transactions",
   "label.msg.loadingBeneficiaries": "Loading Beneficiaries",
+  "label.msg.logginIn": "Logging In",
 
   "label.input.search": "Search",
   "label.input.payTo": "Pay To",

@@ -183,7 +183,7 @@
                     url: '/login',
                     templateUrl: 'src/authentication/authentication.html',
                     controller: 'LoginCtrl',
-                    controllerAs: 'login',
+                    controllerAs: 'vm',
                     data: {
                         title: 'Login'
                     }

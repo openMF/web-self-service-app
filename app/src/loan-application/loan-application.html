@@ -8,6 +8,7 @@
         <md-divider></md-divider>
         <md-card-content>
             <form name="loanApplicationForm" ng-submit="loanApplicationForm.$valid && vm.submit()">
+                <api-validate></api-validate>
                 <md-input-container class="md-block md-icon-float">
                     <label>{{ 'label.input.productOptions' | translate }}</label>
                     <md-select ng-model="vm.form.productId" ng-change="vm.getLoanTemplate(vm.clientId, vm.form.productId)" required>

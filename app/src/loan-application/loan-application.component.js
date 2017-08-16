@@ -74,7 +74,7 @@
                 transactionProcessingStrategyId: vm.template.transactionProcessingStrategyId
             };
             var data = Object.assign({}, loanTemp, vm.form);
-            LoanApplicationService.loan().save(data).$promise.then(function(resp) {
+            LoanApplicationService.loan().save(data).$promise.then(function() {
                 clearForm();
                 $mdToast.show(
                     $mdToast.simple()

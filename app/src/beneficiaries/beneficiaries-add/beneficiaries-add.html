@@ -8,6 +8,7 @@
         <md-divider></md-divider>
         <md-card-content>
             <form name="addBeneficiaryForm" ng-submit="addBeneficiaryForm.$valid && vm.submit()">
+                <api-validate></api-validate>
                 <md-input-container class="md-block md-icon-float">
                     <label>{{ 'label.input.accountType' | translate }}</label>
                     <md-select ng-model="vm.addBeneficiaryFormData.accountType" required>

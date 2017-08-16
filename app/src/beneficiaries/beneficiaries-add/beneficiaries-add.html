@@ -9,25 +9,25 @@
         <md-card-content>
             <form name="addBeneficiaryForm" ng-submit="addBeneficiaryForm.$valid && vm.submit()">
                 <md-input-container class="md-block md-icon-float">
-                    <label>{{ 'label.input.accountType' | translate }} <span class="required">*</span></label>
+                    <label>{{ 'label.input.accountType' | translate }}</label>
                     <md-select ng-model="vm.addBeneficiaryFormData.accountType" required>
                         <md-option ng-repeat="accountType in vm.accountTypeOptions" ng-value="accountType.id">{{ accountType.value }}</md-option>
                     </md-select>
                 </md-input-container>
                 <md-input-container class="md-block">
-                    <label>{{ 'label.input.accountNumber' | translate }} <span class="required">*</span></label>
+                    <label>{{ 'label.input.accountNumber' | translate }}</label>
                     <input name="accountNumber" ng-model="vm.addBeneficiaryFormData.accountNumber" required>
                 </md-input-container>
                 <md-input-container class="md-block">
-                    <label>{{ 'label.input.officeName' | translate }} <span class="required">*</span></label>
+                    <label>{{ 'label.input.officeName' | translate }}</label>
                     <input name="officeName" ng-model="vm.addBeneficiaryFormData.officeName" required>
                 </md-input-container>
                 <md-input-container class="md-block">
-                    <label>{{ 'label.input.transferLimit' | translate }} <span class="required">*</span></label>
+                    <label>{{ 'label.input.transferLimit' | translate }}</label>
                     <input type="number" name="transferLimit" ng-model="vm.addBeneficiaryFormData.transferLimit" required>
                 </md-input-container>
                 <md-input-container class="md-block">
-                    <label>{{ 'label.input.beneficiaryName' | translate }} <span class="required">*</span></label>
+                    <label>{{ 'label.input.beneficiaryName' | translate }}</label>
                     <input name="name" ng-model="vm.addBeneficiaryFormData.name" required>
                 </md-input-container>
                 <div layout="row" flex>

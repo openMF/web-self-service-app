@@ -9,25 +9,25 @@
         <md-card-content>
             <form name="loanApplicationForm" ng-submit="loanApplicationForm.$valid && vm.submit()">
                 <md-input-container class="md-block md-icon-float">
-                    <label>{{ 'label.input.productOptions' | translate }} <span class="required">*</span></label>
+                    <label>{{ 'label.input.productOptions' | translate }}</label>
                     <md-select ng-model="vm.form.productId" ng-change="vm.getLoanTemplate(vm.clientId, vm.form.productId)" required>
                         <md-option ng-repeat="productOption in vm.template.productOptions" ng-value="productOption.id">{{ productOption.name }}</md-option>
                     </md-select>
                 </md-input-container>
                 <br />
                 <md-input-container class="md-block md-icon-float" ng-if="vm.template.loanPurposeOptions">
-                    <label>{{ 'label.input.purposeOfLoan' | translate }} <span class="required">*</span></label>
+                    <label>{{ 'label.input.purposeOfLoan' | translate }}</label>
                     <md-select ng-model="vm.form.loanPurposeId" required>
                         <md-option ng-repeat="loanPurpose in vm.template.loanPurposeOptions" ng-value="loanPurpose.id">{{ loanPurpose.name }}</md-option>
                     </md-select>
                 </md-input-container>
                 <br />
                 <md-input-container class="md-block" ng-if="vm.template.currency">
-                    <label>{{ 'label.input.principal' | translate }} <span class="required">*</span></label>
+                    <label>{{ 'label.input.principal' | translate }}</label>
                     <input name="principal" ng-model="vm.form.principal" required>
                 </md-input-container>
                 <md-input-container class="md-block" ng-if="vm.template.currency">
-                    <label>{{ 'label.input.currency' | translate }} <span class="required">*</span></label>
+                    <label>{{ 'label.input.currency' | translate }}</label>
                     <input name="currency" value="{{ vm.template.currency.displayLabel }}" ng-disabled="true" required>
                 </md-input-container>
                 <md-input-container layout="row" ng-if="vm.form.productId">

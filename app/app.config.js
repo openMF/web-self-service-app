@@ -65,7 +65,6 @@
             .useSanitizeValueStrategy('escape')
             .preferredLanguage(defaultLocale)
             .fallbackLanguage(defaultLocale);
-
         }
       )
 

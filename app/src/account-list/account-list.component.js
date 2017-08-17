@@ -36,7 +36,7 @@
                 });
             })
         }
-
+      
         function getAccounts(accountNo, query) {
             AccountService.getAllAccounts(accountNo).get(query).$promise.then(function (res) {
                 vm.loanAccounts = res.loanAccounts;//@todo Accounts currently retrieved twice.Also, check whether all accounts for all clients are retrieved
@@ -47,7 +47,6 @@
                     vm.loadingAccountInfo = false;
                 }
             });
-
         }
 
         function onPaginate(offset, limit) {

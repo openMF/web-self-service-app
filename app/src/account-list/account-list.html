@@ -19,7 +19,7 @@
 		      </tr>
 		    </thead>
 		    <tbody md-body>
-			     <tr md-row md-select="account" md-select-id="{{loanAccount.name}}" md-auto-select ng-repeat="loanAccount in vm.loanAccounts" ng-click="vm.routeTo( 'loan',loanAccount.id)">
+			     <tr md-row md-select="account" md-select-id="{{loanAccount.name}}" md-auto-select ng-repeat="loanAccount in vm.loanAccounts | limitTo: vm.query.limit : (vm.query.offset -1) * vm.query.limit" ng-click="vm.routeTo( 'loan',loanAccount.id)">
 			        <td md-cell>{{loanAccount.accountNo}}</td>
 			        <td md-cell>{{loanAccount.productName}}</td>
 			        <td md-cell>{{loanAccount.originalLoan  | number:2 }}</td>
@@ -31,7 +31,7 @@
 		    </tbody>
 		  </table>
 		</md-table-container>
-		<md-table-pagination md-limit="vm.query.limit" md-page="vm.query.offset" md-total="{{vm.allLoanAccounts.totalFilteredRecords}}" md-on-paginate="vm.onPaginate" md-page-select></md-table-pagination>
+		<md-table-pagination md-limit="vm.query.limit" md-page="vm.query.offset" md-total="{{vm.loanAccounts.length}}" md-on-paginate="vm.onPaginate" md-page-select></md-table-pagination>
     </md-content>
   </md-tab>
 
@@ -49,7 +49,7 @@
 		      </tr>
 		    </thead>
 		    <tbody md-body>
-			     <tr md-row md-select="account" md-select-id="{{savingsAccount.name}}" md-auto-select ng-repeat="savingsAccount in vm.savingsAccounts" ng-click="vm.routeTo('savings',savingsAccount.id)">
+			     <tr md-row md-select="account" md-select-id="{{savingsAccount.name}}" md-auto-select ng-repeat="savingsAccount in vm.savingsAccounts | limitTo: vm.query.limit : (vm.query.offset -1) * vm.query.limit" ng-click="vm.routeTo('savings',savingsAccount.id)">
 			        <td md-cell>{{savingsAccount.accountNo}}</td>
 			        <td md-cell>{{savingsAccount.productName}}</td>
 			        <td md-cell>{{savingsAccount.accountType.value}}</td>
@@ -59,7 +59,7 @@
 		    </tbody>
 		  </table>
 		</md-table-container>
-		<md-table-pagination md-limit="vm.query.limit" md-page="vm.query.offset" md-total="{{vm.savingsAccounts.totalFilteredRecords}}" md-on-paginate="vm.onPaginate" md-page-select></md-table-pagination>
+		<md-table-pagination md-limit="vm.query.limit" md-page="vm.query.offset" md-total="{{vm.savingsAccounts.length | limitTo: vm.query.limit : (vm.query.offset -1) * vm.query.limit}}" md-on-paginate="vm.onPaginate" md-page-select></md-table-pagination>
     </md-content>
   </md-tab>
 
@@ -87,7 +87,7 @@
 		    </tbody>
 		  </table>
 		</md-table-container>
-		<md-table-pagination md-limit="vm.query.limit" md-page="vm.query.offset" md-total="{{vm.shareAccounts.totalFilteredRecords}}" md-on-paginate="vm.onPaginate" md-page-select></md-table-pagination>
+		<md-table-pagination md-limit="vm.query.limit" md-page="vm.query.offset" md-total="{{vm.shareAccounts.length}}" md-on-paginate="vm.onPaginate" md-page-select></md-table-pagination>
     </md-content>
   </md-tab>
 </md-tabs>

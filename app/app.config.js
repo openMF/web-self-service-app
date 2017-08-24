@@ -60,13 +60,15 @@
         }
       )
 
-      .run(['$rootScope', function($rootScope) {
-        $rootScope.userDetails = {};
-        $rootScope.userDetails.partyDetail = {};
-        if(localStorage.getItem("userDetails")){
-          $rootScope.userDetails = JSON.parse(localStorage.getItem("userDetails"));
-          $rootScope.auth = localStorage.getItem("auth");
-        }
+      .run(['$rootScope', '$location', 'AuthService', function($rootScope, $location, AuthService) {
+            $rootScope.$on('$locationChangeStart', function () {
+                // redirect to login page if not logged in and trying to access a restricted page
+                var restrictedPage = $.inArray($location.path(), ['/login']) === -1;
+                var loggedIn = AuthService.isAuthenticated();
+                if (restrictedPage && !loggedIn) {
+                      $location.path('/login');
+                }
+            });
       }])
 
 })();

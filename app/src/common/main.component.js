@@ -74,9 +74,7 @@
     }
 
     $scope.logout = function() {
-      localStorage.clear();
-      $state.go("login");
-      //window.location.reload();
+      AuthService.logout();
     }
 
   }

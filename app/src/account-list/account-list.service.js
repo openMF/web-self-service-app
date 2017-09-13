@@ -16,7 +16,7 @@
 
         this.getAllAccounts = function (clientId) {//@todo rename this getClientAccounts
             //@todo update this to return $resource(BASE_URL+'/self/clients/'+id+'/accounts'); and test
-            return $resource(BASE_URL + '/self/clients/' + clientId + '/accounts', clientId);
+            return $resource(BASE_URL + '/self/clients/' + clientId + '/accounts');
         };
 
         this.getClient = function (id) {

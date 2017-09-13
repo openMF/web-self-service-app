@@ -19,12 +19,10 @@
         vm.savingsAccounts = [];
         vm.shareAccounts = [];
         vm.loadingAccountInfo = true;
-        vm.totalNoOfAccounts = 0;
-        vm.accountsProcessed = 0;
 
         vm.query = {
             limit: 5,
-            offset: 0
+            offset: 1
         };
 
         function getClient() {
@@ -34,17 +32,13 @@
             });
         }
 
-        function getAccounts(accountNo, query) {
-            AccountService.getAllAccounts(accountNo).get(query).$promise.then(function (res) {
-                vm.loanAccounts = res.loanAccounts;//@todo Accounts currently retrieved twice.Also, check whether all accounts for all clients are retrieved
+        function getAccounts(accountNo) {
+            AccountService.getAllAccounts(accountNo).get().$promise.then(function (res) {
+                vm.loanAccounts = res.loanAccounts;
                 vm.savingsAccounts = res.savingsAccounts;
                 vm.shareAccounts = res.shareAccounts;
-                vm.accountsProcessed++;
-                if (vm.accountsProcessed == vm.totalNoOfAccounts) {
-                    vm.loadingAccountInfo = false;
-                }
+                vm.loadingAccountInfo = false;
             });
-
         }
 
         function onPaginate(offset, limit) {

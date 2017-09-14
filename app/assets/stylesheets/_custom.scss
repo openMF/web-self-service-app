@@ -307,3 +307,13 @@ md-toolbar .md-menu {
 .statusprogresscompletedtab {
   color: #298A08;
 }
+
+#transfer {
+  md-select {
+    margin-bottom: 18px;
+  }
+}
+
+.required {
+  color: red;
+}

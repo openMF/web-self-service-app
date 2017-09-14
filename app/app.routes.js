@@ -101,6 +101,16 @@
                         authorizedRoles: [USER_ROLES.user]
                     }
                 })
+                .state('app.transfers', {
+                    url: '/transfers',
+                    templateUrl: 'src/transfers/transfers.html',
+                    controller: 'AccountTransferCtrl',
+                    controllerAs: 'vm',
+                    data: {
+                        title: 'Transfers',
+                        authorizedRoles: [USER_ROLES.user]
+                    }
+                })
                 .state('login', {
                     url: '/login',
                     templateUrl: 'src/authentication/authentication.html',

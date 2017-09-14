@@ -1,0 +1,44 @@
+<div id="transfer" class="md-padding" layout="row" layout-align="center" flex>
+    <md-card flex flex-gt-md="60">
+        <md-card-title>
+            <md-card-title-text>
+                <span class="md-headline">Transfers</span>
+            </md-card-title-text>
+        </md-card-title>
+        <md-divider></md-divider>
+        <md-card-content>
+            <form name="transferForm" ng-submit="transferForm.$valid && vm.submit()">
+                <md-input-container class="md-block md-icon-float">
+                    <label>Pay To <span class="required">*</span></label>
+                    <md-select ng-model="vm.transferFormData.toAccount" required>
+                        <md-option ng-repeat="toAccountOption in vm.toAccountOptions" ng-value="toAccountOption">{{ toAccountOption.accountNo }} ({{toAccountOption.accountType.value}})</md-option>
+                    </md-select>
+                </md-input-container>
+                <md-input-container class="md-block md-icon-float">
+                    <label>Pay From <span class="required">*</span></label>
+                    <md-select ng-model="vm.transferFormData.fromAccount" required>
+                        <md-option ng-repeat="fromAccountOption in vm.fromAccountOptions" ng-value="fromAccountOption">{{ fromAccountOption.accountNo }} ({{fromAccountOption.accountType.value}})</md-option>
+                    </md-select>
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <label>Amount <span class="required">*</span></label>
+                    <input type="number" step="0.01" ng-model="vm.transferFormData.amount" required>
+                </md-input-container>
+                <div layout="row">
+                    <label>Transfer Date: </label>
+                    <span flex></span>
+                    <md-datepicker ng-model="vm.transferFormData.transferDate" disabled></md-datepicker>
+                </div>
+                <md-input-container class="md-block">
+                    <label>Remark <span class="required">*</span></label>
+                    <input name="remark" ng-model="vm.transferFormData.remark" required>
+                </md-input-container>
+                <div layout="row" flex>
+                    <md-button flex class="md-danger">Cancel</md-button>
+                    <md-button type="submit" flex class="md-raised md-primary" ng-disabled="transferForm.$invalid">Review Transfer</md-button>
+                </div>
+
+            </form>
+        </md-card-content>
+    </md-card>
+</div>

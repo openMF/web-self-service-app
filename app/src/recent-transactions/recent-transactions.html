@@ -1,0 +1,46 @@
+<div class="datatable-cont md-padding">
+    <md-card>
+        <md-card-title>
+            <md-card-title-text>
+                <span class="md-headline">Recent Transactions</span>
+            </md-card-title-text>
+            <md-input-container md-no-float class="md-block search-input">
+                <md-icon md-svg-src="assets/images/ic_search_black_24px.svg"></md-icon>
+                <input ng-model="vm.transactFilter" type="text" placeholder="Search...">
+            </md-input-container>
+        </md-card-title>
+        <md-divider></md-divider>
+        <md-card-content class="md-padding">
+            <div flex layout="row" layout-align="center center" ng-if="vm.loadingTransactions">
+                <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+                Loading Recent Transactions...
+            </div>
+            <md-table-container>
+                <table md-table>
+                    <thead md-head md-order="vm.query.orderBy">
+                    <tr md-row>
+                        <th md-column md-order-by="id">Id</th>
+                        <th md-column md-order-by="type"><span>Type</span></th>
+                        <th md-column md-order-by="officeName">Office Name</th>
+                        <th md-column md-numeric md-order-by="amount">Amount</th>
+                        <th md-column md-order-by="date.join('')">Date</th>
+                    </tr>
+                    </thead>
+                    <tbody md-body>
+                    <tr md-row
+                        ng-repeat="transaction in vm.recenttransactions.pageItems | filter: vm.transactFilter | orderBy: vm.query.orderBy">
+                        <td md-cell>{{ transaction.id }}</td>
+                        <td md-cell>{{ transaction.type.value }}</td>
+                        <td md-cell>{{ transaction.officeName}}</td>
+                        <td md-cell>{{ transaction.currency.displaySymbol + ' ' + transaction.amount}}</td>
+                        <td md-cell>{{ transaction.date | DateFormat }}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </md-table-container>
+            <md-table-pagination md-limit="vm.query.limit" md-page="vm.page"
+                                 md-on-paginate="vm.onPaginate"
+                                 md-total="{{vm.recenttransactions.totalFilteredRecords}}" md-page-select></md-table-pagination>
+        </md-card-content>
+    </md-card>
+</div>

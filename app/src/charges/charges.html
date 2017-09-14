@@ -1,0 +1,50 @@
+<div class="datatable-cont md-padding">
+    <md-card>
+        <md-card-title>
+            <md-card-title-text>
+                <span class="md-headline">Charges</span>
+            </md-card-title-text>
+            <md-input-container md-no-float class="md-block search-input">
+                <md-icon md-svg-src="assets/images/ic_search_black_24px.svg"></md-icon>
+                <input ng-model="vm.chargeFilter" type="text" placeholder="Search...">
+            </md-input-container>
+        </md-card-title>
+        <md-divider></md-divider>
+        <md-card-content class="md-padding">
+            <div flex layout="row" layout-align="center center" ng-if="vm.loadingCharges">
+                <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+                Loading Recent Transactions...
+            </div>
+            <md-table-container>
+                <table md-table>
+                    <thead md-head md-order="vm.query.orderBy">
+                    <tr md-row>
+                        <th md-column {{ (!(charge.isWaived || charge.isPaid)) |StatusLookup}}>Status</th>
+                        <th md-column md-order-by="name">Name</th>
+                        <th md-column md-order-by="dueDate">Due As Of</th>
+                        <th md-column md-numeric md-order-by="amount">Due</th>
+                        <th md-column md-numeric md-order-by="amountPaid">Paid</th>
+                        <th md-column md-numeric md-order-by="amountWaived">Waived</th>
+                        <th md-column md-numeric md-order-by="amountOutstanding">Outstanding</th>
+                    </tr>
+                    </thead>
+                    <tbody md-body>
+                    <tr md-row
+                        ng-repeat="charge in vm.charges.pageItems | filter: vm.chargeFilter | orderBy: vm.query.orderBy">
+                        <td md-cell><i class="fa fa-stop fa-2x {{ (!(charge.isWaived || charge.isPaid)) |StatusLookup}}" ></i></td>
+                        <td md-cell>{{charge.name}}</td>
+                        <td md-cell>{{charge.dueDate | DateFormat}}</td>
+                        <td md-cell>{{charge.currency.displaySymbol + ' ' + (charge.amount | number)}}</td>
+                        <td md-cell>{{charge.currency.displaySymbol + ' ' + (charge.amountPaid | number)}}</td>
+                        <td md-cell>{{charge.currency.displaySymbol + ' ' + (charge.amountWaived | number)}}</td>
+                        <td md-cell>{{charge.currency.displaySymbol + ' ' + (charge.amountOutstanding | number)}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </md-table-container>
+            <md-table-pagination md-limit="vm.query.limit" md-page="vm.page"
+                                 md-on-paginate="vm.onPaginate"
+                                 md-total="{{vm.charges.totalFilteredRecords}}" md-page-select></md-table-pagination>
+        </md-card-content>
+    </md-card>
+</div>

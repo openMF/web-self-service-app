@@ -6,9 +6,12 @@
       </div>
     </div>
     <div class="login-container" flex flex-gt-md="30">
+        <div class="md-padding" layout="row" layout-align="end">
+            <translate-helper></translate-helper>
+        </div>
         <div flex class="logo" layout-margin>
           <img width="200px" src="assets/images/MifosX_logo.png">
-          <h1 class="md-title">Login to your account</h1>
+          <h1 class="md-title">{{ 'login.heading.logintoyouraccount' | translate }}</h1>
         </div>
         <div flex="80" class="login-form" layout-padding>
           <form name="loginForm" ng-submit="doLogin()">
@@ -22,7 +25,7 @@
             </md-input-container>
 
             <section layout="column" layout-align="start">
-              <md-button type="submit" class="md-primary md-raised">Login</md-button>
+              <md-button type="submit" class="md-primary md-raised">{{ 'login.btn.login' | translate }}</md-button>
             </section>
           </form>
         </div>

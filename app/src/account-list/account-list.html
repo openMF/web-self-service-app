@@ -1,13 +1,13 @@
 <md-tabs id="account-list-tabs" class="datatable-cont md-primary" md-dynamic-height md-border-bottom>
-    <md-tab label="Loans">
+    <md-tab label="{{ 'label.heading.loans' | translate }}">
         <md-card>
             <md-card-title>
                 <md-card-title-text>
-                    <span class="md-headline">Loan Account List</span>
+                    <span class="md-headline">{{ 'label.heading.loanAccountList' | translate }}</span>
                 </md-card-title-text>
                 <md-input-container md-no-float class="md-block search-input">
                     <md-icon md-svg-src="assets/images/ic_search_black_24px.svg"></md-icon>
-                    <input ng-model="vm.loanFilter" type="text" placeholder="Search...">
+                    <input ng-model="vm.loanFilter" type="text" placeholder="{{ 'label.input.search' | translate }}">
                 </md-input-container>
             </md-card-title>
             <md-divider></md-divider>
@@ -21,13 +21,13 @@
                     <table md-table ng-model="vm.selected" md-progress="vm.promise">
                         <thead md-head md-order="vm.query.orderBy">
                         <tr md-row>
-                            <th md-column md-order-by="(inArrears)?a:z + status.code">Status</th>
-                            <th md-column md-numeric md-order-by="accountNo"><span>Account #</span></th>
-                            <th md-column md-order-by="productName">Loan Account</th>
-                            <th md-column md-numeric md-order-by="originalLoan">Original Loan</th>
-                            <th md-column md-numeric md-order-by="loanBalance">Loan Balance</th>
-                            <th md-column md-numeric md-order-by="amountPaid">Amount Paid</th>
-                            <th md-column md-order-by="loanType.value">Type</th>
+                            <th md-column md-order-by="(inArrears)?a:z + status.code">{{ 'label.heading.status' | translate }}</th>
+                            <th md-column md-numeric md-order-by="accountNo"><span>{{ 'label.heading.accountNo' | translate }}</span></th>
+                            <th md-column md-order-by="productName">{{ 'label.heading.loanAccount' | translate }}</th>
+                            <th md-column md-numeric md-order-by="originalLoan">{{ 'label.heading.originalLoan' | translate }}</th>
+                            <th md-column md-numeric md-order-by="loanBalance">{{ 'label.heading.loanBalance' | translate }}</th>
+                            <th md-column md-numeric md-order-by="amountPaid">{{ 'label.heading.amountPaid' | translate}}</th>
+                            <th md-column md-order-by="loanType.value">{{ 'label.heading.type' | translate }}</th>
                         </tr>
                         </thead>
                         <tbody md-body>
@@ -57,15 +57,15 @@
         </md-card>
     </md-tab>
 
-    <md-tab label="Savings">
+    <md-tab label="{{ 'label.heading.savings' | translate }}">
         <md-card>
             <md-card-title>
                 <md-card-title-text>
-                    <span class="md-headline">Savings Account List</span>
+                    <span class="md-headline">{{ 'label.heading.savingAccountList' | translate }}</span>
                 </md-card-title-text>
                 <md-input-container md-no-float class="md-block search-input">
                     <md-icon md-svg-src="assets/images/ic_search_black_24px.svg"></md-icon>
-                    <input ng-model="vm.savingFilter" type="text" placeholder="Search...">
+                    <input ng-model="vm.savingFilter" type="text" placeholder="{{ 'label.input.search' | translate }}">
                 </md-input-container>
             </md-card-title>
             <md-divider></md-divider>
@@ -74,11 +74,11 @@
                     <table md-table ng-model="vm.selected" md-progress="vm.promise">
                         <thead md-head md-order="vm.query.orderBy">
                         <tr md-row>
-                            <th md-column md-numeric md-order-by="status.code+subStatus.value">Status</th>
-                            <th md-column md-numeric md-order-by="accountNo"><span>Account #</span></th>
-                            <th md-column md-order-by="productName">Account</th>
-                            <th md-column md-numeric md-order-by="accountType.value">Account Type</th>
-                            <th md-column md-numeric md-order-by="accountBalance">Account Balance</th>
+                            <th md-column md-numeric md-order-by="status.code+subStatus.value">{{ 'label.heading.status' | translate }}</th>
+                            <th md-column md-numeric md-order-by="accountNo"><span>{{ 'label.heading.accountNo' | translate }}</span></th>
+                            <th md-column md-order-by="productName">{{ 'label.heading.account' | translate }}</th>
+                            <th md-column md-numeric md-order-by="accountType.value">{{ 'label.heading.accountType' | translate }}</th>
+                            <th md-column md-numeric md-order-by="accountBalance">{{ 'label.heading.accountBalance' | translate }}</th>
                         </tr>
                         </thead>
                         <tbody md-body>
@@ -108,15 +108,15 @@
         </md-card>
     </md-tab>
 
-    <md-tab label="Shares">
+    <md-tab label="{{ 'label.heading.shares' | translate }}">
         <md-card>
             <md-card-title>
                 <md-card-title-text>
-                    <span class="md-headline">Shares Account List</span>
+                    <span class="md-headline">{{ 'label.heading.shareAccountList' | translate }}</span>
                 </md-card-title-text>
                 <md-input-container md-no-float class="md-block search-input">
                     <md-icon md-svg-src="assets/images/ic_search_black_24px.svg"></md-icon>
-                    <input ng-model="vm.shareFilter" type="text" placeholder="Search...">
+                    <input ng-model="vm.shareFilter" type="text" placeholder="{{ 'label.input.search' | translate }}">
                 </md-input-container>
             </md-card-title>
             <md-divider></md-divider>
@@ -125,11 +125,11 @@
                     <table md-table ng-model="vm.selected" md-progress="vm.promise">
                         <thead md-head md-order="vm.query.orderBy">
                         <tr md-row>
-                            <th md-column md-numeric md-order-by="status.code">Status</th>
-                            <th md-column md-numeric md-order-by="accountNo"><span>Account #</span></th>
-                            <th md-column md-order-by="productName">Account</th>
-                            <th md-column md-numeric md-order-by="totalApprovedShares">Approved Shares</th>
-                            <th md-column md-numeric md-order-by="totalPendingForApprovalShares">Shares Pending Approval</th>
+                            <th md-column md-numeric md-order-by="status.code">{{ 'label.heading.status' | translate }}</th>
+                            <th md-column md-numeric md-order-by="accountNo"><span>{{ 'label.heading.accountNo' | translate }}</span></th>
+                            <th md-column md-order-by="productName">{{ 'label.heading.account' | translate }}</th>
+                            <th md-column md-numeric md-order-by="totalApprovedShares">{{ 'label.heading.approvedShares' | translate }}</th>
+                            <th md-column md-numeric md-order-by="totalPendingForApprovalShares">{{ 'label.heading.pendingShares' | translate }}</th>
                         </tr>
                         </thead>
                         <tbody md-body>

@@ -2,28 +2,28 @@
     <md-card>
         <md-card-title>
             <md-card-title-text>
-                <span class="md-headline">Recent Transactions</span>
+                <span class="md-headline">{{ 'label.heading.recentTransactions' | translate }}</span>
             </md-card-title-text>
             <md-input-container md-no-float class="md-block search-input">
                 <md-icon md-svg-src="assets/images/ic_search_black_24px.svg"></md-icon>
-                <input ng-model="vm.transactFilter" type="text" placeholder="Search...">
+                <input ng-model="vm.transactFilter" type="text" placeholder="{{ 'label.input.search' | translate }}">
             </md-input-container>
         </md-card-title>
         <md-divider></md-divider>
         <md-card-content class="md-padding">
             <div flex layout="row" layout-align="center center" ng-if="vm.loadingTransactions">
                 <md-progress-circular md-mode="indeterminate"></md-progress-circular>
-                Loading Recent Transactions...
+                {{ 'label.msg.loadingRecentTransactions' | translate }}...
             </div>
             <md-table-container>
                 <table md-table>
                     <thead md-head md-order="vm.query.orderBy">
                     <tr md-row>
-                        <th md-column md-order-by="id">Id</th>
-                        <th md-column md-order-by="type"><span>Type</span></th>
-                        <th md-column md-order-by="officeName">Office Name</th>
-                        <th md-column md-numeric md-order-by="amount">Amount</th>
-                        <th md-column md-order-by="date.join('')">Date</th>
+                        <th md-column md-order-by="id">{{ 'label.heading.id' | translate }}</th>
+                        <th md-column md-order-by="type"><span>{{ 'label.heading.type' | translate }}</span></th>
+                        <th md-column md-order-by="officeName">{{ 'label.heading.officeName' | translate }}</th>
+                        <th md-column md-numeric md-order-by="amount">{{ 'label.heading.amount' | translate }}</th>
+                        <th md-column md-order-by="date.join('')">{{ 'label.heading.date' | translate }}</th>
                     </tr>
                     </thead>
                     <tbody md-body>

@@ -7,6 +7,7 @@
   "nav.label.recenttransactions": "Recent Transactions",
   "nav.label.charges": "Charges",
   "nav.label.transfers": "Transfers",
+  "nav.label.beneficiaries": "Beneficiaries",
   "nav.label.aboutus": "About us",
   "nav.label.help": "Help",
 
@@ -41,10 +42,17 @@
   "label.heading.amount": "Amount",
   "label.heading.date": "Date",
   "label.heading.transfers": "Transfers",
+  "label.heading.beneficiariesList": "Beneficiaries List",
+  "label.heading.clientName": "Client Name",
+  "label.heading.transferLimit": "Transfer Limit",
+  "label.heading.addbeneficiaries": "Add Beneficiary",
+  "label.heading.actions": "Actions",
+  "label.heading.editbeneficiaries": "Edit Beneficiary",
 
 
   "label.msg.loadingCharges": "Loading Charges",
   "label.msg.loadingRecentTransactions": "Loading Recent Transactions",
+  "label.msg.loadingBeneficiaries": "Loading Beneficiaries",
 
   "label.input.search": "Search",
   "label.input.payTo": "Pay To",
@@ -52,8 +60,14 @@
   "label.input.amount": "Amount",
   "label.input.transferDate": "Transfer Date",
   "label.input.remark": "Remark",
+  "label.input.beneficiaryName": "Beneficiary Name",
+  "label.input.officeName": "Office Name",
+  "label.input.accountNumber": "Account Number",
+  "label.input.transferLimit": "Transfer Limit",
+  "label.input.accountType": "Account Type",
 
   "label.btn.cancel": "Cancel",
-  "label.btn.reviewTransfer": "Review Transfer"
-
+  "label.btn.reviewTransfer": "Review Transfer",
+  "label.btn.addBeneficiary": "Add Beneficiary",
+  "label.btn.editBeneficiary": "Edit Beneficiary"
 }

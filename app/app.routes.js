@@ -111,6 +111,42 @@
                         authorizedRoles: [USER_ROLES.user]
                     }
                 })
+                .state('app.beneficiarieslist', {
+                    url: '/beneficiaries/list',
+                    templateUrl: 'src/beneficiaries/beneficiaries-list/beneficiaries-list.html',
+                    controller: 'BeneficiariesListCtrl',
+                    controllerAs: 'vm',
+                    data: {
+                        title: 'Beneficiaries List',
+                        authorizedRoles: [USER_ROLES.user]
+                    }
+                })
+                .state('app.addbeneficiary', {
+                    url: '/beneficiaries/add',
+                    templateUrl: 'src/beneficiaries/beneficiaries-add/beneficiaries-add.html',
+                    controller: 'BeneficiariesAddCtrl',
+                    controllerAs: 'vm',
+                    data: {
+                        title: 'Add Beneficiary',
+                        authorizedRoles: [USER_ROLES.user]
+                    }
+
+                })
+                .state('app.editbeneficiary', {
+                    url: '/beneficiaries/edit/:id',
+                    templateUrl: 'src/beneficiaries/beneficiaries-edit/beneficiaries-edit.html',
+                    controller: 'BeneficiariesEditCtrl',
+                    controllerAs: 'vm',
+                    params: {
+                        id: '',
+                        data: null
+                    },
+                    data: {
+                        title: 'Edit Beneficiary',
+                        authorizedRoles: [USER_ROLES.user]
+                    }
+
+                })
                 .state('login', {
                     url: '/login',
                     templateUrl: 'src/authentication/authentication.html',

@@ -1,0 +1,49 @@
+#error-404 {
+
+  background: #f1f1f1;
+
+  .content {
+    width: 90%;
+    max-width: 512px;
+
+    .error-code {
+      font-size: 112px;
+      text-align: center;
+      line-height: 1;
+      margin-bottom: 16px;
+      font-weight: 500;
+    }
+
+    .error-code-msg {
+      font-size: 74px;
+      text-align: center;
+      line-height: 1;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    .message {
+      font-size: 24px;
+      text-align: center;
+      color: rgba(0, 0, 0, 0.54);
+    }
+
+    .search {
+      width: 100%;
+      height: 56px;
+      line-height: 56px;
+      margin: 48px auto 16px auto;
+      padding: 16px;
+      background: #FFFFFF;
+
+      input {
+        padding: 0 0 0 16px;
+      }
+    }
+
+    .back-link {
+      font-size: 15px;
+      text-align: center;
+    }
+  }
+}

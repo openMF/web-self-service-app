@@ -2,9 +2,9 @@
     'use strict';
 
     angular.module('selfService')
-        .controller('AccountCtrl', ['$scope', '$rootScope', '$location', 'AccountService', 'AuthService', AccountCtrl]);
+        .controller('AccountCtrl', ['$scope', '$rootScope', '$state', 'AccountService', 'AuthService', AccountCtrl]);
 
-    function AccountCtrl($scope, $rootScope, $location, AccountService, AuthService) {
+    function AccountCtrl($scope, $rootScope, $state, AccountService, AuthService) {
 
         var vm = this;
         vm.selected = [];
@@ -58,7 +58,7 @@
             } else {
                 routingSlug = 'viewshareaccount';
             }
-            $location.path('/app/' + routingSlug + '/' + id);
+            $state.go('app.'+routingSlug, {loanId: id});
         }
     }
 

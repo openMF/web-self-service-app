@@ -6,11 +6,11 @@
         .config(function ($stateProvider, $urlRouterProvider, USER_ROLES) {
 
             $urlRouterProvider
-                .otherwise('/login');
+                .when('','/')
+                .otherwise('/404');
 
             $stateProvider
                 .state('app', {
-                    url: '/app',
                     abstract: true,
                     templateUrl: 'src/common/main.html',
                     controller: 'MainCtrl',
@@ -19,8 +19,12 @@
                         authorizedRoles: [USER_ROLES.user]
                     }
                 })
+                .state('404', {
+                    url: '/404',
+                    templateUrl: 'src/common/404.html',
+                })
                 .state('app.dashboard', {
-                    url: '/dashboard',
+                    url: '/',
                     templateUrl: 'src/common/dashboard.html',
                     controller: 'MainCtrl',
                     controllerAs: 'vm',
@@ -33,7 +37,7 @@
                 })
                 .state('app.accounts', {
                     url: '/accounts',
-                    templateUrl: 'src/account-list/account-list.html',
+                    templateUrl: 'src/accounts/account-list/account-list.html',
                     controller: 'AccountCtrl',
                     controllerAs: 'vm',
                     data: {
@@ -43,7 +47,7 @@
                 })
                 .state('app.viewloanaccount', {
                     url: '/viewloanaccount/:loanId',
-                    templateUrl: 'src/loan-account-detail/loan-account-detail.html',
+                    templateUrl: 'src/accounts/loan-account-detail/loan-account-detail.html',
                     controller: 'LoanAccountViewCtrl',
                     controllerAs: 'vm',
                     data: {
@@ -155,7 +159,7 @@
                     data: {
                         title: 'Login'
                     }
-                });
+                })
             }
         )
 })();

@@ -177,7 +177,7 @@ md-toolbar .md-menu {
 }
 // Sidenav styles
 .sidenav-header {
-  background: url("/assets/images/toolbar.png");
+  background: url('../assets/images/toolbar.png');
   background-size: cover;
   height: 20vh;
   color: #ffffff;
@@ -190,7 +190,7 @@ md-toolbar .md-menu {
 
 // Login Styles
 .cover {
-  background: url("/assets/images/cover.png");
+  background: url('../assets/images/cover.png');
   background-size: cover;
   color: white;
 }

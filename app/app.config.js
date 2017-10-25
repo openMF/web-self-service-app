@@ -57,11 +57,15 @@
           // Mifos set Tenant
           $httpProvider.defaults.headers.common['Fineract-Platform-TenantId'] = 'default';
 
-          $translateProvider.useStaticFilesLoader({
+          const defaultLocale = 'en';
+          $translateProvider
+            .useStaticFilesLoader({
               prefix: 'global-translations/locale-',
               suffix: '.json'
-          });
-          $translateProvider.preferredLanguage('en');
+            })
+            .useSanitizeValueStrategy('escape')
+            .preferredLanguage(defaultLocale)
+            .fallbackLanguage(defaultLocale);
 
         }
       )

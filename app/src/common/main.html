@@ -47,6 +47,13 @@
             </div>
         </md-button>
         <md-divider></md-divider>
+        <md-button ng-click="vm.selectItem('Apply Loan')" ui-sref-active="md-warn" ui-sref=".applyloan"
+                   style="text-align: left;display: block;">
+            <div class="md-tile-content">
+                <i hide-sm hide-md class="material-icons md-18">assignment</i> {{ 'nav.label.applyloan' | translate }}
+            </div>
+        </md-button>
+        <md-divider></md-divider>
         <md-button ng-click="vm.selectItem('About Us')" ui-sref-active="md-warn" ui-sref=".aboutus"
                    style="text-align: left;display: block;">
             <div class="md-tile-content">

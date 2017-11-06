@@ -2,8 +2,7 @@
   'use strict';
 //IS thsichaneg hknjseff
     angular.module('selfService')
-
-      .config(function ($mdThemingProvider, $mdIconProvider, $httpProvider, $translateProvider) {
+      .config(function ($mdThemingProvider, $mdIconProvider, $httpProvider, $translateProvider, TENANT_IDENTIFIER) {
 
           $mdThemingProvider
             .theme('default')
@@ -50,12 +49,12 @@
 
           $mdIconProvider
             .icon('user', 'assets/images/user.svg', 64);
-
+          
           $httpProvider.defaults.useXDomain = true;
           //Set headers
           $httpProvider.defaults.headers.common['Content-Type'] = 'application/json; charset=utf-8';
           // Mifos set Tenant
-          $httpProvider.defaults.headers.common['Fineract-Platform-TenantId'] = 'default';
+          $httpProvider.defaults.headers.common['Fineract-Platform-TenantId'] = TENANT_IDENTIFIER;
 
           const defaultLocale = 'en';
           $translateProvider

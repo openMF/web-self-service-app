@@ -58,7 +58,7 @@
             } else {
                 routingSlug = 'viewshareaccount';
             }
-            $state.go('app.'+routingSlug, {loanId: id});
+            $state.go('app.'+routingSlug, {id: id});
         }
     }
 

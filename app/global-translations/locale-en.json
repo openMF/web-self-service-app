@@ -63,6 +63,9 @@
   "label.heading.savingsAccountOverview": "Savings Account Overview",
   "label.heading.shareAccountOverview": "Share Account Overview",
   "label.heading.applyloan": "Apply For Loan",
+  "label.heading.outstanding": "Outstanding Balance",
+  "label.heading.accountId": "Account Id",
+  "label.heading.currency": "Currency",
 
   "label.msg.loadingCharges": "Loading Charges",
   "label.msg.loadingRecentTransactions": "Loading Recent Transactions",

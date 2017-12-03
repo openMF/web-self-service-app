@@ -9,7 +9,7 @@
             .primaryPalette('blue', {
               'default': '600'
             })
-            .accentPalette('teal', {
+            .accentPalette('pink', {
               'default': '500'
             })
             .warnPalette('defaultPrimary');

@@ -10,13 +10,13 @@
             <form name="transferForm" ng-submit="transferForm.$valid && vm.submit()">
                 <md-input-container class="md-block md-icon-float">
                     <label>{{ 'label.input.payTo' | translate }} <span class="required">*</span></label>
-                    <md-select ng-model="vm.transferFormData.toAccount" required>
+                    <md-select ng-model="vm.transferFormData.toAccount" ng-disabled="vm.disabledToAccount" required>
                         <md-option ng-repeat="toAccountOption in vm.toAccountOptions" ng-value="toAccountOption">{{ toAccountOption.accountNo }} ({{toAccountOption.accountType.value}})</md-option>
                     </md-select>
                 </md-input-container>
                 <md-input-container class="md-block md-icon-float">
                     <label>{{ 'label.input.payFrom' | translate }} <span class="required">*</span></label>
-                    <md-select ng-model="vm.transferFormData.fromAccount" required>
+                    <md-select ng-model="vm.transferFormData.fromAccount" ng-disabled="vm.disabledfromAccount" required>
                         <md-option ng-repeat="fromAccountOption in vm.fromAccountOptions" ng-value="fromAccountOption">{{ fromAccountOption.accountNo }} ({{fromAccountOption.accountType.value}})</md-option>
                     </md-select>
                 </md-input-container>

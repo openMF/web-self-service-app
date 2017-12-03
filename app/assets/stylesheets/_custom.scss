@@ -308,6 +308,81 @@ md-toolbar .md-menu {
   color: #298A08;
 }
 
+// Status backgrounds
+.bg_statusoverpaid {
+  background: #800080;
+  color: white;
+}
+
+.bg_statusactiveoverdue {
+  background: #FF0000;
+  color: white;
+}
+
+.bg_statustransferprogress {
+  background: #FF4000;
+  color: white;
+}
+
+.bg_statustransferonhold {
+  background: #DF0101;
+  color: white;
+}
+
+.bg_statusactive {
+  background: #00CE00;
+  color: white;
+}
+
+.bg_statusmatured {
+  background: #FF4000;
+}
+
+.bg_statusdeleted {
+  background: #000000;
+  color: white;
+}
+
+.bg_statuspending {
+  background: #FFA500;
+  color: white;
+}
+.bg_statusApproved {
+  background: #0F36E4;
+  color: white;
+}
+
+.bg_statusbad {
+  background: #FF0000;
+  color: white;
+}
+
+.bg_statusgood {
+  background: #008000;
+  color: white;
+}
+
+.bg_statushold {
+  background: #FFFF00;
+  color: white;
+}
+
+.bg_statusprogresspendingtab {
+  background: #F7FE2E;
+  color: white;
+}
+
+.bg_statusprogresstab {
+  background: #FFA500;
+  color: white;
+}
+
+.bg_statusprogresscompletedtab {
+  background: #298A08;
+  color: white;
+}
+
+
 #transfer {
   md-select {
     margin-bottom: 18px;

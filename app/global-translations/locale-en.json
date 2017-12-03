@@ -3,6 +3,7 @@
   "login.btn.login": "Login",
 
   "nav.msg.welcome": "Welcome,",
+  "nav.label.dashboard": "Dashboard",
   "nav.label.accounts": "Accounts",
   "nav.label.recenttransactions": "Recent Transactions",
   "nav.label.charges": "Charges",
@@ -62,7 +63,6 @@
   "label.heading.savingsAccountOverview": "Savings Account Overview",
   "label.heading.shareAccountOverview": "Share Account Overview",
   "label.heading.applyloan": "Apply For Loan",
-
 
   "label.msg.loadingCharges": "Loading Charges",
   "label.msg.loadingRecentTransactions": "Loading Recent Transactions",

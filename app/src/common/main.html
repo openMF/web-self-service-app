@@ -12,6 +12,13 @@
           Close
         </md-button> -->
         <md-divider></md-divider>
+        <md-button ng-click="vm.selectItem('Dashboard')" ui-sref-active="md-warn"
+                   ui-sref=".dashboard" style="text-align: left;display: block;">
+            <div class="md-tile-content">
+                <i hide-sm hide-md class="material-icons md-18">home</i> {{ 'nav.label.dashboard' | translate}}
+            </div>
+        </md-button>
+        <md-divider></md-divider>
         <md-button ng-click="vm.selectItem('Accounts')" ui-sref-active="md-warn" ui-sref=".accounts"
                    style="text-align: left;display: block;">
             <div class="md-tile-content">

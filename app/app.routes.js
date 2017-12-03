@@ -25,13 +25,11 @@
                 })
                 .state('app.dashboard', {
                     url: '/',
-                    templateUrl: 'src/common/dashboard.html',
-                    controller: 'MainCtrl',
+                    templateUrl: 'src/dashboard/dashboard.html',
+                    controller: 'DashboardCtrl',
                     controllerAs: 'vm',
                     data: {
-                        controller: 'ClientCtrl',
-                    controllerAs: 'vm',
-                        title: 'Profile',
+                        title: 'Dashboard',
                         authorizedRoles: [USER_ROLES.user]
                     }
                 })
@@ -76,7 +74,7 @@
                     }
                 })
                 .state('app.aboutus', {
-                    url: '/charges',
+                    url: '/about',
                     templateUrl: 'src/common/coming-soon.html',
                     controller: 'ClientCtrl',
                     controllerAs: 'vm',

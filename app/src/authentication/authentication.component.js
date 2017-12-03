@@ -19,7 +19,7 @@
                                     .hideDelay(2000)
                                     .position('top right')
                             );
-                            $state.go("app.accounts");
+                            $state.go("app.dashboard");
                         } else {
                             $mdToast.show(
                                 $mdToast.simple()

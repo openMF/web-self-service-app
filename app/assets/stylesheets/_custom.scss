@@ -323,3 +323,60 @@ md-toolbar .md-menu {
     text-align: center;
   }
 }
+
+.summary-card {
+  width: 100%;
+
+  .oustanding-overview {
+    height: 100px;
+  }
+
+  md-card-title {
+    padding-top: 0px;
+  }
+
+  .summary-table {
+    width: 100%;
+
+    .value {
+      text-align: right;
+    }
+  }
+}
+
+.loan-account-detail-cont {
+  align-items: flex-start;
+
+  md-tabs {
+    width: 100%;
+  }
+}
+
+.profile-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 120px;
+  border: 2px solid white;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.no-margin {
+  margin: 0;
+}
+
+.savings-total-card {
+  background: #4CAF50;
+  color: white;
+}
+
+.loan-total-card{
+  background: #f44336;
+  color: white;
+}

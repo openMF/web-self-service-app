@@ -2,15 +2,24 @@
     'use strict';
 
     angular.module('selfService')
-        .controller('AccountTransferCtrl', ['$scope', '$rootScope', '$stateParams', '$filter', '$mdDialog', '$mdDateLocale', '$mdToast', 'AccountService', 'AccountTransferService', AccountTransferCtrl]);
+        .controller('AccountTransferCtrl', ['$scope', '$stateParams', '$filter', '$mdDialog', '$mdDateLocale', '$mdToast', 'AccountTransferService', AccountTransferCtrl]);
 
-    function AccountTransferCtrl($scope, $rootScope, $stateParams, $filter, $mdDialog, $mdDateLocale, $mdToast, AccountService, AccountTransferService) {
+    /**
+     * @module AccountTransferCtrl
+     * @description
+     * Account Transfer Controller
+     */
+    function AccountTransferCtrl($scope, $stateParams, $filter, $mdDialog, $mdDateLocale, $mdToast, AccountTransferService) {
 
         var vm = this;
         vm.fromAccountOptions = [];
         vm.toAccountOptions = [];
         vm.transferFormData = getTransferFormDataObj()
 
+        vm.disabledToAccount = false;
+        vm.disabledfromAccount = false;
+
+        vm.transferFormData = getTransferFormDataObj();
         vm.getTransferTemplate = getTransferTemplate();
         vm.submit = submit;
 
@@ -29,6 +38,28 @@
             AccountTransferService.getTransferTemplate().get(function (data) {
                 vm.fromAccountOptions = data.fromAccountOptions;
                 vm.toAccountOptions = data.toAccountOptions;
+
+                if($stateParams.toAccount) {
+                    var i = 0;
+                    for(i=0; i < vm.toAccountOptions.length; i++) {
+                        if(vm.toAccountOptions[i].accountNo == $stateParams.toAccount.accountNo) {
+                            vm.transferFormData.toAccount = vm.toAccountOptions[i];
+                            vm.disabledToAccount = true;
+                            break;
+                        }
+                    }
+                }
+
+                if($stateParams.fromAccount) {
+                    for(i=0; i < vm.fromAccountOptions.length; i++) {
+                        if(vm.fromAccountOptions[i].accountNo == $stateParams.fromAccount.accountNo) {
+                            vm.transferFormData.fromAccount = vm.fromAccountOptions[i];
+                            vm.disabledfromAccount = true;
+                            break;
+                        }
+                    }
+                }
+
             });
         }
 

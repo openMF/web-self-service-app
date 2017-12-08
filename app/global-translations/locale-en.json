@@ -66,6 +66,7 @@
   "label.heading.outstanding": "Outstanding Balance",
   "label.heading.accountId": "Account Id",
   "label.heading.currency": "Currency",
+  "label.heading.tpt": "Third Party Transfers",
 
   "label.msg.loadingCharges": "Loading Charges",
   "label.msg.loadingRecentTransactions": "Loading Recent Transactions",

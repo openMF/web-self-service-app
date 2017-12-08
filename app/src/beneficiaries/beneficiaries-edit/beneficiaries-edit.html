@@ -9,17 +9,17 @@
         <md-card-content>
             <form name="editBeneficiaryForm" ng-submit="editBeneficiaryForm.$valid && vm.submit()">
                 <md-input-container class="md-block md-icon-float">
-                    <label>{{ 'label.input.accountType' | translate }} <span class="required">*</span></label>
+                    <label>{{ 'label.input.accountType' | translate }}</label>
                     <md-select ng-model="vm.editBeneficiaryFormData.accountType" required disabled>
                         <md-option ng-repeat="accountType in vm.accountTypeOptions" ng-value="accountType.id">{{ accountType.value }}</md-option>
                     </md-select>
                 </md-input-container>
                 <md-input-container class="md-block">
-                    <label>{{ 'label.input.accountNumber' | translate }} <span class="required">*</span></label>
+                    <label>{{ 'label.input.accountNumber' | translate }}</label>
                     <input name="accountNumber" ng-model="vm.editBeneficiaryFormData.accountNumber" required disabled>
                 </md-input-container>
                 <md-input-container class="md-block">
-                    <label>{{ 'label.input.officeName' | translate }} <span class="required">*</span></label>
+                    <label>{{ 'label.input.officeName' | translate }}</label>
                     <input name="officeName" ng-model="vm.editBeneficiaryFormData.officeName" required disabled>
                 </md-input-container>
                 <md-input-container class="md-block">
@@ -27,7 +27,7 @@
                     <input type="number" name="transferLimit" ng-model="vm.editBeneficiaryFormData.transferLimit" required>
                 </md-input-container>
                 <md-input-container class="md-block">
-                    <label>{{ 'label.input.beneficiaryName' | translate }} <span class="required">*</span></label>
+                    <label>{{ 'label.input.beneficiaryName' | translate }}</label>
                     <input name="name" ng-model="vm.editBeneficiaryFormData.name" required>
                 </md-input-container>
                 <div layout="row" flex>

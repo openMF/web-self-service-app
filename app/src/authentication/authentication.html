@@ -14,18 +14,25 @@
           <h1 class="md-title">{{ 'login.heading.logintoyouraccount' | translate }}</h1>
         </div>
         <div flex="80" class="login-form" layout-padding>
-          <form name="loginForm" ng-submit="doLogin()">
+          <form name="loginForm" ng-submit="loginForm.$valid && doLogin()">
             <md-input-container class="md-block md-icon-float">
             <label>Username</label>
-              <input ng-model="loginData.username">
+              <input ng-model="loginData.username" required>
             </md-input-container>
             <md-input-container class="md-block md-icon-float">
             <label>Password</label>
-              <input type="password" ng-model="loginData.password">
+              <input type="password" ng-model="loginData.password" required>
             </md-input-container>
 
+            <div layout="row" ng-show="vm.authenticating" layout-align="center center">
+                <md-progress-circular class="md-primary mr-40" md-diameter="40"></md-progress-circular>
+                <span class="auth-status">{{ 'label.msg.logginIn' | translate }}</span>
+            </div>
+
             <section layout="column" layout-align="start">
-              <md-button type="submit" class="md-primary md-raised">{{ 'login.btn.login' | translate }}</md-button>
+                <md-button ng-hide="vm.authenticating" type="submit" class="md-primary md-raised">
+                    {{ 'login.btn.login' | translate }}
+                </md-button>
             </section>
           </form>
         </div>

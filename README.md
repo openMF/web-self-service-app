@@ -4,11 +4,12 @@
 
 Clone the project:
 
-    $ git clone https://github.com/gauravsaini03/self-service.git
+    $ git clone https://github.com/openMF/web-self-service-app.git
+
 
 Install dependencies:
 
-    $ cd self-service
+    $ cd web-self-service-app/
     $ npm install
     $ bower install
 

@@ -8,7 +8,7 @@ Clone the project:
 
 Install dependencies:
 
-    $ cd self-service
+    $ cd web-self-service-app
     $ npm install
     $ bower install
 

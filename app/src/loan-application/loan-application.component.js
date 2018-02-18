@@ -2,14 +2,14 @@
     'use strict';
 
     angular.module('selfService')
-        .controller('LoanApplicationCtrl', ['$filter', '$mdToast', 'AccountService', 'LoanApplicationService', LoanApplicationCtrl]);
+        .controller('LoanApplicationCtrl', ['$scope', '$filter', '$mdToast', 'AccountService', 'LoanApplicationService', LoanApplicationCtrl]);
 
     /**
      * @module LoanApplicationCtrl
      * @description
      * Controls Application for Loan
      */
-    function LoanApplicationCtrl($filter, $mdToast, AccountService, LoanApplicationService) {
+    function LoanApplicationCtrl($scope, $filter, $mdToast, AccountService, LoanApplicationService) {
         var vm = this;
 
         vm.form = {
@@ -22,6 +22,7 @@
 
         vm.init = init;
         vm.getLoanTemplate = getLoanTemplate;
+        vm.clearForm = clearForm;
         vm.submit = submit;
 
         init();
@@ -46,6 +47,18 @@
             });
         }
 
+        function clearForm() {
+            $scope.loanApplicationForm.$setPristine();
+            $scope.loanApplicationForm.$setUntouched();
+            vm.template = {};
+            vm.form = {
+                locale: 'en_GB',
+                dateFormat: 'dd MMMM yyyy',
+                loanType: 'individual'
+            };
+            init();
+        }
+
         function submit() {
             var loanTemp = {
                 clientId: vm.clientId,
@@ -62,6 +75,7 @@
             };
             var data = Object.assign({}, loanTemp, vm.form);
             LoanApplicationService.loan().save(data).$promise.then(function(resp) {
+                clearForm();
                 $mdToast.show(
                     $mdToast.simple()
                         .content("Loan Application Submitted Successfully")

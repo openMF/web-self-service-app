@@ -21,6 +21,7 @@
 
         vm.transferFormData = getTransferFormDataObj();
         vm.getTransferTemplate = getTransferTemplate();
+        vm.clearForm = clearForm;
         vm.submit = submit;
 
         // FORMAT THE DATE FOR THE DATEPICKER

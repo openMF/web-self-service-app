@@ -34,7 +34,7 @@
                     <input name="remark" ng-model="vm.transferFormData.remark" required>
                 </md-input-container>
                 <div layout="row" flex>
-                    <md-button flex class="md-danger">{{ 'label.btn.cancel' | translate }}</md-button>
+                    <md-button flex class="md-danger" ng-click="vm.clearForm()">{{ 'label.btn.cancel' | translate }}</md-button>
                     <md-button type="submit" flex class="md-raised md-primary" ng-disabled="transferForm.$invalid">{{ 'label.btn.reviewTransfer' | translate }}</md-button>
                 </div>
 

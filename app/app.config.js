@@ -55,8 +55,9 @@
           $httpProvider.defaults.headers.common['Content-Type'] = 'application/json; charset=utf-8';
           // Mifos set Tenant
           $httpProvider.defaults.headers.common['Fineract-Platform-TenantId'] = TENANT_IDENTIFIER;
+          $httpProvider.interceptors.push('APIRequestInterceptor');
 
-          const defaultLocale = 'en';
+          var defaultLocale = 'en';
           $translateProvider
             .useStaticFilesLoader({
               prefix: 'global-translations/locale-',

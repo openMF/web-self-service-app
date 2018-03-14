@@ -8,6 +8,7 @@
         <md-divider></md-divider>
         <md-card-content>
             <form name="transferForm" ng-submit="transferForm.$valid && vm.submit()">
+                <api-validate></api-validate>
                 <md-input-container class="md-block md-icon-float">
                     <label>{{ 'label.input.payTo' | translate }}</label>
                     <md-select ng-model="vm.transferFormData.toAccount" ng-disabled="vm.disabledToAccount" required>

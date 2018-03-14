@@ -20,6 +20,14 @@
     "angular-translate-loader-static-files": "^2.15.2",
     "components-font-awesome": "^4.7.0"
   },
+  "overrides": {
+    "components-font-awesome": {
+      "main": [
+        "./css/font-awesome.css",
+        "./fonts/*"
+      ]
+    }
+  },
   "devDependencies": {
     "angular-mocks": "^1.6.5"
   }

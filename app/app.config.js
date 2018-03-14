@@ -71,8 +71,7 @@
       .run(['$rootScope', '$location', 'AuthService', function($rootScope, $location, AuthService) {
             $rootScope.$on('$locationChangeStart', function (event, next, current) {
                 // redirect to login page if not logged in and trying to access a restricted page
-                // prevent access to login page when user already logged in and authenticated
-                var restrictedPage = $.inArray($location.path(), ['/login']) === -1;
+                var restrictedPage = $.inArray($location.path(), ['/login', '/forgot', '/register']) === -1;
                 var loggedIn = AuthService.isAuthenticated();
                 if (restrictedPage) {
                     if(!loggedIn) {

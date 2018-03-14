@@ -2,9 +2,9 @@
     'use strict';
     //@todo Move this service to the common folder
     angular.module('selfService')
-        .service('AccountService', ['$q', '$http', '$rootScope', '$resource', 'BASE_URL', 'storageService', AccountService]);
+        .service('AccountService', ['$http', '$resource', 'BASE_URL', 'storageService', AccountService]);
 
-    function AccountService($q, $http, $rootScope, $resource, BASE_URL, storageService) {
+    function AccountService($http, $resource, BASE_URL, storageService) {
 
         /**
          * Get the clients associated with the current user's account.
@@ -24,7 +24,10 @@
         }
 
         this.getClientImage = function (id) {
-            return $resource(BASE_URL + '/self/clients/' + id + '/images');
+            return $http({
+                method: 'GET',
+                url: BASE_URL + '/self/clients/' + id + '/images'
+            });
         }
 
         this.getClientCharges = function (id) {

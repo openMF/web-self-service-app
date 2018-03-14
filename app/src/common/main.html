@@ -85,10 +85,11 @@
 </md-sidenav>
 
 <div layout="column" flex>
-    <md-toolbar md-theme="default" layout="row" layout-align="end center">
+    <md-toolbar md-theme="default" layout="row" layout-align="start center">
         <md-button hide-gt-sm ng-click="vm.toggleItemsList()" aria-label="Menu">
             <i class="material-icons">menu</i>
         </md-button>
+        <div flex></div>
         <md-menu md-position-mode="target-right target">
             {{vm.userDetails.username}}
             <md-button aria-label="Open logout menu" class="md-icon-button" ng-click="$mdOpenMenu($event)">

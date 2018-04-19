@@ -11,32 +11,32 @@
     	 *
       	 */
     	this.getClients = function(){
-    		return $resource( BASE_URL+'/self/clients/' );
+    		return $resource( BASE_URL+'/clients/' );
     	};
 
         this.getAllAccounts = function(clientId) {//@todo rename this getClientAccounts
         	//@todo update this to return $resource(BASE_URL+'/self/clients/'+id+'/accounts'); and test
-        	return $resource(BASE_URL+'/self/clients/'+clientId+'/accounts', clientId);
+        	return $resource(BASE_URL+'/clients/'+clientId+'/accounts', clientId);
         };
 
         this.getClient = function(id) {
-            return $resource(BASE_URL+'/self/clients/'+id);
+            return $resource(BASE_URL+'/clients/'+id);
         }
 
         this.getClientImage = function(id) {
-            return $resource(BASE_URL+'/self/clients/'+id+'/images');
+            return $resource(BASE_URL+'/clients/'+id+'/images');
         }
 
         this.getClientCharges = function(id) {
-            return $resource(BASE_URL+'/self/clients/'+id+'/charges?pendingPayment=true');
+            return $resource(BASE_URL+'/clients/'+id+'/charges?pendingPayment=true');
         }
 
         this.getClientAccounts = function(id) {
-            return $resource(BASE_URL+'/self/clients/'+id+'/accounts');
+            return $resource(BASE_URL+'/clients/'+id+'/accounts');
         }
 
         this.getLoanAccount = function( id ){
-        	return $resource(BASE_URL+'/self/loans/'+id );
+        	return $resource(BASE_URL+'/loans/'+id );
         }
 
     }

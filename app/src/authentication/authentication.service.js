@@ -22,12 +22,13 @@
             isAuthenticated = true;
             userData = res;
             role = USER_ROLES.user;
-            $http.defaults.headers.common['Authorization'] = 'Basic ' + res.base64EncodedAuthenticationKey;;
+
+            //$http.defaults.headers.common['Authorization'] = 'Basic ' + res.base64EncodedAuthenticationKey;;
         }
 
         this.getUser = function() {
             return userData;
-        }
+        };
 
         this.isAuthenticated = function () {
             return isAuthenticated;

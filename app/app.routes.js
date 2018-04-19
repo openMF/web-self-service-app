@@ -89,9 +89,9 @@
                 authorizedRoles: [USER_ROLES.user]
               }
             })
-          	.state('app.profile', {
-              url: '/charges',
-              templateUrl: 'src/common/coming-soon.html',
+          	.state('app.client', {
+              url: '/clients',
+              templateUrl: 'src/client-list/client-list.html',
               controller: 'ClientCtrl',
               controllerAs: 'vm',
               data: {

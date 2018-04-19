@@ -23,7 +23,7 @@
 			vm.accountsProcessed = 0;
 
 			vm.query = {
-				limit: 5,
+				limit: 10,
 				offset: 0
 			};
 
@@ -31,6 +31,8 @@
 				AccountService.getClients().get(vm.query).$promise.then(function(res){
 					vm.clients 			 = res;
 					vm.totalNoOfAccounts = res.pageItems.length;
+                    console.log(vm.totalNoOfAccounts);
+					console.log(res.pageItems);
 					$.each( res.pageItems, function( i, val ){
 						getAccounts( val.id, vm.query );
 					});
@@ -42,9 +44,11 @@
 					vm.savingsAccounts 	= res.savingsAccounts;
 					vm.shareAccounts	= res.shareAccounts;
 					vm.accountsProcessed++;
+					console.log(vm.accountsProcessed);
+                    console.log(vm.totalNoOfAccounts);
 					if( vm.accountsProcessed  == vm.totalNoOfAccounts ){
-			  			vm.loadingAccountInfo = false;
-					}
+                        vm.loadingAccountInfo = false;
+                    }
 			  	});
 
 			}

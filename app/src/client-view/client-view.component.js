@@ -20,7 +20,7 @@
 			  	});
 			  	$http({
 	                method: 'GET',
-	                url: BASE_URL + '/self/clients/' + id + '/images?maxHeight=150'
+	                url: BASE_URL + '/clients/' + id + '/images?maxHeight=150'
 	            }).then(function (imageData) {
 	                vm.client.imageURL = imageData.data;
 	            });

@@ -59,6 +59,7 @@
           $httpProvider.defaults.headers.common['Content-Type'] = 'application/json; charset=utf-8';
           // Mifos set Tenant
           $httpProvider.defaults.headers.common['Fineract-Platform-TenantId'] = 'default';
+          $httpProvider.defaults.headers.common['Authorization'] = 'Basic bWlmb3M6cGFzc3dvcmQ=';
 
         }
       )

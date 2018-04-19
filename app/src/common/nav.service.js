@@ -15,7 +15,12 @@
         name: 'Accounts',
         icon: 'account_balance_wallet',
         sref: '.clients'
-      }
+      },
+        {
+            name: 'Clients',
+            icon: 'account_balance_wallet',
+            sref: '.clients'
+        }
     ];
 
     return {

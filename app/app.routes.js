@@ -43,6 +43,16 @@
                         authorizedRoles: [USER_ROLES.user]
                     }
                 })
+                .state('app.client', {
+                    url: '/clients',
+                    templateUrl: 'src/client-list/client-list.html',
+                    controller: 'ClientCtrl',
+                    controllerAs: 'vm',
+                    data: {
+                        title: 'Profile',
+                        authorizedRoles: [USER_ROLES.user]
+                    }
+                })
                 .state('app.viewloanaccount', {
                     url: '/viewloanaccount/:id',
                     templateUrl: 'src/accounts/loan-account-detail/loan-account-detail.html',

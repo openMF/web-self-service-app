@@ -49,6 +49,7 @@
     "node": ">=0.10.0"
   },
   "scripts": {
+    "start": "gulp serve",
     "init": "npm install",
     "install": "npm install -g bower && bower install",
     "lint": "eslint app/"

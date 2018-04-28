@@ -227,6 +227,108 @@
     'use strict';
 
     angular.module('selfService')
+        .controller('RegisterCtrl', ['$scope', '$state', '$mdToast', 'AuthService', 'AccountService', RegisterCtrl]);
+
+    /**
+     * @module RegisterCtrl
+     * @description
+     * Handles Registration of self service user
+     */
+    function RegisterCtrl($scope, $state, $mdToast, AuthService, AccountService) {
+
+
+    }
+
+})();
+
+(function () {
+    'use strict';
+
+    angular.module('selfService')
+        .controller('LoginCtrl', ['$scope', '$rootScope', '$state', '$mdToast', 'AUTH_EVENTS', 'AuthService', 'AccountService', LoginCtrl]);
+
+    function LoginCtrl($scope, $rootScope, $state, $mdToast, AUTH_EVENTS, AuthService, AccountService) {
+
+        var vm = this;
+        vm.authenticating = false;
+
+        /**
+         * @method doLogin
+         * @description To perform the login action on the page
+         */
+        $scope.doLogin = function () {
+            vm.authenticating = true;
+            AuthService.doLogin($scope.loginData).save().$promise
+                .then(function (result) {
+                    AuthService.setUser(result);
+                    AccountService.getClients().get().$promise
+                        .then(function (res) {
+                            vm.authenticating = false;
+                            if (res.pageItems.length !== 0) {
+                                AccountService.setClientId(res.pageItems[0].id);
+                                $mdToast.show(
+                                    $mdToast.simple()
+                                        .content("Successful Login")
+                                        .hideDelay(2000)
+                                        .position('top right')
+                                );
+                                $state.go("app.dashboard");
+                            } else {
+                                $mdToast.show(
+                                    $mdToast.simple()
+                                        .content("No Clients Found")
+                                        .hideDelay(2000)
+                                        .position('top right')
+                                );
+                                AuthService.logout();
+                            }
+                        })
+                        .catch(function () {
+                            vm.authenticating = false;
+                            $mdToast.show(
+                                $mdToast.simple()
+                                    .content("Not a Self Service User")
+                                    .hideDelay(2000)
+                                    .position('top right')
+                            );
+                            AuthService.logout();
+                        })
+                }).catch(function () {
+                    vm.authenticating = false;
+                    $mdToast.show(
+                        $mdToast.simple()
+                            .content("Invalid Login Credentials")
+                            .hideDelay(2000)
+                            .position('top right')
+                    );
+                })
+        }
+
+    }
+
+})();
+
+(function () {
+    'use strict';
+
+    angular.module('selfService')
+        .controller('ForgotPwdCtrl', ['$scope', '$state', '$mdToast', 'AuthService', 'AccountService', ForgotPwdCtrl]);
+
+    /**
+     * @module ForgotPwdCtrl
+     * @description
+     * Handles Forgot Password
+     */
+    function ForgotPwdCtrl($scope, $state, $mdToast, AuthService, AccountService) {
+
+    }
+
+})();
+
+(function () {
+    'use strict';
+
+    angular.module('selfService')
         .controller('BeneficiariesListCtrl', ['$scope', '$rootScope', '$state', '$stateParams', '$mdDialog', '$mdToast', 'BeneficiariesService', BeneficiariesListCtrl]);
 
     function BeneficiariesListCtrl($scope, $rootScope, $state, $stateParams, $mdDialog, $mdToast, BeneficiariesService) {
@@ -425,108 +527,6 @@
 })();
 (function () {
     'use strict';
-
-    angular.module('selfService')
-        .controller('RegisterCtrl', ['$scope', '$state', '$mdToast', 'AuthService', 'AccountService', RegisterCtrl]);
-
-    /**
-     * @module RegisterCtrl
-     * @description
-     * Handles Registration of self service user
-     */
-    function RegisterCtrl($scope, $state, $mdToast, AuthService, AccountService) {
-
-
-    }
-
-})();
-
-(function () {
-    'use strict';
-
-    angular.module('selfService')
-        .controller('LoginCtrl', ['$scope', '$rootScope', '$state', '$mdToast', 'AUTH_EVENTS', 'AuthService', 'AccountService', LoginCtrl]);
-
-    function LoginCtrl($scope, $rootScope, $state, $mdToast, AUTH_EVENTS, AuthService, AccountService) {
-
-        var vm = this;
-        vm.authenticating = false;
-
-        /**
-         * @method doLogin
-         * @description To perform the login action on the page
-         */
-        $scope.doLogin = function () {
-            vm.authenticating = true;
-            AuthService.doLogin($scope.loginData).save().$promise
-                .then(function (result) {
-                    AuthService.setUser(result);
-                    AccountService.getClients().get().$promise
-                        .then(function (res) {
-                            vm.authenticating = false;
-                            if (res.pageItems.length !== 0) {
-                                AccountService.setClientId(res.pageItems[0].id);
-                                $mdToast.show(
-                                    $mdToast.simple()
-                                        .content("Successful Login")
-                                        .hideDelay(2000)
-                                        .position('top right')
-                                );
-                                $state.go("app.dashboard");
-                            } else {
-                                $mdToast.show(
-                                    $mdToast.simple()
-                                        .content("No Clients Found")
-                                        .hideDelay(2000)
-                                        .position('top right')
-                                );
-                                AuthService.logout();
-                            }
-                        })
-                        .catch(function () {
-                            vm.authenticating = false;
-                            $mdToast.show(
-                                $mdToast.simple()
-                                    .content("Not a Self Service User")
-                                    .hideDelay(2000)
-                                    .position('top right')
-                            );
-                            AuthService.logout();
-                        })
-                }).catch(function () {
-                    vm.authenticating = false;
-                    $mdToast.show(
-                        $mdToast.simple()
-                            .content("Invalid Login Credentials")
-                            .hideDelay(2000)
-                            .position('top right')
-                    );
-                })
-        }
-
-    }
-
-})();
-
-(function () {
-    'use strict';
-
-    angular.module('selfService')
-        .controller('ForgotPwdCtrl', ['$scope', '$state', '$mdToast', 'AuthService', 'AccountService', ForgotPwdCtrl]);
-
-    /**
-     * @module ForgotPwdCtrl
-     * @description
-     * Handles Forgot Password
-     */
-    function ForgotPwdCtrl($scope, $state, $mdToast, AuthService, AccountService) {
-
-    }
-
-})();
-
-(function () {
-    'use strict';
     //@todo Move this service to the common folder
     angular.module('selfService')
         .service('SavingsAccountService', ['$q', '$http', '$rootScope', '$resource', 'BASE_URL', SavingsAccountService]);
@@ -618,6 +618,73 @@
 			}
 		}
 })();
+
+(function () {
+    'use strict';
+
+    angular.module('selfService')
+        .controller('AccountCtrl', ['$scope', '$rootScope', '$state', 'AccountService', 'AuthService', AccountCtrl]);
+
+    function AccountCtrl($scope, $rootScope, $state, AccountService, AuthService) {
+
+        var vm = this;
+        vm.selected = [];
+        vm.getAccounts = getAccounts;
+        vm.onPaginate = onPaginate;
+        vm.onReorder = onReorder;
+        vm.routeTo = routeTo;
+        vm.userData = AuthService.getUser();
+        vm.clientId = getClient();//@todo check if this is behind the 2 calls
+        vm.accounts = [];
+        vm.loanAccounts = [];
+        vm.savingsAccounts = [];
+        vm.shareAccounts = [];
+        vm.loadingAccountInfo = true;
+
+        vm.query = {
+            limit: 5,
+            offset: 1
+        };
+
+        function getClient() {
+            AccountService.getClientId().then(function (clientId) {
+                vm.clientId = clientId;
+                getAccounts(clientId);
+            });
+        }
+
+        function getAccounts(accountNo) {
+            AccountService.getAllAccounts(accountNo).get().$promise.then(function (res) {
+                vm.loanAccounts = res.loanAccounts;
+                vm.savingsAccounts = res.savingsAccounts;
+                vm.shareAccounts = res.shareAccounts;
+                vm.loadingAccountInfo = false;
+            });
+        }
+
+        function onPaginate(offset, limit) {
+            getAccounts(angular.extend({}, vm.query, {offset: offset, limit: limit}));
+        }
+
+        function onReorder(order) {
+            getAccounts(angular.extend({}, vm.query, {order: order}));
+        }
+
+        function routeTo(accountType, id) {
+            var routingSlug = 'viewloanaccount';
+            if ('savings' == accountType) {
+                routingSlug = 'viewsavingsaccount';
+            } else if ('loan' == accountType) {
+                routingSlug = 'viewloanaccount';
+            } else {
+                routingSlug = 'viewshareaccount';
+            }
+            $state.go('app.'+routingSlug, {id: id});
+        }
+    }
+
+})();
+
 (function () {
     'use strict';
     //@todo Move this service to the common folder
@@ -710,73 +777,6 @@
         }
     }
 })();
-
-(function () {
-    'use strict';
-
-    angular.module('selfService')
-        .controller('AccountCtrl', ['$scope', '$rootScope', '$state', 'AccountService', 'AuthService', AccountCtrl]);
-
-    function AccountCtrl($scope, $rootScope, $state, AccountService, AuthService) {
-
-        var vm = this;
-        vm.selected = [];
-        vm.getAccounts = getAccounts;
-        vm.onPaginate = onPaginate;
-        vm.onReorder = onReorder;
-        vm.routeTo = routeTo;
-        vm.userData = AuthService.getUser();
-        vm.clientId = getClient();//@todo check if this is behind the 2 calls
-        vm.accounts = [];
-        vm.loanAccounts = [];
-        vm.savingsAccounts = [];
-        vm.shareAccounts = [];
-        vm.loadingAccountInfo = true;
-
-        vm.query = {
-            limit: 5,
-            offset: 1
-        };
-
-        function getClient() {
-            AccountService.getClientId().then(function (clientId) {
-                vm.clientId = clientId;
-                getAccounts(clientId);
-            });
-        }
-
-        function getAccounts(accountNo) {
-            AccountService.getAllAccounts(accountNo).get().$promise.then(function (res) {
-                vm.loanAccounts = res.loanAccounts;
-                vm.savingsAccounts = res.savingsAccounts;
-                vm.shareAccounts = res.shareAccounts;
-                vm.loadingAccountInfo = false;
-            });
-        }
-
-        function onPaginate(offset, limit) {
-            getAccounts(angular.extend({}, vm.query, {offset: offset, limit: limit}));
-        }
-
-        function onReorder(order) {
-            getAccounts(angular.extend({}, vm.query, {order: order}));
-        }
-
-        function routeTo(accountType, id) {
-            var routingSlug = 'viewloanaccount';
-            if ('savings' == accountType) {
-                routingSlug = 'viewsavingsaccount';
-            } else if ('loan' == accountType) {
-                routingSlug = 'viewloanaccount';
-            } else {
-                routingSlug = 'viewshareaccount';
-            }
-            $state.go('app.'+routingSlug, {id: id});
-        }
-    }
-
-})();
-
 (function () {
     'use strict';
     angular.module('selfService')
@@ -1447,6 +1447,77 @@
 
 })();
 
+(function(){
+  'use strict';
+
+    angular.module('selfService')
+        .service('AuthService', ['$q', '$http', '$rootScope', '$state', '$resource', 'storageService', 'BASE_URL', 'USER_ROLES', AuthService]);
+
+    function AuthService($q, $http, $rootScope, $state, $resource, storageService, BASE_URL, USER_ROLES) {
+
+        var role            = '',
+            userData        = '',       
+            isAuthenticated = false;
+
+        // Set Access Token to requests
+        var setAccessToken = function (token) {
+            $http.defaults.headers.common['Authorization'] = 'Basic ' + token;
+        }
+
+        storageService.getObject("user_profile").then(function (data) {
+            if (data) {
+                isAuthenticated = true;
+                role = USER_ROLES.user;
+                userData = data;
+                setAccessToken(userData.base64EncodedAuthenticationKey);
+            }
+        })
+
+        this.setUser = function (res) {
+            storageService.setObject('user_profile', res);
+            isAuthenticated = true;
+            userData = res;
+            role = USER_ROLES.user;
+            setAccessToken(res.base64EncodedAuthenticationKey);
+        }
+
+        this.getUser = function() {
+            return userData;
+        }
+
+        this.isAuthenticated = function () {
+            return isAuthenticated;
+        };
+
+        this.role = function () {
+            return role;
+        }
+
+        this.isAuthorized = function (authorizedRoles) {
+            if (!angular.isArray(authorizedRoles)) {
+                authorizedRoles = [authorizedRoles];
+            }
+            return (this.isAuthenticated() && authorizedRoles.indexOf(role) !== -1);
+        }
+
+        //Resource for REST APIs
+        this.doLogin = function(data) {
+            return $resource(BASE_URL+'/self/authentication', data);
+        }
+
+        this.logout = function() {
+            role = '';
+            userData = '';
+            isAuthenticated = false;
+            setAccessToken('');
+            storageService.clear();
+            $state.go('login');
+        }
+
+    }
+
+})();
+
 (function () {
     'use strict';
     angular.module('selfService')
@@ -1520,76 +1591,6 @@
                 }
             });
         }
-    }
-
-})();
-(function(){
-  'use strict';
-
-    angular.module('selfService')
-        .service('AuthService', ['$q', '$http', '$rootScope', '$state', '$resource', 'storageService', 'BASE_URL', 'USER_ROLES', AuthService]);
-
-    function AuthService($q, $http, $rootScope, $state, $resource, storageService, BASE_URL, USER_ROLES) {
-
-        var role            = '',
-            userData        = '',       
-            isAuthenticated = false;
-
-        // Set Access Token to requests
-        var setAccessToken = function (token) {
-            $http.defaults.headers.common['Authorization'] = 'Basic ' + token;
-        }
-
-        storageService.getObject("user_profile").then(function (data) {
-            if (data) {
-                isAuthenticated = true;
-                role = USER_ROLES.user;
-                userData = data;
-                setAccessToken(userData.base64EncodedAuthenticationKey);
-            }
-        })
-
-        this.setUser = function (res) {
-            storageService.setObject('user_profile', res);
-            isAuthenticated = true;
-            userData = res;
-            role = USER_ROLES.user;
-            setAccessToken(res.base64EncodedAuthenticationKey);
-        }
-
-        this.getUser = function() {
-            return userData;
-        }
-
-        this.isAuthenticated = function () {
-            return isAuthenticated;
-        };
-
-        this.role = function () {
-            return role;
-        }
-
-        this.isAuthorized = function (authorizedRoles) {
-            if (!angular.isArray(authorizedRoles)) {
-                authorizedRoles = [authorizedRoles];
-            }
-            return (this.isAuthenticated() && authorizedRoles.indexOf(role) !== -1);
-        }
-
-        //Resource for REST APIs
-        this.doLogin = function(data) {
-            return $resource(BASE_URL+'/self/authentication', data);
-        }
-
-        this.logout = function() {
-            role = '';
-            userData = '';
-            isAuthenticated = false;
-            setAccessToken('');
-            storageService.clear();
-            $state.go('login');
-        }
-
     }
 
 })();

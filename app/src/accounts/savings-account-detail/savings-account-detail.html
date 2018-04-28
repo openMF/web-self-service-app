@@ -1,0 +1,163 @@
+<div layout="row" class="md-padding loan-account-detail-cont" flex>
+    <md-content flex ng-if="vm.loadingvm.savingsAccountDetailsInfo">
+        <div layout="row" flex>
+            <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+            Loading Savings Account Info...
+            <!--@todo Internationalize-->
+        </div>
+    </md-content>
+    <div layout="row" flex-gt-md="40">
+        <md-card class="summary-card">
+            <div class="heading {{ vm.statusClass }}">
+                <div layout="column" layout-align="center center" class="oustanding-overview">
+                    <span class="md-title">{{ vm.savingsAccountDetails.currency.displaySymbol }} {{ vm.savingsAccountDetails.summary.accountBalance}}</span>
+                    <span class="md-subhead">{{ 'label.heading.balance' | translate }}</span>
+                </div>
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">{{ vm.savingsAccountDetails.savingsProductName }}</span>
+                    </md-card-title-text>
+                </md-card-title>
+                <md-divider></md-divider>
+                <md-content class="md-padding">
+                    <p>Summary: </p>
+                    <table class="summary-table">
+                        <tbody md-table>
+                        <tr md-row>
+                            <td md-cell>{{ 'label.heading.accountNo' | translate}}</td>
+                            <td md-cell class="value">{{ vm.savingsAccountDetails.accountNo}}</td>
+                        </tr>
+                        <tr md-row>
+                            <td>{{ 'label.heading.currency' | translate}}</td>
+                            <td class="value">{{ vm.savingsAccountDetails.currency.name}}</td>
+                        </tr>
+                        <tr md-row ng-if="vm.savingsAccountDetails.summary.totalDeposits">
+                            <td md-cell>Total Deposits</td>
+                            <td md-cell class="value">{{ vm.savingsAccountDetails.currency.displaySymbol }} {{
+                                vm.savingsAccountDetails.summary.totalDeposits }}
+                            </td>
+                        </tr>
+                        <tr md-row ng-if="vm.savingsAccountDetails.summary.totalWithdrawals">
+                            <td md-cell>Total Withdrawals</td>
+                            <td md-cell class="value">{{ vm.savingsAccountDetails.currency.displaySymbol }} {{
+                                vm.savingsAccountDetails.summary.totalWithdrawals }}
+                            </td>
+                        </tr>
+                        <tr md-row ng-if="vm.savingsAccountDetails.summary.totalInterestEarned">
+                            <td md-cell>Total Interest Earned</td>
+                            <td md-cell class="value">{{ vm.savingsAccountDetails.currency.displaySymbol }} {{
+                                vm.savingsAccountDetails.summary.totalInterestEarned }}
+                            </td>
+                        </tr>
+                        <tr md-row ng-if="vm.savingsAccountDetails.minRequiredOpeningBalance">
+                            <td md-cell>Required Opening Balance</td>
+                            <td md-cell class="value">{{ vm.savingsAccountDetails.currency.displaySymbol }} {{
+                                vm.savingsAccountDetails.minRequiredOpeningBalance }}
+                            </td>
+                        </tr>
+                        <tr md-row>
+                            <td md-cell>Submitted on</td>
+                            <td md-cell class="value">{{ vm.savingsAccountDetails.timeline.submittedOnDate | DateFormat
+                                }}
+                            </td>
+                        </tr>
+                        <tr md-row>
+                            <td md-cell>Approved on</td>
+                            <td md-cell class="value">{{ vm.savingsAccountDetails.timeline.approvedOnDate | DateFormat
+                                }}
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </md-content>
+            </div>
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button ng-click="vm.deposit()">{{ 'label.btn.deposit' | translate }}</md-button>
+                <md-button ng-click="vm.transfer()">{{ 'label.btn.transfer' | translate }}</md-button>
+            </md-card-actions>
+        </md-card>
+    </div>
+    <div layout="row" class="md-padding" flex-gt-md="60">
+        <md-tabs class="md-primary" md-dynamic-height md-border-bottom>
+            <md-tab label="Account Details">
+                <md-content class="md-padding">
+                    <div ng-if="vm.savingsAccountDetailsInfo">
+                        <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+                        Loading Loan Account Info...
+                        <!--@todo Internationalize-->
+                    </div>
+                    <md-table-container>
+                        <table md-table>
+                            <tbody md-body>
+                            <tr md-row>
+                                <td md-cell>Nominal Annual Interest Rate</td>
+                                <td md-cell>{{ vm.savingsAccountDetails.nominalAnnualInterestRate }}</td>
+                            </tr>
+                            <tr md-row>
+                                <td md-cell>Interest Compounding Period Type</td>
+                                <td md-cell>{{ vm.savingsAccountDetails.interestCompoundingPeriodType.value }}</td>
+                            </tr>
+                            <tr md-row>
+                                <td md-cell>Interest Posting Period Type</td>
+                                <td md-cell>{{ vm.savingsAccountDetails.interestPostingPeriodType.value }}</td>
+                            </tr>
+                            <tr md-row>
+                                <td md-cell>Interest Calculation Type</td>
+                                <td md-cell>{{ vm.savingsAccountDetails.interestCalculationType.value }}</td>
+                            </tr>
+                            <tr md-row>
+                                <td md-cell>Interest Calculation Days In Year</td>
+                                <td md-cell>{{ vm.savingsAccountDetails.interestCalculationDaysInYearType.value }}</td>
+                            </tr>
+                            <tr md-row>
+                                <td md-cell>Minimum Required Opening Balance</td>
+                                <td md-cell>{{ vm.savingsAccountDetails.minRequiredOpeningBalance }}</td>
+                            </tr>
+                            <tr md-row>
+                                <td md-cell>Lock In Period</td>
+                                <td md-cell>{{ vm.savingsAccountDetails.lockinPeriodFrequency }} {{
+                                    vm.savingsAccountDetails.lockinPeriodFrequencyType.value }}
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </md-table-container>
+                </md-content>
+            </md-tab>
+            <md-tab label="Transactions">
+                <md-content>
+                    <div ng-if="vm.savingsAccountDetailsInfo">
+                        <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+                        Loading Loan Account Info...
+                        <!--@todo Internationalize-->
+                    </div>
+                    <md-table-container>
+                        <table md-table>
+                            <thead md-head>
+                            <tr md-row>
+                                <th md-column>
+                                    <span>{{ 'label.heading.type' | translate }}</span>
+                                </th>
+                                <th md-column>
+                                    {{ 'label.heading.amount' | translate }}
+                                </th>
+                                <th md-column>
+                                    {{ 'label.heading.date' | translate }}
+                                </th>
+                            </tr>
+
+                            </thead>
+                            <tbody md-body>
+                            <tr md-row ng-repeat="transaction in vm.transactions">
+                                <td md-cell>{{ transaction.transactionType.value }}</td>
+                                <td md-cell>{{ transaction.amount }}</td>
+                                <td md-cell>{{ transaction.date | DateFormat }}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </md-table-container>
+                </md-content>
+            </md-tab>
+        </md-tabs>
+    </div>
+</div>

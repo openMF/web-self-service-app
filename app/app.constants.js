@@ -11,8 +11,9 @@
 		notAuthenticated: 'auth-not-authenticated'
 	})
 
+	.constant("TENANT_IDENTIFIER", "default")
+
 	.constant('USER_ROLES', {
 		user: 'USER'
 	});
-
 })();

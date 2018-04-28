@@ -1,0 +1,39 @@
+<div flex layout="row">
+    <div layout="col" layout-align="start center" class="cover" flex-gt-md="70" hide-xs hide-sm>
+        <div flex="60" class="cover-content">
+            <h1 class="md-display-2 cover-title">Self Service</h1>
+            <p class="md-headline">Self Service is designed by the Mifos Initiative - a global community that aims to
+                speed-up the elimination of poverty by enabling organizations to more effectively and efficiently
+                deliver responsible financial services to the world’s poor and unbanked.</p>
+        </div>
+    </div>
+    <div class="login-container" flex flex-gt-md="30">
+        <div class="md-padding translate-container" layout="row" layout-align="end">
+            <translate-helper></translate-helper>
+        </div>
+        <div flex class="logo" layout-margin>
+            <img width="200px" src="assets/images/MifosX_logo.png">
+            <h1 class="md-title">{{ 'login.heading.logintoyouraccount' | translate }}</h1>
+        </div>
+        <div flex="80" class="login-form" layout-padding>
+            <form name="loginForm" ng-submit="doLogin()">
+                <md-input-container class="md-block md-icon-float">
+                    <label>Username</label>
+                    <input ng-model="loginData.username">
+                </md-input-container>
+                <md-input-container class="md-block md-icon-float">
+                    <label>Password</label>
+                    <input type="password" ng-model="loginData.password">
+                </md-input-container>
+
+                <section layout="column" layout-align="start">
+                    <md-button type="submit" class="md-primary md-raised">{{ 'login.btn.login' | translate }}
+                    </md-button>
+                    <md-button class="md-default" ui-sref="forgot">{{ 'login.btn.forgot' | translate }}</md-button>
+                    <md-button class="md-primary" ui-sref="register">{{ 'login.btn.register' | translate }}</md-button>
+
+                </section>
+            </form>
+        </div>
+    </div>
+</div>

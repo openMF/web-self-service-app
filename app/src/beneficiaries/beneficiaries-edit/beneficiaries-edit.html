@@ -1,0 +1,41 @@
+<div id="transfer" class="md-padding" layout="row" layout-align="center" flex>
+    <md-card flex flex-gt-md="60">
+        <md-card-title>
+            <md-card-title-text>
+                <span class="md-headline">{{ 'label.heading.editbeneficiaries' | translate }}</span>
+            </md-card-title-text>
+        </md-card-title>
+        <md-divider></md-divider>
+        <md-card-content>
+            <form name="editBeneficiaryForm" ng-submit="editBeneficiaryForm.$valid && vm.submit()">
+                <api-validate></api-validate>
+                <md-input-container class="md-block md-icon-float">
+                    <label>{{ 'label.input.accountType' | translate }}</label>
+                    <md-select ng-model="vm.editBeneficiaryFormData.accountType" required disabled>
+                        <md-option ng-repeat="accountType in vm.accountTypeOptions" ng-value="accountType.id">{{ accountType.value }}</md-option>
+                    </md-select>
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <label>{{ 'label.input.accountNumber' | translate }}</label>
+                    <input name="accountNumber" ng-model="vm.editBeneficiaryFormData.accountNumber" required disabled>
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <label>{{ 'label.input.officeName' | translate }}</label>
+                    <input name="officeName" ng-model="vm.editBeneficiaryFormData.officeName" required disabled>
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <label>{{ 'label.input.transferLimit' | translate }} <span class="required">*</span></label>
+                    <input type="number" name="transferLimit" ng-model="vm.editBeneficiaryFormData.transferLimit" required>
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <label>{{ 'label.input.beneficiaryName' | translate }}</label>
+                    <input name="name" ng-model="vm.editBeneficiaryFormData.name" required>
+                </md-input-container>
+                <div layout="row" flex>
+                    <md-button flex class="md-danger" ng-click="vm.clearForm()">{{ 'label.btn.cancel' | translate }}</md-button>
+                    <md-button type="submit" flex class="md-raised md-primary" ng-disabled="editBeneficiaryForm.$invalid">{{ 'label.btn.editBeneficiary' | translate }}</md-button>
+                </div>
+            </form>
+        </md-card-content>
+    </md-card>
+</div>

@@ -1,0 +1,157 @@
+<md-tabs id="account-list-tabs" class="datatable-cont md-primary" md-dynamic-height md-border-bottom>
+    <md-tab label="{{ 'label.heading.loans' | translate }}">
+        <md-card>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">{{ 'label.heading.loanAccountList' | translate }}</span>
+                </md-card-title-text>
+                <md-input-container md-no-float class="md-block search-input">
+                    <md-icon md-svg-src="assets/images/ic_search_black_24px.svg"></md-icon>
+                    <input ng-model="vm.loanFilter" type="text" placeholder="{{ 'label.input.search' | translate }}">
+                </md-input-container>
+            </md-card-title>
+            <md-divider></md-divider>
+            <md-card-content class="md-padding">
+                <div flex layout="row" layout-align="center center" ng-if="vm.loadingAccountInfo">
+                    <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+                    Loading Account Info...
+                    <!--@todo Internationalize-->
+                </div>
+                <md-table-container>
+                    <table md-table ng-model="vm.selected" md-progress="vm.promise">
+                        <thead md-head md-order="vm.query.orderBy">
+                        <tr md-row>
+                            <th md-column md-order-by="(inArrears)?a:z + status.code">{{ 'label.heading.status' | translate }}</th>
+                            <th md-column md-numeric md-order-by="accountNo"><span>{{ 'label.heading.accountNo' | translate }}</span></th>
+                            <th md-column md-order-by="productName">{{ 'label.heading.loanAccount' | translate }}</th>
+                            <th md-column md-numeric md-order-by="originalLoan">{{ 'label.heading.originalLoan' | translate }}</th>
+                            <th md-column md-numeric md-order-by="loanBalance">{{ 'label.heading.loanBalance' | translate }}</th>
+                            <th md-column md-numeric md-order-by="amountPaid">{{ 'label.heading.amountPaid' | translate}}</th>
+                            <th md-column md-order-by="loanType.value">{{ 'label.heading.type' | translate }}</th>
+                        </tr>
+                        </thead>
+                        <tbody md-body>
+                        <tr md-row md-select="account" md-select-id="{{loanAccount.name}}" md-auto-select
+                            ng-repeat="loanAccount in vm.loanAccounts | filter: vm.loanFilter | orderBy: vm.query.orderBy | limitTo: vm.query.limit : (vm.query.offset - 1) * vm.query.limit" ng-click="vm.routeTo( 'loan',loanAccount.id)">
+                            <td md-cell>
+                                <i ng-hide="loanAccount.inArrears" class="fa fa-stop fa-2x {{loanAccount.status.code | StatusLookup}}">
+                                    <md-tooltip md-direction="top">{{loanAccount.status.value}}</md-tooltip>
+                                </i>
+                                <i ng-show="loanAccount.inArrears" class="fa fa-stop fa-2x {{loanAccount.status.code | StatusLookup}}overdue">
+                                    <md-tooltip md-direction="top">{{loanAccount.status.value}}</md-tooltip>
+                                </i>
+                            </td>
+                            <td md-cell>{{loanAccount.accountNo}}</td>
+                            <td md-cell>{{loanAccount.productName}}</td>
+                            <td md-cell>{{loanAccount.originalLoan | number:2 }}</td>
+                            <td md-cell>{{loanAccount.loanBalance | number:2 }}</td>
+                            <td md-cell>{{loanAccount.amountPaid | number:2 }}</td>
+                            <td md-cell>{{loanAccount.loanType.value}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </md-table-container>
+                <md-table-pagination md-limit="vm.query.limit" md-page="vm.query.offset"
+                                     md-total="{{vm.loanAccounts.length}}" md-page-select></md-table-pagination>
+            </md-card-content>
+        </md-card>
+    </md-tab>
+
+    <md-tab label="{{ 'label.heading.savings' | translate }}">
+        <md-card>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">{{ 'label.heading.savingAccountList' | translate }}</span>
+                </md-card-title-text>
+                <md-input-container md-no-float class="md-block search-input">
+                    <md-icon md-svg-src="assets/images/ic_search_black_24px.svg"></md-icon>
+                    <input ng-model="vm.savingFilter" type="text" placeholder="{{ 'label.input.search' | translate }}">
+                </md-input-container>
+            </md-card-title>
+            <md-divider></md-divider>
+            <md-card-content class="md-padding">
+                <md-table-container>
+                    <table md-table ng-model="vm.selected" md-progress="vm.promise">
+                        <thead md-head md-order="vm.query.orderBy">
+                        <tr md-row>
+                            <th md-column md-numeric md-order-by="status.code+subStatus.value">{{ 'label.heading.status' | translate }}</th>
+                            <th md-column md-numeric md-order-by="accountNo"><span>{{ 'label.heading.accountNo' | translate }}</span></th>
+                            <th md-column md-order-by="productName">{{ 'label.heading.account' | translate }}</th>
+                            <th md-column md-numeric md-order-by="accountType.value">{{ 'label.heading.accountType' | translate }}</th>
+                            <th md-column md-numeric md-order-by="accountBalance">{{ 'label.heading.accountBalance' | translate }}</th>
+                        </tr>
+                        </thead>
+                        <tbody md-body>
+                        <tr md-row md-select="account" md-select-id="{{savingsAccount.name}}" md-auto-select
+                            ng-repeat="savingsAccount in vm.savingsAccounts | filter: vm.savingFilter | orderBy: vm.query.orderBy | limitTo: vm.query.limit : (vm.query.offset - 1) * vm.query.limit"
+                            ng-click="vm.routeTo('savings',savingsAccount.id)">
+                            <td md-cell>
+                                <i ng-show="savingsAccount.subStatus.id==0" class="fa fa-stop fa-2x {{savingsAccount.status.code | StatusLookup}}">
+                                    <md-tooltip md-direction="top">{{savingsAccount.status.value}}</md-tooltip>
+                                </i>
+                                <i ng-hide="savingsAccount.subStatus.id==0" class="fa fa-stop fa-2x {{savingsAccount.status.code+savingsAccount.subStatus.value | StatusLookup}}">
+                                    <md-tooltip md-direction="top">{{savingsAccount.status.value+':'+savingsAccount.subStatus.value}}</md-tooltip>
+                                </i>
+                            </td>
+                            <td md-cell>{{savingsAccount.accountNo}}</td>
+                            <td md-cell>{{savingsAccount.productName}}</td>
+                            <td md-cell>{{savingsAccount.accountType.value}}</td>
+                            <td md-cell>{{savingsAccount.accountBalance | number:2 }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </md-table-container>
+                <md-table-pagination md-limit="vm.query.limit" md-page="vm.query.offset"
+                                     md-total="{{vm.savingsAccounts.length}}" md-on-paginate="vm.onPaginate"
+                                     md-page-select></md-table-pagination>
+            </md-card-content>
+        </md-card>
+    </md-tab>
+
+    <md-tab label="{{ 'label.heading.shares' | translate }}">
+        <md-card>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">{{ 'label.heading.shareAccountList' | translate }}</span>
+                </md-card-title-text>
+                <md-input-container md-no-float class="md-block search-input">
+                    <md-icon md-svg-src="assets/images/ic_search_black_24px.svg"></md-icon>
+                    <input ng-model="vm.shareFilter" type="text" placeholder="{{ 'label.input.search' | translate }}">
+                </md-input-container>
+            </md-card-title>
+            <md-divider></md-divider>
+            <md-card-content class="md-padding">
+                <md-table-container>
+                    <table md-table ng-model="vm.selected" md-progress="vm.promise">
+                        <thead md-head md-order="vm.query.orderBy">
+                        <tr md-row>
+                            <th md-column md-numeric md-order-by="status.code">{{ 'label.heading.status' | translate }}</th>
+                            <th md-column md-numeric md-order-by="accountNo"><span>{{ 'label.heading.accountNo' | translate }}</span></th>
+                            <th md-column md-order-by="productName">{{ 'label.heading.account' | translate }}</th>
+                            <th md-column md-numeric md-order-by="totalApprovedShares">{{ 'label.heading.approvedShares' | translate }}</th>
+                            <th md-column md-numeric md-order-by="totalPendingForApprovalShares">{{ 'label.heading.pendingShares' | translate }}</th>
+                        </tr>
+                        </thead>
+                        <tbody md-body>
+                        <tr md-row md-select="account" md-select-id="{{shareAccount.name}}" md-auto-select
+                            ng-repeat="shareAccount in vm.shareAccounts | filter: vm.shareFilter | orderBy: vm.query.orderBy | limitTo: vm.query.limit : (vm.query.offset - 1) * vm.query.limit" ng-click="vm.routeTo('shares',shareAccount.id)">
+                            <td md-cell>
+                                <i class="fa fa-stop fa-2x {{shareAccount.status.code | StatusLookup}}">
+                                    <md-tooltip md-direction="top">{{shareAccount.status.value}}</md-tooltip>
+                                </i>
+                            </td>
+                            <td md-cell>{{shareAccount.accountNo}}</td>
+                            <td md-cell>{{shareAccount.productName}}</td>
+                            <td md-cell>{{shareAccount.totalApprovedShares | number:2 }}</td>
+                            <td md-cell>{{shareAccount.totalPendingForApprovalShares | number:2 }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </md-table-container>
+                <md-table-pagination md-limit="vm.query.limit" md-page="vm.query.offset"
+                                     md-total="{{vm.shareAccounts.length}}" md-on-paginate="vm.onPaginate"
+                                     md-page-select></md-table-pagination>
+            </md-card-content>
+        </md-card>
+    </md-tab>
+</md-tabs>

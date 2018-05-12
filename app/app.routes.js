@@ -104,9 +104,9 @@
                     }
                 })
                 .state('app.profile', {
-                    url: '/charges',
-                    templateUrl: 'src/common/coming-soon.html',
-                    controller: 'ClientCtrl',
+                    url: '/profile',
+                    templateUrl: 'src/profile/profile.html',
+                    controller: 'ProfileViewCtrl',
                     controllerAs: 'vm',
                     data: {
                         title: 'Profile',

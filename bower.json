@@ -30,5 +30,8 @@
   },
   "devDependencies": {
     "angular-mocks": "^1.6.5"
+  },
+  "resolutions": {
+    "angular": "1.7.0"
   }
 }

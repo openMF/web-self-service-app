@@ -53,7 +53,7 @@
 
         //Resource for REST APIs
         this.doLogin = function(data) {
-            return $resource(BASE_URL+'/self/authentication', data);
+            return $resource(BASE_URL +'/self/authentication', data);
         }
 
         this.logout = function() {
@@ -63,6 +63,14 @@
             setAccessToken('');
             storageService.clear();
             $state.go('login');
+        }
+
+        this.register = function(data) {
+            return $http.post(BASE_URL + '/self/registration',data);
+        }
+
+        this.verifyUser = function(data){
+            return $http.post(BASE_URL + '/self/registration/user',data);
         }
 
     }

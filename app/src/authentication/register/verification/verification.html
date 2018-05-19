@@ -1,0 +1,40 @@
+<div id="register" class="flex-scrollable" layout="column" ms-scroll style="padding-left: 80px">
+    <div id="register-form-wrapper" layout="column" layout-align="center center">
+        <div id="register-form" class="md-whiteframe-8dp">
+            <div class="logo">
+                <img width="100%" src="assets/images/MifosX_logo.png">
+            </div>
+
+            <div class="title">Verification</div>
+
+            <form name="verificationForm" novalidate ng-submit="submit()">
+                <md-input-container class="md-block" md-no-float>
+                    <input name="requestId" ng-model="vm.verifyData.requestId" placeholder="RequestID"
+                           required>
+                    <div ng-messages="verificationForm.requestId.$error" role="alert">
+                        <div ng-message="required">
+                            <span>RequestID is required</span>
+                        </div>
+                    </div>
+                </md-input-container>
+                <md-input-container class="md-block" md-no-float>
+                    <input name="authenticationToken" ng-model="vm.verifyData.authenticationToken" placeholder="Authentication Token"
+                           required>
+                    <div ng-messages="verificationForm.authenticationToken.$error" role="alert">
+                        <div ng-message="required">
+                            <span>Authentication Token is required</span>
+                        </div>
+                    </div>
+                </md-input-container>
+
+                <md-button type="submit" class="md-raised md-accent submit-button" aria-label="VERIFY"
+                           ng-disabled="registerForm.$invalid || registerForm.$pristine">
+                    VERIFY
+                </md-button>
+                <md-button type="cancel" class=" md-default submit-button" ui-sref="register" aria-label="CANCEL">
+                    CANCEL
+                </md-button>
+            </form>
+        </div>
+    </div>
+</div>

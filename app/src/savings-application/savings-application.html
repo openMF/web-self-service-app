@@ -1,0 +1,69 @@
+<div class="md-padding" layout="row" layout-align="center" flex>
+    <md-card flex flex-gt-md="60">
+        <md-card-title>
+            <md-card-title-text>
+                <span class="md-headline">{{ 'label.heading.applysavings' | translate }}</span>
+            </md-card-title-text>
+        </md-card-title>
+        <md-divider></md-divider>
+        <md-card-content>
+            <form name="savingsApplicationForm" ng-submit="savingsApplicationForm.$valid && vm.submit()">
+                <api-validate></api-validate>
+                <md-input-container class="md-block md-icon-float">
+                    <label>{{ 'label.input.savingsproductOptions' | translate }}</label>
+                    <md-select ng-model="vm.form.productId" ng-change="vm.getSavingsTemplate(vm.clientId, vm.form.productId)" required>
+                        <md-option ng-repeat="productOption in vm.template.productOptions" ng-value="productOption.id">{{ productOption.name }}</md-option>
+                    </md-select>
+                </md-input-container>
+                <br />
+                <md-input-container class="md-block" ng-if="vm.form.productId">
+                    <label>{{ 'label.input.nominalAnnualInterest' | translate }}</label>
+                    <input name="nominalAnnualInterest" ng-model="vm.form.nominalAnnualInterest" required>
+                </md-input-container>
+                <md-input-container class="md-block" ng-if="vm.form.productId">
+                    <label>{{ 'label.input.interestCompoundingPeriod' | translate }}</label>
+                    <md-select ng-model="vm.form.interestCompoundingPeriod" ng-change="" required>
+                        <md-option ng-repeat="" ng-value="">{{  }}</md-option>
+                    </md-select>
+                </md-input-container>
+                </br>
+                <md-input-container class="md-block" ng-if="vm.form.productId">
+                    <label>{{ 'label.input.interestPostingPeriod' | translate }}</label>
+                    <md-select ng-model="vm.form.interestPostingPeriod" ng-change="" required>
+                        <md-option ng-repeat="" ng-value="">{{  }}</md-option>
+                    </md-select>
+                </md-input-container>
+                </br>
+                <md-input-container class="md-block" ng-if="vm.form.productId">
+                    <label>{{ 'label.input.interestCalculatedUsing' | translate }}</label>
+                    <md-select ng-model="vm.form.interestCalculatedUsing" ng-change="" required>
+                        <md-option ng-repeat="" ng-value="">{{  }}</md-option>
+                    </md-select>
+                </md-input-container>
+                </br>
+                <md-input-container class="md-block" ng-if="vm.form.productId">
+                    <label>{{ 'label.input.daysInYear' | translate }}</label>
+                    <md-select ng-model="vm.form.daysInYear" ng-change="" required>
+                        <md-option ng-repeat="" ng-value="">{{  }}</md-option>
+                    </md-select>
+                </md-input-container>
+                </br>
+                <md-input-container class="md-block" ng-if="vm.form.productId">
+                    <label>{{ 'label.input.currency' | translate }}</label>
+                    <input name="currency" value=" " ng-disabled="true" required>
+                </md-input-container>
+                <md-input-container layout="row" ng-if="vm.form.productId">
+                    <label>{{ 'label.input.submittedOn' | translate }}</label>
+                    <span flex></span>
+                    <input value="{{ vm.form.submittedOnDate }}" disabled />
+                </md-input-container>
+                <br />
+                <div layout="row" flex>
+                    <md-button flex class="md-danger" ng-click="vm.clearForm()">{{ 'label.btn.cancel' | translate }}</md-button>
+                    <md-button type="submit" flex class="md-raised md-primary" ng-disabled="savingsApplicationForm.$invalid">{{ 'label.btn.apply' | translate }}</md-button>
+                </div>
+
+            </form>
+        </md-card-content>
+    </md-card>
+</div>

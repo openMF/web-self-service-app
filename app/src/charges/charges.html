@@ -1,7 +1,7 @@
 <div class="datatable-cont md-padding">
-    <md-card>
-        <md-card-title>
-            <md-card-title-text>
+    <md-card hide-xs hide-sm>
+        <md-card-title layout-xs="column">
+            <md-card-title-text flex-xs>
                 <span class="md-headline">{{ 'label.heading.charges' | translate }}</span>
             </md-card-title-text>
             <md-input-container md-no-float class="md-block search-input">
@@ -16,35 +16,92 @@
                 {{ 'label.msg.loadingCharges' | translate }}...
             </div>
             <md-table-container>
-                <table md-table>
-                    <thead md-head md-order="vm.query.orderBy">
-                    <tr md-row>
-                        <th md-column {{ (!(charge.isWaived || charge.isPaid)) |StatusLookup}}>{{ 'label.heading.status' | translate }}</th>
-                        <th md-column md-order-by="name">{{ 'label.heading.name' | translate }}</th>
-                        <th md-column md-order-by="dueDate">{{ 'label.heading.dueAsOf' | translate }}</th>
-                        <th md-column md-numeric md-order-by="amount">{{ 'label.heading.due' | translate }}</th>
-                        <th md-column md-numeric md-order-by="amountPaid">{{ 'label.heading.paid' | translate }}</th>
-                        <th md-column md-numeric md-order-by="amountWaived">{{ 'label.heading.waived' | translate }}</th>
-                        <th md-column md-numeric md-order-by="amountOutstanding">{{ 'label.heading.outstanding' | translate }}</th>
-                    </tr>
-                    </thead>
-                    <tbody md-body>
-                    <tr md-row
-                        ng-repeat="charge in vm.charges.pageItems | filter: vm.chargeFilter | orderBy: vm.query.orderBy">
-                        <td md-cell><i class="fa fa-stop fa-2x {{ (!(charge.isWaived || charge.isPaid)) |StatusLookup}}" ></i></td>
-                        <td md-cell>{{charge.name}}</td>
-                        <td md-cell>{{charge.dueDate | DateFormat}}</td>
-                        <td md-cell>{{charge.currency.displaySymbol + ' ' + (charge.amount | number)}}</td>
-                        <td md-cell>{{charge.currency.displaySymbol + ' ' + (charge.amountPaid | number)}}</td>
-                        <td md-cell>{{charge.currency.displaySymbol + ' ' + (charge.amountWaived | number)}}</td>
-                        <td md-cell>{{charge.currency.displaySymbol + ' ' + (charge.amountOutstanding | number)}}</td>
-                    </tr>
-                    </tbody>
-                </table>
+                <div>
+                    <table md-table>
+                        <thead md-head md-order="vm.query.orderBy">
+                        <tr md-row>
+                            <th md-column {{ (!(charge.isWaived || charge.isPaid)) |StatusLookup}}>{{ 'label.heading.status' | translate }}</th>
+                            <th md-column md-order-by="name">{{ 'label.heading.name' | translate }}</th>
+                            <th md-column md-order-by="dueDate">{{ 'label.heading.dueAsOf' | translate }}</th>
+                            <th md-column md-numeric md-order-by="amount">{{ 'label.heading.due' | translate }}</th>
+                            <th md-column md-numeric md-order-by="amountPaid">{{ 'label.heading.paid' | translate }}</th>
+                            <th md-column md-numeric md-order-by="amountWaived">{{ 'label.heading.waived' | translate }}</th>
+                            <th md-column md-numeric md-order-by="amountOutstanding">{{ 'label.heading.outstanding' | translate }}</th>
+                        </tr>
+                        </thead>
+                        <tbody md-body>
+                        <tr md-row
+                            ng-repeat="charge in vm.charges.pageItems | filter: vm.chargeFilter | orderBy: vm.query.orderBy">
+                            <td md-cell><i class="fa fa-stop fa-2x {{ (!(charge.isWaived || charge.isPaid)) |StatusLookup}}" ></i></td>
+                            <td md-cell>{{charge.name}}</td>
+                            <td md-cell>{{charge.dueDate | DateFormat}}</td>
+                            <td md-cell>{{charge.currency.displaySymbol + ' ' + (charge.amount | number)}}</td>
+                            <td md-cell>{{charge.currency.displaySymbol + ' ' + (charge.amountPaid | number)}}</td>
+                            <td md-cell>{{charge.currency.displaySymbol + ' ' + (charge.amountWaived | number)}}</td>
+                            <td md-cell>{{charge.currency.displaySymbol + ' ' + (charge.amountOutstanding | number)}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
             </md-table-container>
             <md-table-pagination md-limit="vm.query.limit" md-page="vm.page"
                                  md-on-paginate="vm.onPaginate"
                                  md-total="{{vm.charges.totalFilteredRecords}}" md-page-select></md-table-pagination>
         </md-card-content>
     </md-card>
+</div>
+<div>
+    <md-content hide-gt-sm>
+        <div>
+            <h2 class="mobile-table-title">{{ 'label.heading.charges' | translate }}</h2>
+            <md-input-container md-no-float class="md-block search-input">
+                <md-icon md-svg-src="assets/images/ic_search_black_24px.svg"></md-icon>
+                <input ng-model="vm.chargeFilter" type="text" placeholder="{{ 'label.input.search' | translate }}">
+            </md-input-container>
+            <md-content flex-xs>
+                <md-list >
+                    <md-list-item class="md-3-line" ng-repeat="charge in vm.charges.pageItems | filter: vm.chargeFilter | orderBy: vm.query.orderBy">
+                        <div layout="column">
+                            <div class="md-list-item-text">
+                                </br>
+                                <div layout="row">
+                                    <i class="fa fa-stop fa-2x {{ (!(charge.isWaived || charge.isPaid)) |StatusLookup}}" ></i>
+                                </div>
+                                <p> </p>
+                                <h3><strong>{{charge.name}}</strong></h3>
+                                <div layout="row">
+                                    <h4>Due As of:&nbsp;</h4>
+                                    <p>{{charge.dueDate | DateFormat}}</p>
+                                </div>
+                                <div layout="row">
+                                    <h4>Due:&nbsp;</h4>
+                                    <p>{{charge.currency.displaySymbol + ' ' + (charge.amount | number)}}</p>
+                                </div>
+                                <div layout="row">
+                                    <h4>Paid:&nbsp;</h4>
+                                    <p>{{charge.currency.displaySymbol + ' ' + (charge.amountPaid | number)}}</p>
+                                </div>
+                                <div layout="row">
+                                    <h4>Waived:&nbsp;</h4>
+                                    <p>{{charge.currency.displaySymbol + ' ' + (charge.amountWaived | number)}}</p>
+                                </div>
+                                <div layout="row">
+                                    <h4>Outstanding:&nbsp;</h4>
+                                    <p>{{charge.currency.displaySymbol + ' ' + (charge.amountOutstanding | number)}}</p>
+                                </div>
+                                </br>
+                                <md-divider></md-divider>
+
+                            </div>
+
+                        </div>
+
+                    </md-list-item>
+                </md-list>
+            </md-content>
+        </div>
+        <md-table-pagination md-limit="vm.query.limit" md-page="vm.page"
+                             md-on-paginate="vm.onPaginate"
+                             md-total="{{vm.charges.totalFilteredRecords}}" md-page-select></md-table-pagination>
+    </md-content>
 </div>

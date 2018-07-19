@@ -60,6 +60,7 @@
             }
             $state.go('app.'+routingSlug, {id: id});
         }
+
     }
 
 })();

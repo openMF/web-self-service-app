@@ -1,9 +1,9 @@
 (function () {
 
     angular.module('selfService')
-        .controller('MainCtrl', ['navService', '$mdSidenav', '$mdBottomSheet', '$log', '$q', '$state', '$mdToast', '$scope', 'AuthService', 'AccountService', MainCtrl]);
+        .controller('MainCtrl', ['navService', '$mdSidenav', '$mdBottomSheet', '$log', '$q', '$state', '$mdToast', '$scope', '$location', 'AuthService', 'AccountService', MainCtrl]);
 
-    function MainCtrl(navService, $mdSidenav, $mdBottomSheet, $log, $q, $state, $mdToast, $scope, AuthService, AccountService) {
+    function MainCtrl(navService, $mdSidenav, $mdBottomSheet, $log, $q, $state, $mdToast, $scope, $location, AuthService, AccountService) {
         var vm = this;
 
         vm.menuItems = [];
@@ -13,6 +13,7 @@
         vm.toggleItemsList = toggleItemsList;
         vm.toggleRightSidebar = toggleRightSidebar;
         vm.logout = logout;
+        vm.pocket = pocket;
 
         vm.profile = getUserData();
 
@@ -63,6 +64,10 @@
 
         function logout() {
             AuthService.logout();
+        }
+
+        function pocket(){
+            $location.path('/pocket');
         }
 
     }

@@ -185,10 +185,10 @@
                     controller: 'ViewReportsCtrl',
                     controllerAs: 'vm'
                 })
-                .state('app.run_report',{
+                .state('app.run_report', {
                     url: '/run_report/:name/:id/:type',
-                    params : {
-                        name : '',
+                    params: {
+                        name: '',
                         id: '',
                         type: ''
                     },
@@ -206,7 +206,14 @@
                 .state('app.applyshares', {
                     url: '/shares/apply',
                     templateUrl: 'src/shares-application/shares-application.html',
+                    controller: 'SharesApplicationCtrl',
                     controllerAs: 'vm'
+                })
+                .state('app.pocket',{
+                    url: '/pocket',
+                    templateUrl:'src/Pocket/pocket.html',
+                    controller:'PocketCtrl',
+                    controllerAs:'vm'
                 })
                 .state('login', {
                     url: '/login',

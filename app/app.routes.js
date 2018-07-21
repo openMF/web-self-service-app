@@ -206,6 +206,15 @@
                         title: 'Register User'
                     }
                 })
+                .state('verify', {
+                    url: '/verify',
+                    templateUrl: 'src/authentication/register/verification/verification.html',
+                    controller: 'VerificationCtrl',
+                    controllerAs: 'vm',
+                    data: {
+                        title: 'Verify User'
+                    }
+                })
             }
         )
 })();

@@ -7,7 +7,16 @@
 
             <div class="title">Create an account</div>
 
-            <form name="registerForm" novalidate>
+            <form name="registerForm" novalidate ng-submit="submit()">
+                <md-input-container class="md-block" md-no-float>
+                    <input name="accountNumber" ng-model="vm.form.accountNumber" placeholder="Account number"
+                           required>
+                    <div ng-messages="registerForm.accountNumber.$error" role="alert">
+                        <div ng-message="required">
+                            <span>Account Number field is required</span>
+                        </div>
+                    </div>
+                </md-input-container>
                 <md-input-container class="md-block" md-no-float>
                     <input name="username" ng-model="vm.form.username" placeholder="Username"
                            required>
@@ -53,7 +62,7 @@
                 </md-input-container>
 
                 <md-input-container class="md-block" md-no-float>
-                    <input type="phone" name="mobile" ng-model="vm.form.mobile" placeholder="Mobile">
+                    <input type="phone" name="mobile" ng-model="vm.form.mobileNumber" placeholder="Mobile">
                 </md-input-container>
 
                 <md-input-container class="md-block" md-no-float>
@@ -67,7 +76,7 @@
                 </md-input-container>
 
                 <md-input-container class="md-block" md-no-float>
-                    <input type="password" name="passwordConfirm" ng-model="vm.form.passwordConfirm"
+                    <input type="password" name="passwordConfirm" ng-model="passwordConfirm"
                            placeholder="Password (Confirm)"
                            required>
                     <div ng-messages="registerForm.passwordConfirm.$error" role="alert">

@@ -73,6 +73,7 @@
   "label.heading.transactionhistoryGraph": "Graph for transaction history",
   "label.heading.category": "Category",
   "label.headping.reports": "Reports",
+  "label.heading.aboutUs": "About Us",
 
   "label.msg.loadingCharges": "Loading Charges",
   "label.msg.loadingRecentTransactions": "Loading Recent Transactions",

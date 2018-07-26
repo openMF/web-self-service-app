@@ -19,7 +19,6 @@
         RunReportService.reports().get({reportName: vm.reportName, id: vm.id}).$promise.then(function(data) {
             vm.reportData = data;
             vm.reportData.columnHeaders = data.columnHeaders;
-            console.log(vm.reportData.data[0].row);
         });
 
         function isDecimal (index) {
@@ -31,7 +30,7 @@
                 }
             }
             return false;
-        };
+        }
 
     }
 

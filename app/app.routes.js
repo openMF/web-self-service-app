@@ -94,9 +94,9 @@
                     }
                 })
                 .state('app.help', {
-                    url: '/charges',
-                    templateUrl: 'src/common/coming-soon.html',
-                    controller: 'ClientCtrl',
+                    url: '/help',
+                    templateUrl: 'src/help/help.html',
+                    controller: 'HelpCtrl',
                     controllerAs: 'vm',
                     data: {
                         title: 'Help',

@@ -9,7 +9,7 @@
      * @description
      * Handles Forgot Password
      */
-    function ForgotPwdCtrl($scope, $state, $mdToast, AuthService, AccountService) {
+    function ForgotPwdCtrl() {
 
     }
 

@@ -55,7 +55,7 @@
         function getClientImage(clientId) {
             AccountService.getClientImage(clientId).then( function (resp) {
                 vm.profileImage = resp.data;
-            }).catch(function(err) {
+            }).catch(function() {
                 // Not Found Profile image
                 vm.profileImage = null;
             });

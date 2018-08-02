@@ -15,6 +15,7 @@
   "nav.label.aboutus": "About us",
   "nav.label.help": "Help",
   "nav.label.applyloan": "Apply For Loan",
+  "nav.label.reports": "Reports",
 
   "label.heading.loans": "Loans",
   "label.heading.loanAccountList": "Loan Account List",
@@ -70,6 +71,8 @@
   "label.heading.currency": "Currency",
   "label.heading.tpt": "Third Party Transfers",
   "label.heading.transactionhistoryGraph": "Graph for transaction history",
+  "label.heading.category": "Category",
+  "label.headping.reports": "Reports",
 
   "label.msg.loadingCharges": "Loading Charges",
   "label.msg.loadingRecentTransactions": "Loading Recent Transactions",

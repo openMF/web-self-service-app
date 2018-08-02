@@ -1,0 +1,40 @@
+<div class="datatable-cont md-padding">
+    <md-card>
+        <md-card-title>
+            <md-card-title-text>
+                <span class="md-headline">{{'label.headping.reports' | translate}}</span>
+            </md-card-title-text>
+            <md-input-container md-no-float class="md-block search-input">
+                <md-icon md-svg-src="assets/images/ic_search_black_24px.svg"></md-icon>
+                <input ng-model="vm.reportFilter" type="text" placeholder="{{ 'label.input.search' | translate }}">
+            </md-input-container>
+        </md-card-title>
+        <md-divider></md-divider>
+        <md-card-content class="md-padding">
+            <div flex layout="row" layout-align="center center" ng-if="vm.listReports">
+                <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+                Hold tight loading Reports...
+                <!--@todo Internationalize-->
+            </div>
+            <md-table-container>
+                <table md-table ng-model="vm.selected">
+                    <thead md-head>
+                        <tr md-row>
+                            <th md-column>{{'label.heading.name' | translate}}</th>
+                            <th md-column>{{'label.heading.type' | translate}}</th>
+                            <th md-column>{{'label.heading.category' | translate}}</th>
+                        </tr>
+                    </thead>
+                    <tbody md-body>
+                    <tr md-row md-select="report" md-select-id="{{report.id}}" md-auto-select
+                        ng-repeat="report in vm.reports | filter: vm.reportFilter">
+                        <td md-cell ng-click="vm.routeTo(report)">{{report.reportName}}</td>
+                        <td md-cell ng-click="vm.routeTo(report)">{{report.reportType}}</td>
+                        <td md-cell ng-click="vm.routeTo(report)">{{report.reportCategory}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </md-table-container>
+        </md-card-content>
+    </md-card>
+</div>

@@ -84,4 +84,56 @@
             </md-card-content>
         </md-card>
     </div>
+    <div>
+        <md-card flex>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-title">{{'label.heading.transactionhistoryGraph' | translate}}</span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-content>
+                <form name="transactionGraphForm" ng-submit="transactionGraphForm.$valid && vm.submit()">
+                    <div layout="row">
+                        <div flex-gt-md="40">
+                            <md-input-container class="md-block" flex="33">
+                                <label>{{'label.input.accountno' | translate}}</label>
+                                <input name="account_no" ng-model="vm.accountno" required>
+                            </md-input-container>
+                        </div>
+                        <div flex-gt-md="40">
+                            <md-input-container class="md-block" flex="33">
+                                <label>{{'label.input.accountType' | translate}}</label>
+                                <md-select ng-model="vm.accountType" ng-change="vm.accountType" required>
+                                    <md-option ng-repeat="accountType in vm.accountTypeOptions" ng-value="accountType">{{ accountType }}</md-option>
+                                </md-select>
+                            </md-input-container>
+                        </div>
+                        <div flex-gt-md="40" ng-if="vm.accountno && vm.accountType">
+                            <md-input-container class="md-block" flex="33">
+                                <label>{{'label.input.transactionType' | translate}}</label>
+                                <md-select ng-model="vm.paymentType" ng-click="vm.selectPayment(vm.paymentType)" ng-change="vm.selectPayment(vm.paymentType)" required>
+                                    <md-option ng-repeat="paymentType in vm.paymentTypes" ng-value="paymentType">{{ paymentType }}</md-option>
+                                </md-select>
+                            </md-input-container>
+                        </div>
+
+                    </div>
+                    <div ng-if="vm.accountno && vm.accountType">
+                        <md-button class="md-primary md-raised" ng-click="vm.submit(vm.paymentType)" ng-disabled="transactionGraphForm.$invalid">Generate Graph</md-button>
+                    </div>
+                </form>
+                <md-card flex-xs ng-show="vm.showTransactionGraph">
+                    <md-card-title>
+                        <span class="md-title">{{vm.accountType}}</span>
+                    </md-card-title>
+                    <md-card-content>
+                        <nvd3  options="vm.options2" data="vm.transactionDatas"></nvd3>
+                        <h4 ng-show="vm.accountType=='Savings'">Sorry, Graphs for Shares are not available now...</h4>
+                    </md-card-content>
+                </md-card>
+
+            </md-card-content>
+        </md-card>
+    </div>
 </div>
+

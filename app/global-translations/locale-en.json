@@ -69,6 +69,7 @@
   "label.heading.accountId": "Account Id",
   "label.heading.currency": "Currency",
   "label.heading.tpt": "Third Party Transfers",
+  "label.heading.transactionhistoryGraph": "Graph for transaction history",
 
   "label.msg.loadingCharges": "Loading Charges",
   "label.msg.loadingRecentTransactions": "Loading Recent Transactions",
@@ -92,6 +93,10 @@
   "label.input.principal": "Principal",
   "label.input.submittedOn": "Submitted On",
   "label.input.expectedDisbursementDate": "Expected Disbursement Date",
+  "label.input.accountno": "Account Number",
+  "label.input.accountType" : "Account Type",
+  "label.input.repaymentType": "Repayment Type",
+  "label.input.transactionType": "Transaction Type",
 
   "label.btn.cancel": "Cancel",
   "label.btn.reviewTransfer": "Review Transfer",

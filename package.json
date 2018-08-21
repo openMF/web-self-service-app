@@ -51,6 +51,7 @@
   "scripts": {
     "init": "npm install",
     "install": "npm install -g bower && bower install",
-    "lint": "eslint app/"
+    "lint": "eslint app/",
+    "test": "npm run lint"
   }
 }

@@ -9,12 +9,12 @@
         var vm = this;
         vm.verifyData = {};
 
-        function clearForm() {
+      /*  function clearForm() {
             $scope.form.$setPristine();
             $scope.form.$setUntouched();
             vm.verifyData={};
 
-        }
+        }*/
 
         $scope.submit = function() {
             AuthService.verifyUser(vm.verifyData).then(function () {

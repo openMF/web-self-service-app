@@ -196,6 +196,11 @@ md-toolbar .md-menu {
   }
 }
 
+.sidenav-icon {
+  text-align: left;
+  display: block;
+}
+
 // Login Styles
 .cover {
   background: url('../assets/images/cover.png');
@@ -472,6 +477,7 @@ md-toolbar .md-menu {
 .card-total {
   word-wrap: break-word;
 }
+
 #forgot-password {
   height: 100%;
   width: 100%;

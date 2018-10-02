@@ -221,6 +221,23 @@ md-toolbar .md-menu {
   margin-top: 5vh;
 }
 
+.org-logo-height{
+  height: 300px;
+}
+
+.org-name{
+  padding-top: 80px;
+  padding-left: 10px;
+}
+
+.org-descripion{
+  padding-top: 20px;
+}
+.org-description-contents{
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
 @media (min-width: 960px) {
   .login-container{
     box-shadow: 1px 1px 80px black;

@@ -85,8 +85,8 @@
                 })
                 .state('app.aboutus', {
                     url: '/about',
-                    templateUrl: 'src/common/coming-soon.html',
-                    controller: 'ClientCtrl',
+                    templateUrl: 'src/aboutUs/aboutUs.html',
+                    controller: 'AboutUsCtrl',
                     controllerAs: 'vm',
                     data: {
                         title: 'About Us',

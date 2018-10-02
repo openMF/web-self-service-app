@@ -1,4 +1,4 @@
-<div layout="row" class="md-padding loan-account-detail-cont" flex>
+<div layout="row" layout-xs="column" class="md-padding loan-account-detail-cont" flex>
     <md-content flex ng-if="vm.loadingvm.loanAccountDetailsInfo">
         <div layout="row" flex>
             <md-progress-circular md-mode="indeterminate"></md-progress-circular>
@@ -6,7 +6,7 @@
             <!--@todo Internationalize-->
         </div>
     </md-content>
-    <div layout="row" flex-gt-md="40">
+    <div layout="row" flex-xs flex-gt-md="40">
         <md-card class="summary-card">
             <div class="heading {{ vm.statusClass }}">
                 <div layout="column" layout-align="center center" class="oustanding-overview">
@@ -109,7 +109,7 @@
 
         </md-card>
     </div>
-    <div layout="row" class="md-padding" flex-gt-md="60">
+    <div layout="row" class="md-padding" flex-xs flex-gt-md="60">
         <md-tabs class="md-primary" md-dynamic-height md-border-bottom>
             <md-tab label="Account Details">
                 <md-content class="md-padding">

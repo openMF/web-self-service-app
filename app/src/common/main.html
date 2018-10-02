@@ -76,6 +76,20 @@
             </div>
         </md-button>
         <md-divider></md-divider>
+        <md-button ng-click="vm.selectItem('Apply Savings')" ui-sref-active="md-warn" ui-sref=".applysavings"
+                   class="sidenav-icon">
+            <div class="md-tile-content">
+                <i hide-sm hide-md class="material-icons md-18">assignment</i> {{ 'nav.label.applysavings' | translate }}
+            </div>
+        </md-button>
+        <md-divider></md-divider>
+        <md-button ng-click="vm.selectItem('Apply Shares')" ui-sref-active="md-warn" ui-sref=".applyshares"
+                   class="sidenav-icon">
+            <div class="md-tile-content">
+                <i hide-sm hide-md class="material-icons md-18">assignment</i> {{ 'nav.label.applyshares' | translate }}
+            </div>
+        </md-button>
+        <md-divider></md-divider>
         <md-button ng-click="vm.selectItem('About Us')" ui-sref-active="md-warn" ui-sref=".aboutus"
                    class="sidenav-icon">
             <div class="md-tile-content">

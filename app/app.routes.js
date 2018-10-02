@@ -196,6 +196,18 @@
                     controller: 'RunReportCtrl',
                     controllerAs: 'vm'
                 })
+                .state('app.applysavings', {
+                    url: '/savings/apply',
+                    templateUrl: 'src/savings-application/savings-application.html',
+                    controller: 'SavingsApplicationCtrl',
+                    controllerAs: 'vm'
+                })
+
+                .state('app.applyshares', {
+                    url: '/shares/apply',
+                    templateUrl: 'src/shares-application/shares-application.html',
+                    controllerAs: 'vm'
+                })
                 .state('login', {
                     url: '/login',
                     templateUrl: 'src/authentication/login/login.html',

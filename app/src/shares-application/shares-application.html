@@ -1,0 +1,59 @@
+<div class="md-padding" layout="row" layout-align="center" flex>
+    <md-card flex flex-gt-md="60">
+        <md-card-title>
+            <md-card-title-text>
+                <span class="md-headline">{{ 'label.heading.applyshares' | translate }}</span>
+            </md-card-title-text>
+        </md-card-title>
+        <md-divider></md-divider>
+        <md-card-content>
+            <form name="shareApplicationForm" ng-submit="shareApplicationForm.$valid && vm.submit()">
+                <api-validate></api-validate>
+                <md-input-container class="md-block md-icon-float">
+                    <label>{{ 'label.input.sharesproductOptions' | translate }}</label>
+                    <md-select ng-model="vm.form.productId" ng-change="vm.getSharesTemplate(vm.clientId, vm.form.productId)" required>
+                        <md-option ng-repeat="productOption in vm.template.productOptions" ng-value="productOption.id">{{ productOption.name }}</md-option>
+                    </md-select>
+                </md-input-container>
+                <br />
+                <md-input-container class="md-block" ng-if="vm.form.productId">
+                    <label>{{ 'label.input.numberOfShares' | translate }}</label>
+                    <input name="numberOfShares" ng-model="vm.form.numberOfShares" required>
+                </md-input-container>
+                <md-input-container class="md-block" ng-if="vm.form.productId">
+                    <label>{{ 'label.input.todaysPrice' | translate }}</label>
+                    <input name="todaysPrice" ng-model="vm.form.todaysPrice" required>
+                </md-input-container>
+                <md-input-container class="md-block" ng-if="vm.form.productId">
+                    <label>{{ 'label.input.defaultSavingsAccount' | translate }}</label>
+                    <md-select ng-model="" ng-change="" required>
+                        <md-option ng-repeat="" ng-value="">{{ }}</md-option>
+                    </md-select>
+                </md-input-container>
+                </br>
+                <md-input-container class="md-block" ng-if="vm.form.productId">
+                    <label>{{ 'label.input.currency' | translate }}</label>
+                    <input name="currency" value="{{ }}" ng-disabled="true" required>
+                </md-input-container>
+                </br>
+                <md-input-container class="md-block" ng-if="vm.form.productId">
+                    <md-datepicker ng-model="vm.form.applicationDate" md-placeholder="Application Date" md-hide-icons="calendar" md-open-on-focus required>
+                    </md-datepicker>
+                </md-input-container>
+                </br>
+                <md-input-container layout="row" ng-if="vm.form.productId">
+                    <label>{{ 'label.input.submittedOn' | translate }}</label>
+                    <span flex></span>
+                    <input value="{{ vm.form.submittedOnDate }}" disabled />
+                </md-input-container>
+                <br />
+                <div layout="row" flex>
+                    <md-button flex class="md-danger" ng-click="vm.clearForm()">{{ 'label.btn.cancel' | translate }}</md-button>
+                    <md-button type="submit" flex class="md-raised md-primary" ng-disabled="shareApplicationForm.$invalid">{{ 'label.btn.apply' | translate }}</md-button>
+                </div>
+
+            </form>
+        </md-card-content>
+    </md-card>
+</div>
+

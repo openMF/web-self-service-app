@@ -4,19 +4,18 @@
 
 Clone the project:
 
-    $ git clone https://github.com/gauravsaini03/self-service.git
+    $ git clone https://github.com/openMF/web-self-service-app.git
 
 Install dependencies:
 
     $ cd web-self-service-app
-    
     $ npm install
     $ bower install
 
 Install gem 'sass'
-    
+
    Make sure that you have '''ruby''' installed (if not goto https://www.ruby-lang.org/en/documentation/installation/ ).
-        
+
     $ gem install sass
 
 Run development web-server:

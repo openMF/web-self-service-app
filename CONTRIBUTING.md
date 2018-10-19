@@ -1,6 +1,6 @@
 We are glad that you here to contribute to the Online Banking App. Now, First things first, before you start contributing please do the following things:
 
-1. Setup the developer environment. For that, you can refer the [README.md](https://github.com/ankit01ojha/web-self-service-app/blob/contribute/README.md) or you can follow this [video](https://mifosforge.jira.com/wiki/spaces/docs/pages/498794497/Developer+Environment+Setup+for+Online+Banking+App+2.0).
+1. Setup the developer environment. For that, you can refer the [README.md](https://github.com/openMF/web-self-service-app/blob/develop/README.md) or you can follow this [video](https://mifosforge.jira.com/wiki/spaces/docs/pages/498794497/Developer+Environment+Setup+for+Online+Banking+App+2.0).
 2. Sign our [Mifos CLA](http://mifos.org/about-us/financial-legal/mifos-contributor-agreement/).
 
 After you are done with the previous steps, please follow these guidelines:
@@ -25,7 +25,7 @@ After you are done with the previous steps, please follow these guidelines:
 ## Submitting a Pull Request (PR)
 - If you are not at the develop branch them checkout to develop branch by
 
-   ` git checkout -b develop`
+   ` git checkout develop`
    
 - Once, you are at develop branch then, before you start working on the fix or the feature , create a new branch using
   
@@ -62,3 +62,12 @@ After you are done with the previous steps, please follow these guidelines:
 ## Communication Channels
 - [Gitter channel](https://gitter.im/openMF/web-self-service-app)
 - [Mailing list](https://lists.sourceforge.net/lists/listinfo/mifos-developer)
+
+
+## Important Points for new contributors:
+-  Registration feature for a new user is only available in develop branch (for now). You can use these credentials `username: self-service password: password`.
+
+-  These features are only UI ( because of unavailability of API for now), please do not create new issue specifying not working of these features. You are invited to do any UI modification to them, but please first ask before creating any UI modification issue.
+    1. Applying for new share and savings products.
+    2. Reports
+    3. About Us

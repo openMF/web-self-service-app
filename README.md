@@ -1,6 +1,7 @@
 # Mifos Self Service App
 
 ## Getting started
+You can follow this README or you can follow this [video](https://mifosforge.jira.com/wiki/spaces/docs/pages/498794497/Developer+Environment+Setup+for+Online+Banking+App+2.0).
 
 Clone the project:
 
@@ -22,6 +23,12 @@ Install gem 'sass'
 Run development web-server:
 
     $ gulp serve
+
+Use these credentials to logIn `username: selfservice password: password`
+
+    
+## Contributing Guidelines:
+* Contributors must follow these [guidelines](https://github.com/openMF/web-self-service-app/blob/develop/CONTRIBUTING.md)    
 
 ## Features
 

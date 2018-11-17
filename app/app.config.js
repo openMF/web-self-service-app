@@ -63,6 +63,7 @@
               prefix: 'global-translations/locale-',
               suffix: '.json'
             })
+            .useLocalStorage()
             .useSanitizeValueStrategy('escape')
             .preferredLanguage(defaultLocale)
             .fallbackLanguage(defaultLocale);

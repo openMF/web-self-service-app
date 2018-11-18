@@ -1,0 +1,42 @@
+<md-dialog flex="60" aria-label="Review Beneficiary">
+	<form ng-cloak>
+		<md-toolbar>
+			<div class = "md-toolbar-tools">
+				<h2>Review Beneficiary</h2>
+				<span flex></span>
+				<md-button class="md-icon-button" ng-click="vm.cancel()">
+					<md-icon md-svg-src="assets/images/ic_close_white_24px.svg"
+					aria-label="Close dialog"></md-icon>
+				</md-button>
+			</div>
+		</md-toolbar>
+
+		<md-dialog-content>
+			<div class="md-dialog-content">
+				<p>
+					Account Type: {{vm.accountType(vm.addBeneficiaryFormData.accountType)}}
+				</p>
+				<p>
+					Account Number: {{vm.addBeneficiaryFormData.accountNumber}}
+				</p>
+				<p>
+					Office Name: {{vm.addBeneficiaryFormData.officeName}}
+				</p>
+				<p>
+					Transfer Limit: {{vm.addBeneficiaryFormData.transferLimit}}
+				</p>
+				<p>
+					Beneficiary Name: {{vm.addBeneficiaryFormData.name}}
+				</p>
+			</div>
+		</md-dialog-content>
+		<md-dialog-actions layout="row">
+			<md-button ng-click="vm.cancel()">
+				Cancel
+			</md-button>
+			<md-button ng-click="vm.add()">
+				Add Beneficiary
+			</md-button>
+		</md-dialog-actions>
+	</form>
+</md-dialog>

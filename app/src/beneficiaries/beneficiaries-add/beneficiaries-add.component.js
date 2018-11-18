@@ -2,9 +2,9 @@
     'use strict';
 
     angular.module('selfService')
-        .controller('BeneficiariesAddCtrl', ['$scope', '$rootScope', '$state', '$stateParams', '$mdToast', 'BeneficiariesService', BeneficiariesAddCtrl]);
+        .controller('BeneficiariesAddCtrl', ['$scope', '$state', '$stateParams', '$filter', '$mdDialog', '$mdToast', 'BeneficiariesService', BeneficiariesAddCtrl]);
 
-    function BeneficiariesAddCtrl($scope, $rootScope, $state, $stateParams, $mdToast, BeneficiariesService) {
+    function BeneficiariesAddCtrl($scope, $state, $stateParams, $filter, $mdDialog, $mdToast, BeneficiariesService) {
 
         var vm = this;
         vm.addBeneficiaryFormData = {
@@ -29,28 +29,26 @@
             };
         }
 
-        function submit() {
-            BeneficiariesService.beneficiary().save(vm.addBeneficiaryFormData).$promise.then(function () {
-                $mdToast.show(
-                    $mdToast.simple()
-                        .textContent('Beneficiary Added Successfully')
-                        .position('top right')
-                );
-                vm.clearForm();
-            }, function (resp) {
-                var errors = '';
-                if(resp.data){
-                    errors = resp.data.errors.map(function (data) {
-                        return data.defaultUserMessage;
-                    });
-                    errors.join(' ');
+        function submit(ev) {
+            $mdDialog.show({
+                controller: 'ReviewBeneficiaryDialogCtrl',
+                controllerAs: 'vm',
+                templateUrl: 'src/beneficiaries/beneficiaries-add/review-beneficiary-dialog/review-beneficiary-dialog.html',
+                parent: angular.element(document.body),
+                targetEvent: ev,
+                locals: {addBeneficiaryFormData: vm.addBeneficiaryFormData},
+                clickOutsideToClose: true
+            }).then(function (result) {
+                if (result === "success"){
+                    clearForm();
                 }
+            }, function() {
+                clearForm();
                 $mdToast.show(
                     $mdToast.simple()
-                        .textContent('Error in Adding Beneficiary: ' + errors)
+                        .textContent('Add Beneficiary Cancelled')
                         .position('top right')
                 );
-
             });
         }
     }

@@ -119,7 +119,7 @@
 
   "label.btn.cancel": "Cancel",
   "label.btn.reviewTransfer": "Review Transfer",
-  "label.btn.addBeneficiary": "Add Beneficiary",
+  "label.btn.reviewBeneficiary": "Review Beneficiary",
   "label.btn.editBeneficiary": "Edit Beneficiary",
   "label.btn.deposit": "Deposit",
   "label.btn.makepayment": "Make Payment",

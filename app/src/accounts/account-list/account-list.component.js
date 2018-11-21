@@ -19,6 +19,7 @@
         vm.savingsAccounts = [];
         vm.shareAccounts = [];
         vm.loadingAccountInfo = true;
+        vm.tabIndex = sessionStorage.getItem("tab");
 
         vm.query = {
             limit: 5,
@@ -53,10 +54,13 @@
             var routingSlug = 'viewloanaccount';
             if ('savings' == accountType) {
                 routingSlug = 'viewsavingsaccount';
+                sessionStorage.setItem("tab", "1");
             } else if ('loan' == accountType) {
                 routingSlug = 'viewloanaccount';
+                sessionStorage.setItem("tab", "0");
             } else {
                 routingSlug = 'viewshareaccount';
+                sessionStorage.setItem("tab", "2");
             }
             $state.go('app.'+routingSlug, {id: id});
         }

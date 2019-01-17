@@ -114,7 +114,7 @@
         <div flex></div>
         <md-menu md-position-mode="target-right target">
             {{vm.userDetails.username}}
-            <md-button aria-label="Open logout menu" class="md-icon-button" ng-click="$mdOpenMenu($event)">
+            <md-button aria-label="Open logout menu" class="md-icon-button" ng-click="$mdMenu.open($event)">
                 <md-icon md-menu-origin md-svg-src="assets/images/ic_person_white_24px.svg"></md-icon>
             </md-button>
             <md-menu-content width="3">

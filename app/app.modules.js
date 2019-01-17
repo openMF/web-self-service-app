@@ -8,6 +8,7 @@
       'ngResource', 
       'ui.router', 
       'ngMaterial', 
+      'ngMessages',
       'nvd3',
       'md.data.table',
       'pascalprecht.translate'

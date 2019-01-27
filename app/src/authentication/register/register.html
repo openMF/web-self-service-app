@@ -31,7 +31,7 @@
                     <md-input-container flex class="md-block" md-no-float>
                         <input name="firstName" ng-model="vm.form.firstName" placeholder="First Name"
                                required>
-                        <div ng-messages="registerForm.username.$error" role="alert">
+                        <div ng-messages="registerForm.firstName.$error" role="alert">
                             <div ng-message="required">
                                 <span>First Name field is required</span>
                             </div>
@@ -40,7 +40,7 @@
                     <md-input-container flex class="md-block" md-no-float>
                         <input name="lastName" ng-model="vm.form.lastName" placeholder="Last Name"
                                required>
-                        <div ng-messages="registerForm.username.$error" role="alert">
+                        <div ng-messages="registerForm.lastName.$error" role="alert">
                             <div ng-message="required">
                                 <span>Last Name field is required</span>
                             </div>

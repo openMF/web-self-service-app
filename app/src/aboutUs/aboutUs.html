@@ -1,39 +1,37 @@
 <div>
-    <md-content>
-        <div ng-if="!vm.org">
-            <md-card>
-                <md-card-title>
-                    <md-card-title-text>
-                        <span class="md-title">No details to show</span>
-                    </md-card-title-text>
-                </md-card-title>
-            </md-card>
-        </div>
-        <div layout="column" ng-if="vm.org">
-            <div layout="row" layout-xs="column">
-                <div flex="40">
-                    <md-card>
-                        <md-whiteframe class="md-whiteframe-7dp" layout layout-align="center center">
-                            <img ng-src="vm.org.logo" class="md-media-sm org-logo-height">
-                        </md-whiteframe>
-                    </md-card>
-                </div>
-                <div class="org-name" flex>
-                    <md-card>
-                        <md-whiteframe class="md-whiteframe-7dp" layout layout-align="center center" flex>
-                            <h2>{{vm.org.name}}</h2>
-                        </md-whiteframe>
-                    </md-card>
-                </div>
-            </div>
-            <div class="org-descripion" flex>
+    <div ng-if="!vm.org">
+        <md-card>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-title">No details to show</span>
+                </md-card-title-text>
+            </md-card-title>
+        </md-card>
+    </div>
+    <div layout="column" ng-if="vm.org">
+        <div layout="row" layout-xs="column">
+            <div flex="40">
                 <md-card>
-                    <md-whiteframe class="md-whiteframe-7dp" layout="column" layout-align="center center">
-                        <h2>{{'label.heading.aboutUs' | translate}}</h2>
-                        <p class="org-description-contents">{{vm.org.description}}</p>
+                    <md-whiteframe class="md-whiteframe-7dp" layout layout-align="center center">
+                        <img ng-src="vm.org.logo" class="md-media-sm org-logo-height">
+                    </md-whiteframe>
+                </md-card>
+            </div>
+            <div class="org-name" flex>
+                <md-card>
+                    <md-whiteframe class="md-whiteframe-7dp" layout layout-align="center center" flex>
+                        <h2>{{vm.org.name}}</h2>
                     </md-whiteframe>
                 </md-card>
             </div>
         </div>
-    </md-content>
+        <div class="org-descripion" flex>
+            <md-card>
+                <md-whiteframe class="md-whiteframe-7dp" layout="column" layout-align="center center">
+                    <h2>{{'label.heading.aboutUs' | translate}}</h2>
+                    <p class="org-description-contents">{{vm.org.description}}</p>
+                </md-whiteframe>
+            </md-card>
+        </div>
+    </div>
 </div>

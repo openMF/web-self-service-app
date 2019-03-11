@@ -104,9 +104,10 @@
                 </md-content>
             </div>
             <md-card-actions layout="row" layout-align="end center">
-                <md-button ng-click="vm.makePayment()">{{ 'label.btn.makepayment' | translate }}</md-button>
+                <md-button ng-show="!vm.inPocket" class="md-primary md-raised" ng-click="vm.addtoPocket(vm.loanAccountDetails)">{{ 'label.btn.addtopocket' | translate }}</md-button>
+                <md-button ng-show="vm.inPocket" class="md-warn md-raised" ng-click="vm.removeFromPocket(vm.loanAccountDetails)">{{ 'label.btn.removefrompocket' | translate }}</md-button>
+                <md-button class="md-primary md-raised" ng-click="vm.makePayment()">{{ 'label.btn.makepayment' | translate }}</md-button>
             </md-card-actions>
-
         </md-card>
     </div>
     <div layout="row" class="md-padding" flex-xs flex-gt-md="60">

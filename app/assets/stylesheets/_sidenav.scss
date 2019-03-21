@@ -1,0 +1,17 @@
+// Sidenav styles
+.sidenav-header {
+  background: url('../assets/images/toolbar.png');
+  background-size: cover;
+  height: 20vh;
+  color: #ffffff;
+
+  .sidenav-title{
+    margin-top: 10px;
+    margin-bottom: 0px;
+  }
+}
+
+.sidenav-icon {
+  text-align: left;
+  display: block;
+}

@@ -1,0 +1,237 @@
+// COLORS
+$main-bg-color: #ECECEC;
+$text-color: #7A7A7A;
+$accent-color: rgb(0, 150, 136);
+$warning-color: #E75753;
+
+
+// VARIABLES
+$widget-height: 310px;
+$font-weight-bold: 600;
+$font-size-large: 20px;
+
+
+// GENERAL COMPONENTS (used in multiple files)
+body {
+  color: $text-color;
+}
+
+.share-label {
+  vert-align: middle;
+  margin-left: 10px;
+}
+
+.widget-progress {
+  width: 95% !important;
+  margin-left: 10px;
+}
+
+.messages {
+  position: relative;
+
+  &-content {
+    height: 100vh;
+  }
+}
+
+.datatable-cont {
+  .search-input {
+    margin: 0px;
+  }
+}
+
+.required {
+  color: red;
+}
+
+.md-button.md-fab.md-fab-bottom-right {
+  position: fixed;
+}
+
+// charts
+.donut-chart-title{
+  text-align: center;
+}
+
+.custom-tooltip {
+  font-size: $font-size-large;
+  color: $text-color;
+  text-align: center;
+}
+
+
+// used for beneficiaries and transfers
+#transfer {
+  md-select {
+    margin-bottom: 18px;
+  }
+}
+
+// used for loan-account-detail and savings-account-detail
+.summary-card {
+  width: 100%;
+
+  .oustanding-overview {
+    height: 100px;
+  }
+
+  md-card-title {
+    padding-top: 0px;
+  }
+
+  .summary-table {
+    width: 100%;
+
+    .value {
+      text-align: right;
+    }
+  }
+}
+
+// used for loan-account-detail and savings-account-detail
+.loan-account-detail-cont {
+  align-items: flex-start;
+
+  md-tabs {
+    width: 100%;
+  }
+}
+
+// used for register and verification
+#register {
+  height: 100%;
+  width: 100%;
+  background: url('../assets/images/cover.png') no-repeat;
+  background-size: cover;
+
+  #register-form-wrapper {
+    flex: 1 0 auto;
+    height: 90vh;
+    padding: 32px;
+
+    #register-form {
+      width: 80%;
+      overflow: scroll;
+      max-width: 80%;
+      padding: 32px;
+      background: #FFFFFF;
+      text-align: center;
+
+      .logo {
+        width: 128px;
+        height: 128px;
+        margin: 32px auto;
+      }
+
+      .title {
+        margin: 16px 0 32px 0;
+        font-size: 17px;
+      }
+
+      form {
+        width: 100%;
+        text-align: left;
+
+        md-checkbox {
+          margin: 0;
+        }
+
+        .terms {
+          font-size: 13px;
+          margin: 16px 0 32px 0;
+
+          a {
+            margin-left: 4px;
+          }
+        }
+
+        .submit-button {
+          width: 220px;
+          margin: 16px auto;
+          display: block;
+        }
+      }
+
+      .login {
+        margin: 32px auto 24px auto;
+        width: 250px;
+        font-weight: 500;
+
+        .text {
+          margin-right: 8px;
+        }
+
+        .link {
+
+        }
+      }
+    }
+  }
+}
+
+// UTILS
+.capitalize {
+  text-transform: capitalize;
+}
+
+.img-circle {
+  height: 50px;
+  border-radius: 50%;
+  margin: 0 10px;
+}
+
+#loader {
+  z-index: 9999;
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0,0,0,0.5);
+}
+
+// RESPONSIVE
+@media screen and (max-width: 460px) {
+
+  #forgot-password {
+
+    #forgot-password-form-wrapper {
+      padding: 16px;
+
+      #forgot-password-form {
+        padding: 24px;
+        width: 100%;
+
+        form {
+
+          .md-button {
+            width: 90%;
+          }
+        }
+      }
+    }
+  }
+
+}
+
+// RESPONSIVE
+@media screen and (max-width: 460px) {
+
+  #register {
+
+    #register-form-wrapper {
+      padding: 16px;
+
+      #register-form {
+        padding: 24px;
+        width: 100%;
+
+        form {
+
+          .md-button {
+            width: 90%;
+          }
+        }
+      }
+    }
+  }
+
+}

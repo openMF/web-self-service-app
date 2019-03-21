@@ -1,0 +1,27 @@
+.toolbar-button {
+  min-width: 20px;
+}
+
+.page-content {
+  background-color: $main-bg-color;
+}
+
+.notifications-label {
+  width: 16px;
+  height: 16px;
+  line-height: 16px;
+  text-align: center;
+  border-radius: 50%;
+  position: absolute;
+  font-size: 12px;
+  top: 2px;
+  right: 2px;
+  background-color: $warning-color;
+}
+
+.profile-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 120px;
+  border: 2px solid white;
+}

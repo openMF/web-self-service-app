@@ -1,0 +1,23 @@
+// Tabs style Account list
+#account-list-tabs {
+  md-pagination-wrapper {
+    width: 100% !important;
+    display: flex;
+  }
+
+  md-tab-item {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+
+    span {
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  md-tab-content {
+    padding: 20px;
+  }
+
+}

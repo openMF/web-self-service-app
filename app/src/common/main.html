@@ -90,6 +90,13 @@
             </div>
         </md-button>
         <md-divider></md-divider>
+        <md-button ng-click="vm.selectItem('Profile')" ui-sref-active="md-warn" ui-sref=".profile"
+                   class="sidenav-icon">
+            <div class="md-tile-content">
+                <i hide-sm hide-md class="material-icons md-18">face</i> {{ 'nav.label.profile' | translate }}
+            </div>
+        </md-button>
+        <md-divider></md-divider>
         <md-button ng-click="vm.selectItem('About Us')" ui-sref-active="md-warn" ui-sref=".aboutus"
                    class="sidenav-icon">
             <div class="md-tile-content">
@@ -119,7 +126,7 @@
             </md-button>
             <md-menu-content width="3">
                 <md-menu-item>
-                    <md-button ng-click="vm.selectItem('Profile');" ui-sref=".profile">
+                    <md-button ng-click="vm.goToProfile()">
                         <div layout="row">
                             <p flex>Profile</p>
                         </div>

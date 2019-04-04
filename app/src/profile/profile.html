@@ -1,0 +1,93 @@
+<div layout="row"  class="md-padding loan-account-detail-cont" flex>
+
+    <div container layout="row" layout-xs="column" flex>
+     <div layout="row" flex-gt-md="40">
+
+            <md-card class="summary-card profile-card">
+                 <img ng-src="{{vm.profileImage}}" class="md-media-sm profile-image" alt="Washed Out">
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">{{vm.profile.displayName}}</span>
+                    </md-card-title-text>
+                </md-card-title>
+
+                <md-divider></md-divider>
+                <br>
+
+                <md-input-container class="md-icon-float md-block">
+                  <label>Name</label>
+                  <md-icon><i  class="material-icons md-24 profile-input-icons">account_circle</i></md-icon>
+                  <input ng-model="vm.profile.displayName" type="text" readonly>
+                </md-input-container>
+                <md-input-container class="md-icon-float md-block">
+                  <label>Mobile Number</label>
+                  <md-icon><i  class="material-icons md-24 profile-input-icons">phone</i></md-icon>
+                  <input ng-model="vm.profile.mobileNo" type="text" readonly>
+                </md-input-container>
+                <md-input-container class="md-icon-float md-block">
+                  <label>Address</label>
+                  <md-icon><i  class="material-icons md-24 profile-input-icons">place</i></md-icon>
+                  <input ng-model="vm.profileAddress" type="text" readonly>
+                </md-input-container>
+                <md-divider></md-divider>
+                <br>
+                <md-input-container class="md-icon-float md-block">
+                  <label>Date of Birth</label>
+                  <md-icon><i  class="material-icons md-24 profile-input-icons">calendar_today</i></md-icon>
+                  <input ng-model="vm.profile.dateOfBirth | DateFormat" type="text" readonly>
+                </md-input-container>
+                <md-input-container class="md-icon-float md-block">
+                  <label>Gender</label>
+                  <md-icon><i  class="material-icons md-24 profile-input-icons">face</i></md-icon>
+                  <input ng-model="vm.profile.gender.name" type="text" readonly>
+                </md-input-container>
+                <br>
+                <br>
+                <md-divider></md-divider>
+                </br>
+                <md-input-container class="md-icon-float md-block">
+                  <label>Activation Date</label>
+                  <md-icon><i  class="material-icons md-24 profile-input-icons">calendar_today</i></md-icon>
+                  <input ng-model="vm.profile.activationDate | DateFormat" type="text" readonly>
+                </md-input-container>
+                </md-card>
+
+
+
+     </div>
+     <div layout="row" flex-gt-md="50">
+            <md-card class="summary-card profile-details-card">
+                <br>
+                <md-input-container class="md-icon-float md-block">
+                  <label>First Name</label>
+                  <input ng-model="vm.profile.firstname" type="text" readonly>
+                </md-input-container>
+                <md-input-container class="md-icon-float md-block">
+                  <label>Middle Name</label>
+                  <input ng-model="vm.profile.middlename" type="text" readonly>
+                </md-input-container>
+                <md-input-container class="md-icon-float md-block">
+                  <label>Last Name</label>
+                  <input ng-model="vm.profile.lastname" type="text" readonly>
+                </md-input-container>
+                <md-input-container class="md-block" md-no-float>
+                  <label>Mobile</label>
+                  <input ng-model="vm.profile.mobileNo" type="text" readonly>
+                </md-input-container>
+                <md-input-container class="md-icon-float md-block">
+                  <label>Account Number</label>
+                  <input ng-model="vm.profile.accountNo" type="text" readonly>
+                </md-input-container>
+                <md-input-container class="md-icon-float md-block">
+                  <label>Office Name</label>
+                  <input ng-model="vm.profile.officeName" type="text" readonly>
+                </md-input-container>
+
+            </md-card>
+     </div>
+</div>
+</div>
+    <md-button aria-label="menu" class="md-fab md-fab-bottom-right">
+        <i hide-sm hide-md class="material-icons md-24">edit</i>
+    </md-button>
+

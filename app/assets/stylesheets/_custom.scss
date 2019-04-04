@@ -129,6 +129,11 @@ a.md-button.md-warn.md-raised, a.md-button.md-warn.md-fab, .md-button.md-warn.md
   color: white;
 }
 
+
+.md-button.md-fab.md-fab-bottom-right {
+  position: fixed;
+}
+
 md-radio-button.md-accent.md-checked .md-label span {
   color: $accent-color;
 }
@@ -463,6 +468,24 @@ md-toolbar .md-menu {
   height: 60px;
   border-radius: 120px;
   border: 2px solid white;
+}
+
+.profile-image {
+  height: 300px;
+}
+
+.profile-input-icons {
+  color: #1e88e5;
+}
+
+.profile-card {
+  padding-left: 10px;
+  padding-right: 20px;
+}
+
+.profile-details-card {
+  padding-right: 30px;
+  padding-left: 30px
 }
 
 .text-center {

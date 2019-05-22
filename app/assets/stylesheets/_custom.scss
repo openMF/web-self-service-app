@@ -691,3 +691,23 @@ md-toolbar .md-menu {
   position: fixed;
 }
 
+.survey-preview {
+  padding: 40px;
+}
+
+.survey-preview-answered {
+  color: #2ca02c;
+}
+
+.survey-preview-unanswered {
+  color: #DF0101;
+}
+
+.survey-questions {
+  padding-left: 40px;
+}
+
+.take-survey {
+  padding-left: 600px;
+  padding-top: 10px;
+}

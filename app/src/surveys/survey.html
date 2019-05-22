@@ -1,0 +1,51 @@
+<div>
+    <md-content flex layout-padding>
+        <md-card>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">{{ 'label.heading.listsurvey' | translate }}</span>
+                </md-card-title-text>
+
+            </md-card-title>
+            <md-divider></md-divider>
+            <div layout="row">
+                <div layout="column">
+                    <md-input-container md-no-float class="md-block search-input">
+                        <md-icon md-svg-src="assets/images/ic_search_black_24px.svg"></md-icon>
+                        <input ng-model="" type="text" placeholder="{{ 'label.input.searchsurveys' | translate }}">
+                    </md-input-container>
+                </div>
+                <div layout="column" class="take-survey">
+                    <md-button class="md-primary md-raised md-18" ng-click="vm.takeSurvey()">Take Survey</md-button>
+                </div>
+            </div>
+            <div>
+                <br>
+                <md-table-container>
+                    <table md-table ng-model="vm.selected">
+                        <thead md-head md-order="">
+                        <tr md-row>
+                            <th md-column>{{'label.heading.surveys' | translate}}</th>
+                            <th md-column>{{'label.heading.createdby' | translate}}</th>
+                            <th md-column>{{'label.heading.date' | translate}}</th>
+                            <th md-column>{{'label.heading.score' | translate}}</th>
+                        </tr>
+                        </thead>
+                        <tbody md-body>
+
+                        <!--TODO Change the md-select-id and ng-repeat-->
+
+                        <tr md-row md-select="account" md-select-id="{{loanAccount.name}}" md-auto-select
+                            ng-repeat="survey in vm.surveys" ng-click="vm.viewSurvey(survey)">
+                                <td md-cell>{{survey.name}}</td>
+                                <td md-cell>{{survey.createdby}}</td>
+                                <td md-cell>{{survey.date}}</td>
+                                <td md-cell>{{survey.score}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </md-table-container>
+            </div>
+        </md-card>
+    </md-content>
+</div>

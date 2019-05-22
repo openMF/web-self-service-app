@@ -90,6 +90,13 @@
             </div>
         </md-button>
         <md-divider></md-divider>
+        <md-button ng-click="vm.selectItem('Survey')" ui-sref-active="md-warn" ui-sref=".surveys"
+                   class="sidenav-icon">
+            <div class="md-tile-content">
+                <i hide-sm hide-md class="material-icons md-18">featured_play_list</i> {{ 'nav.label.surveys' | translate }}
+            </div>
+        </md-button>
+        <md-divider></md-divider>
         <md-button ng-click="vm.selectItem('About Us')" ui-sref-active="md-warn" ui-sref=".aboutus"
                    class="sidenav-icon">
             <div class="md-tile-content">

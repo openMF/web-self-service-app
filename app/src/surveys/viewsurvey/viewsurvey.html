@@ -1,0 +1,26 @@
+<div>
+    <md-card>
+        <md-card-title>
+            <md-card-title-text>
+                <span class="md-headline">Survey</span>
+            </md-card-title-text>
+        </md-card-title>
+    </md-card>
+    <md-card-content>
+        <div ng-repeat="response in vm.answersData" ng-value="response.id">
+            <div ng-repeat="question in response"></div>
+            <md-card>
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">{{response.question}}</span>
+                    </md-card-title-text>
+                </md-card-title>
+            </md-card>
+            </br>
+            <div class="survey-preview">
+                <h4 class="survey-preview-answered" ng-show="question.answer">{{question.answer}}</h4>
+                <h4 class="survey-preview-unanswered" ng-show="!question.answer">You didn't answered it!</h4>
+            </div>
+        </div>
+    </md-card-content>
+</div>

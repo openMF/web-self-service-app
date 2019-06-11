@@ -41,9 +41,9 @@
 
         function submit(ev) {
             $mdDialog.show({
-                controller: 'ReviewTransferDialogCtrl',
+                controller: 'ReviewTPTDialogCtrl',
                 controllerAs: 'vm',
-                templateUrl: 'src/transfers/review-transfer-dialog/review-transfer-dialog.html',
+                templateUrl: 'src/tpt/review-tpt-dialog/review-tpt-dialog.html',
                 parent: angular.element(document.body),
                 targetEvent: ev,
                 locals: {transferFormData: vm.transferFormData},

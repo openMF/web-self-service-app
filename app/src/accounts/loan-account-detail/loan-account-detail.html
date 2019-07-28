@@ -9,6 +9,29 @@
     <div layout="row" flex-xs flex-gt-md="40">
         <md-card class="summary-card">
             <div class="heading {{ vm.statusClass }}">
+                <div layout="row" layout-align="end center">
+                    <md-menu md-offset="0 -7">
+                        <md-button layout="row" layout-align="end center" ng-click="$mdMenu.open($event)">
+                            <i class="material-icons md-24">more_vert</i>
+                        </md-button>
+                        <md-menu-content width="4">
+                            <md-menu-item>
+                                <md-button ng-click="vm.createGuarantor(loanAccount.id)">
+                                    <div layout="row">
+                                        <p flex>Create Guarantor</p>
+                                    </div>
+                                </md-button>
+                            </md-menu-item>
+                            <md-menu-item>
+                                <md-button ng-click="vm.viewGuarantors()">
+                                    <div layout="row">
+                                        <p flex>View Guarantor(s)</p>
+                                    </div>
+                                </md-button>
+                            </md-menu-item>
+                        </md-menu-content>
+                    </md-menu>
+                </div>
                 <div layout="column" layout-align="center center" class="oustanding-overview">
                     <span class="md-title">{{ vm.loanAccountDetails.currency.displaySymbol }} {{ vm.loanAccountDetails.summary.totalOutstanding}}</span>
                     <span class="md-subhead">{{ 'label.heading.outstanding' | translate }}</span>

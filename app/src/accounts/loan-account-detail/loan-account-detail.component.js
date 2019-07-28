@@ -2,17 +2,17 @@
     'use strict';
 
     angular.module('selfService')
-        .controller('LoanAccountViewCtrl', ['$state', '$stateParams', '$filter', 'LoanAccountService', LoanAccountViewCtrl]);
+        .controller('LoanAccountViewCtrl', ['$state', '$stateParams', '$filter', '$location', 'LoanAccountService', LoanAccountViewCtrl]);
 
     /**
      * @module LoanAccountViewCtrl
      * @description
      * Handles the Loan Account Details Page.
      */
-    function LoanAccountViewCtrl($state, $stateParams, $filter, LoanAccountService) {
+    function LoanAccountViewCtrl($state, $stateParams, $filter, $location, LoanAccountService) {
 
         var vm = this;
-
+        var idd = $stateParams.id;
         /**
          * @name loadingLoanAccountInfo
          * @description flag to check whether account info is loaded or not
@@ -35,6 +35,9 @@
         vm.statusClass = '';
 
         vm.repaymentSchedule = {};
+
+        vm.createGuarantor = createGuarantor;
+        vm.viewGuarantors = viewGuarantors;
 
         vm.makePayment = makePayment;
 
@@ -71,6 +74,14 @@
             $state.go('app.transfers', {
                 toAccount: vm.loanAccountDetails
             });
+        }
+
+        function createGuarantor() {
+            $location.path('/viewloanaccount/' +idd+ '/createguarantor');
+        }
+
+        function viewGuarantors() {
+            $location.path('viewloanaccount/' + idd+ '/viewguarantors');
         }
     }
 })();

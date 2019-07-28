@@ -1,0 +1,65 @@
+<div id="createGuarantors" class="md-padding" layout="row" layout-align="center" flex>
+    <md-card flex flex-gt-md="60">
+        <md-card-title>
+            <md-card-title-text>
+                <span class="md-headline">{{ 'label.heading.createguarantors' | translate }}</span>
+            </md-card-title-text>
+        </md-card-title>
+        <md-divider></md-divider>
+        <md-card-content>
+            <form name="createGuarantorForm" ng-submit="createGuarantorForm.$valid && vm.submit()">
+                <api-validate></api-validate>
+                <md-input-container class="md-block md-icon-float">
+                    <md-checkbox ng-model="vm.existing_user" aria-label="ExistingUser">
+                        Exisiting User
+                    </md-checkbox>
+                </md-input-container>
+                </br>
+                <md-input-container class="md-block" ng-if="vm.existing_user">
+                   <label>{{ 'label.input.name' | translate }}</label>
+                    <input name="guarantorname" ng-model="vm.form.guarantorname" required>
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <label>{{ 'label.input.relationship' | translate }}</label>
+                    <input name="relationship" ng-model="vm.form.relationship">
+                </md-input-container>
+                <md-input-container class="md-block" ng-if="!vm.existing_user">
+                    <label>{{ 'label.input.firstname' | translate }}</label>
+                    <input name="firstname" ng-model="vm.form.firstname" required>
+                </md-input-container>
+                <md-input-container class="md-block" ng-if="!vm.existing_user">
+                    <label>{{ 'label.input.lastname' | translate }}</label>
+                    <input name="lastname" ng-model="vm.form.lastname" required>
+                </md-input-container>
+                <md-input-container class="md-block" ng-if="!vm.existing_user">
+                    <md-datepicker ng-model="vm.form.dob" md-placeholder="Date Of Birth" md-hide-icons="calendar" md-open-on-focus></md-datepicker>
+                </md-input-container>
+                <md-input-container class="md-block" ng-if="!vm.existing_user">
+                    <label>{{ 'label.input.address' | translate }}</label>
+                    <input name="address" ng-model="vm.form.address">
+                </md-input-container>
+                <md-input-container class="md-block" ng-if="!vm.existing_user">
+                    <label>{{ 'label.input.city' | translate }}</label>
+                    <input name="city" ng-model="vm.form.city">
+                </md-input-container>
+                <md-input-container class="md-block" ng-if="!vm.existing_user">
+                    <label>{{ 'label.input.zip' | translate }}</label>
+                    <input name="zip" ng-model="vm.form.zip">
+                </md-input-container>
+                <md-input-container class="md-block" ng-if="!vm.existing_user">
+                    <label>{{ 'label.input.mobileno' | translate }}</label>
+                    <input name="mobileno" ng-model="vm.form.mobileno">
+                </md-input-container>
+                <md-input-container class="md-block" ng-if="!vm.existing_user">
+                    <label>{{ 'label.input.phoneno' | translate }}</label>
+                    <input name="phoneno" ng-model="vm.form.phoneno">
+                </md-input-container>
+
+                <div layout="row" flex>
+                    <md-button flex class="md-danger" ng-click="vm.clearForm()">{{ 'label.btn.cancel' | translate }}</md-button>
+                    <md-button type="submit" flex class="md-raised md-primary" ng-disabled="createGuarantorForm.$invalid">{{ 'label.btn.createguarantor' | translate }}</md-button>
+                </div>
+            </form>
+        </md-card-content>
+    </md-card>
+</div>

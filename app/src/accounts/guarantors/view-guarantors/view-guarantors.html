@@ -1,0 +1,44 @@
+<md-container id="viewGuarantors" flex>
+    <md-card flex flex-gt-md="100">
+        <md-card-title>
+            <md-card-title-text>
+                <span class="md-headline">{{ 'label.heading.viewguarantors' | translate }}</span>
+            </md-card-title-text>
+        </md-card-title>
+        <md-divider></md-divider>
+        <md-card-content>
+            <md-table-container>
+                <table md-table>
+                    <thead md-head>
+                    <tr md-row>
+                        <th md-column>{{ 'label.heading.name' | translate }}</th>
+                        <th md-column>{{ 'label.heading.relationship' | translate }}</th>
+                        <th md-column>{{ 'label.heading.guarantortype' | translate }}</th>
+                        <th md-column>{{ 'label.heading.depositaccount' | translate }}</th>
+                        <th md-column>{{ 'label.heading.amount' | translate }}</th>
+                        <th md-column>{{ 'label.heading.remainingamount' | translate }}</th>
+                        <th md-column>{{ 'label.heading.status' | translate }}</th>
+                        <th md-column>{{ 'label.heading.view' | translate }} / {{'label.heading.edit' | translate}} / {{'label.heading.delete' | translate}}</th>
+                    </tr>
+                    </thead>
+                    <tbody md-body>
+                    <tr md-row ng-repeat="guarantors in vm.form ">
+                        <td md-cell class="guarantors-name">{{guarantors.name}}</td>
+                        <td md-cell>{{guarantors.relationship}}</td>
+                        <td md-cell>{{guarantors.guarantortype}}</td>
+                        <td md-cell>{{guarantors.depostiaccount}}</td>
+                        <td md-cell>{{guarantors.amount}}</td>
+                        <td md-cell>{{guarantors.remainingamount}}</td>
+                        <td md-cell>{{guarantors.status}}</td>
+                        <td md-cell>
+                           <button ng-click="vm.view_guarantor()" class="no-border"><i class="material-icons md-18">visibility</i></button>
+                           <button ng-click="vm.edit_guarantor()" class="no-border""><i class="material-icons md-18">edit</i></button>
+                           <button ng-click="vm.delete_guarantor()" class="no-border"><i class="material-icons md-18">delete_outline</i></button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </md-table-container>
+        </md-card-content>
+    </md-card>
+</md-container>

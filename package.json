@@ -19,7 +19,7 @@
     "gulp-flatten": "~0.0.4",
     "gulp-gh-pages": "^0.5.4",
     "gulp-hash-filename": "^1.2.0",
-    "gulp-inject": "~1.0.2",
+    "gulp-inject": "~5.0.4",
     "gulp-jshint": "~1.9.0",
     "gulp-karma": "~0.0.4",
     "gulp-load-plugins": "~0.7.1",

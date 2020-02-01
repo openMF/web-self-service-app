@@ -18,7 +18,7 @@
     "gulp-filter": "~1.0.2",
     "gulp-flatten": "~0.0.4",
     "gulp-gh-pages": "^0.5.4",
-    "gulp-hash-filename": "^1.2.0",
+    "gulp-hash-filename": "^3.0.0",
     "gulp-inject": "~1.0.2",
     "gulp-jshint": "~1.9.0",
     "gulp-karma": "~0.0.4",

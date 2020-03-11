@@ -15,25 +15,25 @@
             <img width="200px" src="assets/images/MifosX_logo.png">
             <h1 class="md-title">{{ 'login.heading.logintoyouraccount' | translate }}</h1>
         </div>
-        <div flex="80" class="login-form" layout-padding>
+        <div flex="80" class="login-form" layout-margin style="margin-top: 0%">
             <form name="loginForm" ng-submit="doLogin()">
                 <md-input-container class="md-block md-icon-float">
-                    <label>Username</label>
+                    <label>Username</label> 
                     <input ng-model="loginData.username">
                 </md-input-container>
                 <md-input-container class="md-block md-icon-float">
                     <label>Password</label>
                     <input type="password" ng-model="loginData.password">
                 </md-input-container>
-
-                <section layout="column" layout-align="start">
+            
+                <section layout="column" layout-align="start" style="margin-top:-3%;position: absolute;">
                     <md-button type="submit" class="md-primary md-raised">{{ 'login.btn.login' | translate }}
                     </md-button>
                     <md-button class="md-default" ui-sref="forgot">{{ 'login.btn.forgot' | translate }}</md-button>
-                    <md-button class="md-primary" ui-sref="register">{{ 'login.btn.register' | translate }}</md-button>
-
+                    <md-button class="md-primary" ui-sref="register">{{ 'login.btn.register' | translate }}</md-button>  
                 </section>
             </form>
+            
         </div>
     </div>
 </div>

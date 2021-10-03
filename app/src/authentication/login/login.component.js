@@ -15,7 +15,7 @@
          */
         $scope.doLogin = function () {
             vm.authenticating = true;
-            AuthService.doLogin($scope.loginData).save().$promise
+            AuthService.doLogin().save($scope.loginData).$promise //fineract-726
                 .then(function (result) {
                     AuthService.setUser(result);
                     AccountService.getClients().get().$promise

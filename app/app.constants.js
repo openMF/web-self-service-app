@@ -12,6 +12,8 @@
 	})
 
 	.constant("TENANT_IDENTIFIER", "mobile")
+	.constant("Fineract-Platform-TenantId", "mobile")
+  .constant("tenantIdentifier", "mobile")
 
 	.constant('USER_ROLES', {
 		user: 'USER'

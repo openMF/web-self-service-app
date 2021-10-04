@@ -11,16 +11,16 @@
             isAuthenticated = false;
 
         // Set Access Token to requests 
-        /*var setAccessToken = function (token) {
+        var setAccessToken = function (token) {
             $http.defaults.headers.common['Authorization'] = 'Basic ' + token;
-        } */  // for fineract-726
+        }   
 
         storageService.getObject("user_profile").then(function (data) {
             if (data) {
                 isAuthenticated = true;
                 role = USER_ROLES.user;
                 userData = data;
-                //setAccessToken(userData.base64EncodedAuthenticationKey);
+                setAccessToken(userData.base64EncodedAuthenticationKey);
             }
         })
 
@@ -29,7 +29,7 @@
             isAuthenticated = true;
             userData = res;
             role = USER_ROLES.user;
-            //setAccessToken(res.base64EncodedAuthenticationKey);
+            setAccessToken(res.base64EncodedAuthenticationKey);
         }
 
         this.getUser = function() {
@@ -52,7 +52,7 @@
         }
 
         //Resource for REST APIs
-        this.doLogin = function(data) {
+        this.doLogin = function() {
             return $resource(BASE_URL +'/self/authentication');
         }
 
@@ -60,16 +60,16 @@
             role = '';
             userData = '';
             isAuthenticated = false;
-            //setAccessToken('');
+            setAccessToken('');
             storageService.clear();
             $state.go('login');
         }
 
-        this.register = function(data) {
+        this.register = function() {
             return $http.post(BASE_URL + '/self/registration');
         }
 
-        this.verifyUser = function(data){
+        this.verifyUser = function(){
             return $http.post(BASE_URL + '/self/registration/user');
         }
 

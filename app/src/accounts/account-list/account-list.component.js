@@ -21,6 +21,7 @@
         vm.loadingAccountInfo = true;
         vm.tabIndex = sessionStorage.getItem("tab");
 
+
         vm.query = {
             limit: 5,
             offset: 1

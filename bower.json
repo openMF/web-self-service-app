@@ -6,7 +6,7 @@
   "version": "1.2.0",
   "dependencies": {
     "jquery": "^3.2.1",
-    "angular": "^1.6.5",
+    "angular": "^1.8.2",
     "angular-material": "^1.1.4",
     "angular-animate": "^1.6.5",
     "angular-cookies": "^1.6.5",
@@ -18,8 +18,8 @@
     "angular-translate-storage-local": "2.18.1",
     "angular-resource": "^1.6.5",
     "angular-material-data-table": "^0.10.10",
-    "angular-translate": "^2.15.2",
-    "angular-translate-loader-static-files": "^2.15.2",
+    "angular-translate": "^2.19.0",
+    "angular-translate-loader-static-files": "^2.19.0",
     "components-font-awesome": "^4.7.0",
     "ngmap":""
   },

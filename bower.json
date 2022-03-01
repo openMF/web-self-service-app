@@ -20,7 +20,8 @@
     "angular-material-data-table": "^0.10.10",
     "angular-translate": "^2.15.2",
     "angular-translate-loader-static-files": "^2.15.2",
-    "components-font-awesome": "^4.7.0"
+    "components-font-awesome": "^4.7.0",
+    "ngmap":""
   },
   "overrides": {
     "components-font-awesome": {

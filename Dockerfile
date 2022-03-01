@@ -1,5 +1,7 @@
 FROM mhart/alpine-node:8.9.4 as builder
 
+RUN apk update
+RUN apk add git
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 ENV PATH /usr/src/app/node_modules/.bin:$PATH

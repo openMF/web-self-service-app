@@ -1,7 +1,9 @@
 {
   "name": "Self-Service-App",
   "version": "1.3.0",
-  "dependencies": {},
+  "dependencies": {
+    "ngmap": "^1.18.5"
+  },
   "devDependencies": {
     "browser-sync": "~1.7.1",
     "chalk": "~0.5.1",

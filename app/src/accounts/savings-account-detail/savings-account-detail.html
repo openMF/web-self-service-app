@@ -72,8 +72,10 @@
                 </md-content>
             </div>
             <md-card-actions layout="row" layout-align="end center">
-                <md-button ng-click="vm.deposit()">{{ 'label.btn.deposit' | translate }}</md-button>
-                <md-button ng-click="vm.transfer()">{{ 'label.btn.transfer' | translate }}</md-button>
+                <md-button ng-show="!vm.inPocket" class="md-primary md-raised" ng-click="vm.addtoPocket(vm.savingsAccountDetails)">{{ 'label.btn.addtopocket' | translate }}</md-button>
+                <md-button ng-show="vm.inPocket" class="md-warn md-raised" ng-click="vm.removeFromPocket(vm.savingsAccountDetails)">{{ 'label.btn.removefrompocket' | translate }}</md-button>
+                <md-button class="md-primary md-raised" ng-click="vm.deposit()">{{ 'label.btn.deposit' | translate }}</md-button>
+                <md-button class="md-primary md-raised" ng-click="vm.transfer()">{{ 'label.btn.transfer' | translate }}</md-button>
             </md-card-actions>
         </md-card>
     </div>

@@ -113,6 +113,28 @@
                         authorizedRoles: [USER_ROLES.user]
                     }
                 })
+                .state('app.surveys', {
+                    url: '/surveys',
+                    templateUrl: 'src/surveys/survey.html',
+                    controller: 'SurveyCtrl',
+                    controllerAs: 'vm',
+                    data: {
+                        title: 'Surveys',
+                        authorizedRoles: [USER_ROLES.user]
+                    }
+                })
+                .state('app.takesurvey', {
+                    url: '/takesurvey',
+                    templateUrl: 'src/surveys/takesurvey/takesurvey.html',
+                    controller: 'TakeSurveyCtrl',
+                    controllerAs: 'vm'
+                })
+                .state('app.viewsurvey', {
+                    url: '/viewsurvey/:id',
+                    templateUrl: '',
+                    controller: 'ViewSurveyCtrl',
+                    controllerAs: 'vm'
+                })
                 .state('app.transfers', {
                     url: '/transfers',
                     templateUrl: 'src/transfers/transfers.html',

@@ -9,6 +9,14 @@ Clone the project:
 
 Install dependencies:
 
+Globally make sure you have the following
+node v8.9.4 this comes with npm 5.5.1 or above
+then run commmand below
+
+    $ npm install -g gulp-cli 
+
+Then get into the root of the project and run the following commands
+
     $ cd web-self-service-app
     
     $ npm install

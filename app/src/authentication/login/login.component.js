@@ -15,12 +15,13 @@
          */
         $scope.doLogin = function () {
             vm.authenticating = true;
-            AuthService.doLogin($scope.loginData).save().$promise
+            AuthService.doLogin().save($scope.loginData).$promise
                 .then(function (result) {
                     AuthService.setUser(result);
                     AccountService.getClients().get().$promise
                         .then(function (res) {
                             vm.authenticating = false;
+                            $state.go("app.dashboard");
                             if (res.pageItems.length !== 0) {
                                 AccountService.setClientId(res.pageItems[0].id);
                                 $mdToast.show(
@@ -29,7 +30,7 @@
                                         .hideDelay(2000)
                                         .position('top right')
                                 );
-                                $state.go("app.dashboard");
+                
                             } else {
                                 $mdToast.show(
                                     $mdToast.simple()

@@ -21,6 +21,7 @@ Then get into the root of the project and run the following commands
     
     $ npm install
     $ bower install
+    $ npm install --save-dev gulp ( this will install gulp cli in the repo)
 
 Install gem 'sass'
     

@@ -1,34 +1,46 @@
 # Mifos Self Service App
 
 ## Getting started
-You can follow this README or you can follow this [video](https://mifosforge.jira.com/wiki/spaces/docs/pages/498794497/Developer+Environment+Setup+for+Online+Banking+App+2.0).
 
 Clone the project:
 
-    $ git clone https://github.com/openMF/web-self-service-app.git
+    $ git clone https://github.com/gauravsaini03/self-service.git
 
 Install dependencies:
+Globally make sure you have the following node v8.9.4 this comes with npm 5.5.1 or above then run commmand below
+For exampla Do this by installing npm using nvm
+    $ nvm install v8.9.4
+   
+Make sure you are running npm v8.9.4 ( you might want to run command below to be sure)
+    $ nvm use 8.9.4 
+    $ nvm alias default 8.9.4
 
-    $ cd web-self-service-app
-    
+Once you are sure then run command below to globally install gulp-cli 
+    $ npm install -g gulp-cli 
+
+CD into the root of the repo
+### Then get into the root of the project and run the following commands
+
+
+    $ cd self-service
+
+Make sure there is no folder called node_modules and no file called package-lock.json (delete them)
+### Then run the following command to install npm in the root of the directory
+
     $ npm install
-    $ bower install
 
-Install gem 'sass'
-    
-   Make sure that you have '''ruby''' installed (if not goto https://www.ruby-lang.org/en/documentation/installation/ ).
-        
-    $ gem install sass
+### Install npm gulp cli in the folder by running command below 
+    $ npm install --save-dev gulp
+
+
+Make sure that you have '''ruby''' installed (if not goto https://www.ruby-lang.org/en/documentation/installation/ ).
+You can then install gem 'sass'
+
+    $ sudo gem install sass
 
 Run development web-server:
 
     $ gulp serve
-
-Use these credentials to logIn `username: selfservice password: password`
-
-    
-## Contributing Guidelines:
-* Contributors must follow these [guidelines](https://github.com/openMF/web-self-service-app/blob/develop/CONTRIBUTING.md)    
 
 ## Features
 

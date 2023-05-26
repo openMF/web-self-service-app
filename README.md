@@ -4,7 +4,7 @@
 
 Clone the project:
 
-    $ git clone https://github.com/gauravsaini03/self-service.git
+    $ git clone https://github.com/openMF/web-self-service-app.git
 
 Install dependencies:
 Globally make sure you have the following node v8.9.4 this comes with npm 5.5.1 or above then run commmand below

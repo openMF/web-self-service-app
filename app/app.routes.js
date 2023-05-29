@@ -73,6 +73,18 @@
                         authorizedRoles: [USER_ROLES.user]
                     }
                 })
+                .state('app.createguarantor',{
+                    url: '/viewloanaccount/:id/createguarantor',
+                    templateUrl: 'src/accounts/guarantors/create-guarantor/create-guarantors.html',
+                    controller: 'CreateGuarantorCtrl',
+                    controllerAs: 'vm'
+                })
+                .state('app.viewguarantors',{
+                    url: '/viewloanaccount/:id/viewguarantors',
+                    templateUrl: 'src/accounts/guarantors/view-guarantors/view-guarantors.html',
+                    controller: 'ViewGuarantorsCtrl',
+                    controllerAs: 'vm'
+                })
                 .state('app.charges', {
                     url: '/charges',
                     templateUrl: 'src/charges/charges.html',

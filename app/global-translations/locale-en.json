@@ -78,6 +78,15 @@
   "label.heading.category": "Category",
   "label.headping.reports": "Reports",
   "label.heading.aboutUs": "About Us",
+  "label.heading.createguarantors" : "Create Guarantors",
+  "label.heading.viewguarantors" : "View Guarantors",
+  "label.heading.relationship" : "Relationship",
+  "label.heading.guarantortype" : "Guarantor Type",
+  "label.heading.depositaccount" : "Deposit Account",
+  "label.heading.remainingamount" : "Remaining Amount",
+  "label.heading.view" : "View",
+  "label.heading.edit": "Edit",
+  "label.heading.delete": "Delete",
 
   "label.msg.loadingCharges": "Loading Charges",
   "label.msg.loadingRecentTransactions": "Loading Recent Transactions",
@@ -116,6 +125,15 @@
   "label.input.interestPostingPeriod": "Interest Posting Period",
   "label.input.interestCalculatedUsing": "Interest Calculated Using",
   "label.input.daysInYear": "Days In Year",
+  "label.input.name" : "Name",
+  "label.input.relationship":"Relationship",
+  "label.input.firstname": "First Name",
+  "label.input.lastname": "Last Name",
+  "label.input.address" : "Address",
+  "label.input.city" : "City",
+  "label.input.zip": "Zip",
+  "label.input.mobileno" : "Mobile Number",
+  "label.input.phoneno": "Phone number",
 
   "label.btn.cancel": "Cancel",
   "label.btn.reviewTransfer": "Review Transfer",
@@ -124,5 +142,6 @@
   "label.btn.deposit": "Deposit",
   "label.btn.makepayment": "Make Payment",
   "label.btn.transfer": "Transfer",
-  "label.btn.apply": "Apply"
+  "label.btn.apply": "Apply",
+  "label.btn.createguarantor": "Create Guarantor"
 }

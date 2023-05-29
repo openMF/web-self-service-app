@@ -27,6 +27,13 @@
             </div>
         </md-button>
         <md-divider></md-divider>
+        <md-button ng-click="" ui-sref-active="md-warn" ui-sref=".products"
+                   class="sidenav-icon">
+            <div class="md-tile-content">
+                <i hide-sm hide-md class="material-icons md-18">local_library</i> {{ 'nav.label.productsDetails' | translate}}
+            </div>
+        </md-button>
+        <md-divider></md-divider>
         <md-button ng-click="vm.selectItem('Recent Transactions')" ui-sref-active="md-warn"
                    ui-sref=".recenttransactions" class="sidenav-icon">
             <div class="md-tile-content">

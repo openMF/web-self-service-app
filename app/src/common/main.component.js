@@ -1,9 +1,9 @@
 (function () {
 
     angular.module('selfService')
-        .controller('MainCtrl', ['navService', '$mdSidenav', '$mdBottomSheet', '$log', '$q', '$state', '$mdToast', '$scope', 'AuthService', 'AccountService', MainCtrl]);
+        .controller('MainCtrl', ['navService', '$mdSidenav', '$mdBottomSheet', '$log', '$q', '$state', '$mdToast', '$scope', '$location', 'AuthService', 'AccountService', MainCtrl]);
 
-    function MainCtrl(navService, $mdSidenav, $mdBottomSheet, $log, $q, $state, $mdToast, $scope, AuthService, AccountService) {
+    function MainCtrl(navService, $mdSidenav, $mdBottomSheet, $log, $q, $state, $mdToast, $scope, $location, AuthService, AccountService) {
         var vm = this;
 
         vm.menuItems = [];
@@ -12,6 +12,7 @@
         vm.selectItem = selectItem;
         vm.toggleItemsList = toggleItemsList;
         vm.toggleRightSidebar = toggleRightSidebar;
+        vm.goToProfile = goToProfile;
         vm.logout = logout;
 
         vm.profile = getUserData();
@@ -36,6 +37,7 @@
         function selectItem(itemName) {
             vm.title = itemName;
             vm.toggleItemsList();
+
         }
 
         function getUserData() {
@@ -59,6 +61,10 @@
                 // Not Found Profile image
                 vm.profileImage = null;
             });
+        }
+
+        function goToProfile() {
+            $location.path('/profile');
         }
 
         function logout() {

@@ -1,0 +1,25 @@
+// panel-widget
+.panel-widget {
+  background-color: white;
+
+  &-toolbar {
+    box-shadow: none;
+  }
+
+  &-tittle {
+    color: $text-color;
+  }
+}
+
+.options {
+  -webkit-transition:all linear 0.5s;
+  transition:all linear 0.5s;
+}
+
+.options.ng-hide {
+  opacity:0;
+}
+
+.fixed-height-widget {
+  height: $widget-height;
+}

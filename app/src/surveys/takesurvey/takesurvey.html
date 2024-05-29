@@ -1,0 +1,88 @@
+<!-- While creating this page survey data (JSON format) from community app is used, do, please refer the survey data in community app before changing the functiond-->
+
+<div>
+    <md-content>
+        <md-card>
+            <md-card-title>
+                <md-card-title-text>
+                    <span ng-show="!survey" class="md-headline">{{'label.heading.selectsurvey' | translate}}</span>
+                    <md-progress-linear ng-show="survey" determinate" value="{{vm.determinateValue()}}"></md-progress-linear>
+                    <h1 ng-show="(vm.step()==vm.totalQuestions())&&(survey)">Preview</h1>
+                </md-card-title-text>
+            </md-card-title>
+            <md-divider></md-divider>
+                <md-card-content>
+                    <form name="takeSurveyForm" ng-submit="takeSurveyForm.$valid && vm.submit()">
+                        <api-validate></api-validate>
+                        <div>
+                            <md-input-container class="md-block md-icon-float" ng-hide="survey">
+                                </br>
+                                </br>
+                                <label>{{ 'label.input.selectsurvey' | translate }}</label>
+                                <md-select ng-model="survey" required>
+                                    <md-option ng-repeat="survey in vm.surveys" ng-value="survey" ng-click="vm.selectedSurvey(survey)">{{survey.name}}</md-option>
+                                </md-select>
+                            </md-input-container>
+                            <div ng-if="survey">
+                                <div ng-repeat="question in survey.questionDatas" ng-value="survey">
+                                    <div ng-if="$index==vm.step()">
+                                        <md-card>
+                                            <md-card-title>
+                                                <md-card-title-text>
+                                                    <span class="md-headline">{{$index+1}}. {{question.text}}</span>
+                                                </md-card-title-text>
+                                            </md-card-title>
+                                        </md-card>
+                                        </br></br>
+                                        <div class="survey-questions">
+                                            <md-radio-group ng-model="question.answer" class="md-primary">
+                                                <md-radio-button ng-repeat="options in question.responseDatas" name="{{question.id}}" value="{{options}}">{{options.text}}</md-radio-button>
+                                            </md-radio-group>
+                                            </br></br>
+                                        </div>
+                                        <div layout="row" flex>
+                                            <md-button flex class="md-primary md-raised" ng-click="vm.selectsurvey()" ng-if="$index==0">Cancel</md-button>
+                                            <md-button flex class="md-primary md-raised" ng-click="vm.prev()" ng-if="$index>0">Previous</md-button>
+                                            <md-button flex class="md-primary md-raised" ng-click="vm.next()" >Next</md-button>
+                                        </div>
+
+                                    </div>
+                                    <div ng-if="vm.step()==vm.totalQuestions()">
+                                        <md-card>
+                                            <md-card-title>
+                                                <md-card-title-text>
+                                                    <span class="md-headline">{{$index+1}}. {{question.text}}</span>
+                                                </md-card-title-text>
+                                            </md-card-title>
+                                        </md-card>
+                                        </br>
+                                        <div class="survey-preview">
+                                            <h4 class="survey-preview-answered" ng-show="question.answer">{{vm.answer(question.answer)}}</h4>
+                                            <h4 class="survey-preview-unanswered" ng-show="!question.answer">You didn't answered it!</h4>
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+                                <div layout="row" flex ng-if="vm.step()==vm.totalQuestions()" >
+                                    <md-button flex class="md-primary md-raised" ng-click="vm.prev()">Previous</md-button>
+                                    <md-button ng-show="survey" flex class="md-warn md-raised" ng-click="vm.selectsurvey()">{{'label.btn.selectanothersurvey' | translate}}</md-button>
+                                    <md-button flex class="md-raised md-primary" type="submit" ng-disabled="takeSurveyForm.$invalid">{{ 'label.btn.submit' | translate }}</md-button>
+
+                                </div>
+
+                            </div>
+                            <div layout="row" flex>
+                                <md-button ng-show="!survey" flex class="md-danger" ng-click="vm.cancel()">{{ 'label.btn.cancel' | translate }}</md-button>
+
+
+                            </div>
+
+                        </div>
+                    </form>
+                </md-card-content>
+            </br>
+        </md-card>
+    </md-content>
+</div>

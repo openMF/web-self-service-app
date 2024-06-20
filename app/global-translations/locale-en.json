@@ -124,5 +124,7 @@
   "label.btn.deposit": "Deposit",
   "label.btn.makepayment": "Make Payment",
   "label.btn.transfer": "Transfer",
-  "label.btn.apply": "Apply"
+  "label.btn.apply": "Apply",
+  "label.btn.addtopocket": "Add to Pocket",
+  "label.btn.removefrompocket": "Remove From Pocket"
 }

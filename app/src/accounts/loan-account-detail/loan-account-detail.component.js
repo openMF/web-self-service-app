@@ -12,6 +12,14 @@
     function LoanAccountViewCtrl($state, $stateParams, $filter, LoanAccountService) {
 
         var vm = this;
+        vm.addtoPocket = addtoPocket;
+        vm.fav1=[];
+        vm.inPocket=false;
+        vm.removeFromPocket=removeFromPocket;
+        vm.client = JSON.parse(sessionStorage.getItem('user_profile')).userId;
+        var pocket = new Object();
+        pocket.accounts={};
+        pocket.userId = vm.client;
 
         /**
          * @name loadingLoanAccountInfo
@@ -51,6 +59,7 @@
                 vm.loadingLoanAccountInfo = false;
                 vm.loanAccountDetails = res;
                 getStatusClass();
+                addedToPocket(vm.loanAccountDetails);
             });
         }
 
@@ -71,6 +80,51 @@
             $state.go('app.transfers', {
                 toAccount: vm.loanAccountDetails
             });
+        }
+
+        function addtoPocket(loanaccount){
+            pocket = window.localStorage.getItem('pocket');
+            if(pocket==null){
+                pocket = new Object();
+                pocket.accounts=[];
+                pocket.userId = vm.client;
+
+            }else{
+                eval('pocket='+pocket);
+            }
+            var temp={};
+            temp.id = loanaccount.id;
+            temp.accountNo = loanaccount.accountNo;
+            temp.type = loanaccount.depositType;
+            pocket.accounts.push(temp);
+            temp = {};
+            window.localStorage.setItem('pocket', JSON.stringify(pocket));
+            addedToPocket(loanaccount);
+        }
+
+        function addedToPocket(loanaccount){
+            var fav=JSON.parse(window.localStorage.getItem('pocket'));
+            for(var i=0;i<fav.accounts.length;i++){
+                if(loanaccount.accountNo==fav.accounts[i].accountNo){
+                    vm.inPocket=true;
+                    break;
+                }
+                else{
+                    vm.inPocket=false;
+                }
+            }
+        }
+
+        function removeFromPocket(loanaccount){
+            var fav=JSON.parse(window.localStorage.getItem('pocket'));
+            for(var i=0;i<fav.accounts.length;i++){
+                if(loanaccount.accountNo==fav.accounts[i].accountNo){
+                    fav.accounts.splice(i,1);
+                    break;
+                }
+            }
+            window.localStorage.setItem('pocket', JSON.stringify(fav));
+            addedToPocket(loanaccount);
         }
     }
 })();

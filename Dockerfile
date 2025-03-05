@@ -1,10 +1,10 @@
-FROM mhart/alpine-node:8.9.4 as builder
+FROM mhart/alpine-node:8.9.4 AS builder
 
 RUN apk update
 RUN apk add git
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
-ENV PATH /usr/src/app/node_modules/.bin:$PATH
+ENV PATH="/usr/src/app/node_modules/.bin:$PATH"
 COPY package.json /usr/src/app/package.json
 COPY gulpfile.js /usr/src/app/gulpfile.js
 RUN npm install  bower

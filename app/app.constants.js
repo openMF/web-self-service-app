@@ -3,7 +3,7 @@
 
   angular.module('selfService')
 
-	.constant("BASE_URL", "https://mobile.openmf.org/fineract-provider/api/v1")
+	.constant("BASE_URL", "https://localhost:8443/fineract-provider/api/v1")
 
 	.constant('AUTH_EVENTS', {
 		updateUser: 'update-user',

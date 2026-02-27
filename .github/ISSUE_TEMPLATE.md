@@ -13,3 +13,5 @@ Please mention the steps to reproduce the error/issue.
   
 ##Screenshots/GIFs, if any:
 Please attach screenshots/GIFs of the error/issue.
+
+**Note:** Please provide clear and detailed steps to reproduce the issue.
